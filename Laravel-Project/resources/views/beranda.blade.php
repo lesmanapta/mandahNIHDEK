@@ -1,90 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda</title>
-    <link rel="stylesheet" href="css/beranda.css">
-</head>
-<body>
-    <div class="sidebar">
-        <a class="active" href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-      </div>
-      
-      <div class="content">
-            <div style="
-            background-color: #4198FF;
-            ">
-        <nav class="navbar navbar-light ">
-        <div class="container-fluid">
-            <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success bg-white" type="submit">Search</button>
-            </form>
+@extends('master')
+@section('content')
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard v1</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
     </div>
-    </nav>
-        </div>
-        <div class="containerTable">
-            
-            <div>
-                <table>
-                    <tr>
-                        <th>Username</th>
-                        <th>Nama Lengkap</th>
-                        <th>Nomor HP</th>
-                        <th>Tanggal Aktif</th>
-                        <th>Bandwidth</th>
-                        <th>Status</th>
-                    </tr>
-    
-                    <tr>
-                        <td>Username</td>
-                        <td>Nama Lengkap</td>
-                        <td>Nomor HP</td>
-                        <td>Tanggal Aktif</td>
-                        <td>Bandwidth</td>
-                        <td>Status</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>Username</td>
-                        <td>Nama Lengkap</td>
-                        <td>Nomor HP</td>
-                        <td>Tanggal Aktif</td>
-                        <td>Bandwidth</td>
-                        <td>Status</td>
-                    </tr>
+    <!-- /.content-header -->
 
-                    <tr>
-                        <td>Username</td>
-                        <td>Nama Lengkap</td>
-                        <td>Nomor HP</td>
-                        <td>Tanggal Aktif</td>
-                        <td>Bandwidth</td>
-                        <td>Status</td>
-                    </tr>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>150</h3>
 
-                    <tr>
-                        <td>Username</td>
-                        <td>Nama Lengkap</td>
-                        <td>Nomor HP</td>
-                        <td>Tanggal Aktif</td>
-                        <td>Bandwidth</td>
-                        <td>Status</td>
-                    </tr>
-    
-                </table>
+                <p>New Orders</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-            
-        </div>
-        </div>
-{{-- <div class="left_navbar">
-</div> --}}
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>53<sup style="font-size: 20px">%</sup></h3>
 
+                <p>Bounce Rate</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>44</h3>
 
-</body>
-</html>
+                <p>User Registrations</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>65</h3>
+
+                <p>Unique Visitors</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+       
+@endsection

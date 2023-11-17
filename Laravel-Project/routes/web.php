@@ -24,3 +24,11 @@ Route::get('/beranda', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::get('/master', function () {
+    return view('master');
+});
+
+Route::get('/listKontak', function () {
+    return view('ListKontak');
+});
