@@ -32,3 +32,7 @@ Route::get('/master', function () {
 Route::get('/listKontak', function () {
     return view('ListKontak');
 });
+
+Route::get('/Network', function () {
+    return view('Network');
+});
