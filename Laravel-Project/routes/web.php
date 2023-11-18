@@ -33,6 +33,6 @@ Route::get('/listKontak', function () {
     return view('ListKontak');
 });
 
-Route::get('/Network', function () {
+Route::get('/', function () {
     return view('Network');
 });
