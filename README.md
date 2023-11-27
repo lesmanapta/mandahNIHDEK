@@ -1,12 +1,74 @@
-Project Mandah Net
+# Project Mandah Net
 
-Project Leader Rifaldi
+![Mandah Net Server Logo]()
 
-Update
+## Overview
 
-- Dashboard
-- Login
+**Mandah Net Server** is a project by Mandah Net, a company specializing in providing internet services with broad coverage. Established in 2020 by Reinaldi Yusuf S.H, the project aims to enhance the internet service experience for users. This repository serves as the central hub for the development of Mandah Net Server.
 
-Next
+## Team Members
 
-- Content
+- Muhamad Rizky Rifaldi
+- Nabiel Taqy
+- Naurah Kamila Syadza
+- Salma Alyasyifa
+- Sumanto Lesmana Putra
+
+## Updates
+
+### Dashboard
+
+- [ ] Kontak Pelanggan
+- [ ] Layanan
+- [ ] Laporan
+- [ ] Network
+- [ ] Pengaturan
+
+### Login
+
+- [ ] Authentication system
+
+## Next Steps
+
+### Content
+
+- [ ] Belum
+
+## On-Hold
+
+- [ ] Back-end Masih pusing bangettt
+
+## Frameworks and Technologies
+
+### CSS
+
+[Cascading Style Sheets (CSS)](https://developer.mozilla.org/en-US/docs/Web/CSS) is used for styling and formatting the project's user interface, ensuring a visually appealing and consistent design.
+
+### JavaScript (JS)
+
+[JavaScript (JS)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) is employed for adding dynamic functionality to the project, enhancing the user experience and interactivity.
+
+### Laravel
+
+[Laravel](https://laravel.com/) is utilized as the PHP web application framework for developing robust and scalable server-side applications.
+
+### AdminLTE
+
+[AdminLTE](https://adminlte.io/) serves as the admin dashboard template, providing a responsive and feature-rich interface for managing and monitoring the application.
+
+## Getting Started
+
+To get started with the project, follow these steps:
+
+1. Clone the repository: `git clone https://github.com/username/repository.git`
+2. Install dependencies: `npm install` for JS dependencies and `composer install` for PHP dependencies.
+3. Configure the environment: Set up your environment variables and configuration files.
+4. Run the application: Use the appropriate commands for your chosen framework.
+
+## Contributing
+
+We welcome contributions from the community. If you would like to contribute, please follow our [contribution guidelines](CONTRIBUTING.md).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute as per the terms of the license.
