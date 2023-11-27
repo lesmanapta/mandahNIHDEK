@@ -58,13 +58,6 @@
 
 ## Getting Started
 
-To get started with the project, follow these steps:
-
-1. Clone the repository: `git clone https://github.com/username/repository.git`
-2. Install dependencies: `npm install` for JS dependencies and `composer install` for PHP dependencies.
-3. Configure the environment: Set up your environment variables and configuration files.
-4. Run the application: Use the appropriate commands for your chosen framework.
-
 ## Contributing
 
 We welcome contributions from the community. If you would like to contribute, please follow our [contribution guidelines](CONTRIBUTING.md).
