@@ -65,6 +65,14 @@ Route::get('/tambahippool', function () {
     return view('tambahippool');
 });
 
+Route::get('/pengaturanadmin', function () {
+    return view('pengaturanadmin');
+});
+
+Route::get('/tambahadmin', function () {
+    return view('tambahadmin');
+});
+
 
 
 

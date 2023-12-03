@@ -1,19 +1,19 @@
-<link rel="stylesheet" href="css/button.css">
 @extends('layout.master')
-
 @section('content')
+<link rel="stylesheet" href="css/button.css">
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Routers</h1>
+                    <h1 class="m-0">Pengaturan Admin</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Routers</li>
+                        <li class="breadcrumb-item active">Pengaturan Admin</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -36,30 +36,41 @@
                                         </button>
                                     </div>
                                 </div>
-                                <a href="/tambahrouter" class="btn btn-success">Router Baru</a>
+                                <a href="/tambahadmin" class="btn btn-success">Tambah Admin</a>
                             </div>
 
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                     <tr>
-                                        <th>Nama Router</th>
-                                        <th>IP Address</th>
                                         <th>Username</th>
-                                        <th>Deskripsi</th>
-                                        <th>Status</th>
+                                        <th>Nama Lengkap</th>
+                                        <th>Jenis</th>
+                                        <th>Terakhir Login</th>
                                         <th>Proses</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>RB941</td>
-                                        <td>192.168.100.1</td>
-                                        <td>admin1</td>
-                                        <td>hmhm</td>
+                                        <td>admin</td>
+                                        <td>Administrator</td>
+                                        <td>Admin</td>
                                         <td></td>
                                         <td>
-                                          <button href="" class="edit-button">Edit</button>
+                                            <button href="" class="edit-button">Edit</button>
                                         </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>mantolesma</td>
+                                        <td>Sumanto Lesmana Putra</td>
+                                        <td>Admin</td>
+                                        <td></td>
+                                        <td>
+                                            <button href="/tambahadmin" class="edit-button">Edit</button>
+                                            <button href="#" class="hapus-button">Hapus</button>
+                                        </td>
+
                                     </tr>
                                 </tbody>
                             </table>
@@ -73,4 +84,7 @@
     </section>
     <!-- Add your content here -->
 </div>
+
+
+
 @endsection
