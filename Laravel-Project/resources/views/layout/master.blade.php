@@ -243,12 +243,6 @@
                   <p>List Kontak</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>List Kontak Aktif</p>
-                </a>
-              </li>
             </ul>
           </li>
           <li class="nav-item">
@@ -319,7 +313,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/general.html" class="nav-link">
+                <a href="/router" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Routers</p>
                 </a>

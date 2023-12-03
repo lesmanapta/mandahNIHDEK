@@ -49,4 +49,13 @@ Route::get('/pakethotspot', function () {
     return view('pakethotspot');
 });
 
+Route::get('/router', function () {
+    return view('router');
+});
+
+Route::get('/tambahrouter', function () {
+    return view('tambahrouter');
+});
+
+
 
