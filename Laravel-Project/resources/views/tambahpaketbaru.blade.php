@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Tambah Kontak Baru</h1>
+                    <h1 class="m-0">Tambah Paket Baru</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Tambah Kontak Baru</li>
+                        <li class="breadcrumb-item active">Tambah Paket Baru</li>
                     </ol>
                 </ol>
             </div><!-- /.col -->
@@ -95,7 +95,6 @@
                                         </select>
                                     </div>  
                                 </div>                                                        
-                            </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <a href="#" class="btn btn-secondary">Cancel</a>
                             </div>

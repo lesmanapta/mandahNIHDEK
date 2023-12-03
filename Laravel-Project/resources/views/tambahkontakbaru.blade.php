@@ -58,8 +58,6 @@
                                     <textarea type="text" class="form-control" id="alamat" placeholder="alamat lengkap"></textarea>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <a href="#" class="btn btn-secondary">Cancel</a>
                             </div>

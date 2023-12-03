@@ -30,8 +30,8 @@
                             <label class="col-sm-2 col-form-label">Tanggal Mulai</label>
                             <div class="col-sm-10">
                             <div class="input-group date" id="tglMulai" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" data-target="#tglMulai"/>
-                                <div class="input-group-append" data-target="#tglMulai" data-toggle="datetimepicker">
+                                <input type="text" class="form-control datetimepicker-input" placeholder="hh/bb/yyyy" data-target="#tglMulai"/>
+                                <div class="input-group-append" data-target="#tglMulai" data-toggle="datetimepicker" >
                                     <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                             <label class="col-sm-2 col-form-label">Tanggal Hingga</label>
                             <div class="col-sm-10">
                             <div class="input-group date" id="tglHingga" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" data-target="#tglHingga"/>
+                                <input type="text" class="form-control datetimepicker-input" placeholder="hh/bb/yyyy" data-target="#tglHingga"/>
                                 <div class="input-group-append" data-target="#tglHingga" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                                 </div>

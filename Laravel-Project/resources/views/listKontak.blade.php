@@ -35,7 +35,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <a href="#" class="btn btn-success">Tambah Kontak</a>
+                                <a href="/tambahkontakbaru" class="btn btn-success">Tambah Kontak</a>
                             </div>
 
                             <table class="table table-hover text-nowrap">
