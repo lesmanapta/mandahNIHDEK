@@ -35,7 +35,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <a href="#" class="btn btn-success">Tambah Paket Baru</a>
+                                <a href="/tambahpaketbaru" class="btn btn-success">Tambah Paket Baru</a>
                             </div>
 
                             <table class="table table-hover text-nowrap">

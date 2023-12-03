@@ -232,13 +232,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="/tambahkontakbaru" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tambah Kontak Baru</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="/listKontak" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>List Kontak</p>
                 </a>
@@ -261,13 +261,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="/pakethotspot" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Paket Hotspot</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+                <a href="/paketpppoe" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Paket PPPoE</p>
                 </a>

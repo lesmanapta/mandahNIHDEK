@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tambahkontak', function () {
+Route::get('/tambahkontakbaru', function () {
     return view('tambahkontakbaru');
 });
 
