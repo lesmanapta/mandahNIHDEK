@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/beranda', function () {
-    return view('beranda');
+Route::get('/tambahkontak', function () {
+    return view('tambahkontakbaru');
 });
 
 Route::get('/login', function () {
@@ -33,6 +33,20 @@ Route::get('/listKontak', function () {
     return view('ListKontak');
 });
 
-Route::get('/Network', function () {
-    return view('Network');
+Route::get('/laporankeuangan', function () {
+    return view('laporankeuangan');
 });
+
+Route::get('/tambahpaketbaru', function () {
+    return view('tambahpaketbaru');
+});
+
+Route::get('/paketpppoe', function () {
+    return view('paketpppoe');
+});
+
+Route::get('/pakethotspot', function () {
+    return view('pakethotspot');
+});
+
+

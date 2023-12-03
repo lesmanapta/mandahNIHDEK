@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">List Kontak</h1>
+                    <h1 class="m-0">Paket PPPoE</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">List Kontak</li>
+                        <li class="breadcrumb-item active">Paket PPPoE</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -35,27 +35,29 @@
                                         </button>
                                     </div>
                                 </div>
-                                <a href="#" class="btn btn-success">Tambah Kontak</a>
+                                <a href="#" class="btn btn-success">Tambah Paket Baru</a>
                             </div>
 
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                     <tr>
-                                        <th>Username</th>
-                                        <th>Nama Lengkap</th>
-                                        <th>Nomor Hp</th>
-                                        <th>Tanggal Aktif</th>
-                                        <th>isi Ulang Akun</th>
+                                        <th>Nama Paket</th>
+                                        <th>Jenis Paket</th>
+                                        <th>Daftar Bandwith</th>
+                                        <th>Harga</th>
+                                        <th>Masa Aktif</th>
+                                        <th>Router</th>
                                         <th>Proses</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>nabnab</td>
-                                        <td>Nabiel Taqy</td>
-                                        <td>08117676477</td>
-                                        <td>10-10-2023</td>
-                                        <td></td>
+                                        <td>5 MB - Nabiel</td>
+                                        <td>PPPoE</td>
+                                        <td>5 MB</td>
+                                        <td>150.000,00</td>
+                                        <td>31-12-2023</td>
+                                        <td>RB-450</td>
                                         <td></td>
                                     </tr>
                                 </tbody>
