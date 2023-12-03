@@ -319,7 +319,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
+                <a href="/ippool" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>IP Pool</p>
                 </a>

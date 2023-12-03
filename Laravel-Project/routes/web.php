@@ -57,5 +57,14 @@ Route::get('/tambahrouter', function () {
     return view('tambahrouter');
 });
 
+Route::get('/ippool', function () {
+    return view('ippool');
+});
+
+Route::get('/tambahippool', function () {
+    return view('tambahippool');
+});
+
+
 
 
