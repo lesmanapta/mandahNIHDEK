@@ -21,6 +21,10 @@ Route::get('/tambahkontakbaru', function () {
     return view('tambahkontakbaru');
 });
 
+Route::get('/beranda', function () {
+    return view('beranda');
+});
+
 Route::get('/login', function () {
     return view('login');
 });

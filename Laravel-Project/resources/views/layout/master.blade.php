@@ -211,7 +211,7 @@
                with font-awesome or any other icon font library -->
 
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="/beranda" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Beranda
