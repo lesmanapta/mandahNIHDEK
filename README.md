@@ -1,12 +1,12 @@
 # Project Mandah Net
 
-![Mandah Net Server Logo]()
+![Mandah Net Server Logo](https://ibb.co/sJtGbpb)
 
 ## Overview
 
 **Mandah Net Server** is a project by Mandah Net, a company specializing in providing internet services with broad coverage. Established in 2020 by Reinaldi Yusuf S.H, the project aims to enhance the internet service experience for users. This repository serves as the central hub for the development of Mandah Net Server.
 
-## Team Members
+## 🚀 Team Members
 
 - Muhamad Rizky Rifaldi
 - Nabiel Taqy
@@ -14,7 +14,7 @@
 - Salma Alyasyifa
 - Sumanto Lesmana Putra
 
-## Updates
+## 🔧 Updates
 
 ### Dashboard
 
@@ -22,52 +22,50 @@
 - [ ] Layanan
 - [ ] Laporan
 - [ ] Network
-- [ ] Pengaturan
+- [ ] Pengaturan Admin
 
 ### Login
 
 - [ ] Authentication system
 
-## Next Steps
+## 📅 Next Steps
 
 ### Content
 
 - [ ] Belum
 
-## On-Hold
+## 🛠️ On-Hold-On-Proggress-Back-End
 
-- [ ] Back-end Masih pusing bangettt
+- [ ] Back-end
+- [ ] Login Auth
+- [ ] Read Data Admin
+- [ ] Form Daftar Admin (Kendala)
+- [ ]
 
-## Frameworks and Technologies
+## 🚀 Frameworks and Technologies
 
-### CSS
+### 🎨 CSS
 
 [Cascading Style Sheets (CSS)](https://developer.mozilla.org/en-US/docs/Web/CSS) is used for styling and formatting the project's user interface, ensuring a visually appealing and consistent design.
 
-### JavaScript (JS)
+### 🚀 JavaScript (JS)
 
 [JavaScript (JS)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) is employed for adding dynamic functionality to the project, enhancing the user experience and interactivity.
 
-### Laravel
+### 🌐 Laravel
 
 [Laravel](https://laravel.com/) is utilized as the PHP web application framework for developing robust and scalable server-side applications.
 
-### AdminLTE
+### 🌈 AdminLTE
 
 [AdminLTE](https://adminlte.io/) serves as the admin dashboard template, providing a responsive and feature-rich interface for managing and monitoring the application.
 
-## Getting Started
+## 🚀 Getting Started
 
-## Contributing
+## 🤝 Contributing
 
 We welcome contributions from the community. If you would like to contribute, please follow our [contribution guidelines](CONTRIBUTING.md).
 
-## License
+## 📄 License
 
 This project is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute as per the terms of the license.
-
-test pushh
-
-test yaa
-ttest lagi nihh jam 10
-baru lagi nih 10.03
