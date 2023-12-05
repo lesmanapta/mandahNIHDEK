@@ -51,27 +51,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>admin</td>
-                                        <td>Administrator</td>
-                                        <td>Admin</td>
-                                        <td></td>
-                                        <td>
-                                            <button href="" class="edit-button">Edit</button>
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>mantolesma</td>
-                                        <td>Sumanto Lesmana Putra</td>
-                                        <td>Admin</td>
-                                        <td></td>
-                                        <td>
-                                            <button href="/tambahadmin" class="edit-button">Edit</button>
-                                            <button href="#" class="hapus-button">Hapus</button>
-                                        </td>
-
-                                    </tr>
+                                    @foreach($users as $user)
+                                        <tr>
+                                            <td>{{ $user->username }}</td>
+                                            <td>{{ $user->fullname }}</td>
+                                            <td>{{ $user->user_type }}</td>
+                                            <td>{{ $user->last_login }}</td>
+                                            {{-- <td>
+                                                <a href="{{ route('editadmin', $user->id) }}" class="edit-button">Edit</a>
+                                                <a href="{{ route('deleteadmin', $user->id) }}" class="hapus-button">Hapus</a>
+                                            </td> --}}
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

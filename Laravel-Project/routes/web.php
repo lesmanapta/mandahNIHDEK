@@ -1,6 +1,11 @@
 <?php
 
+use App\Models\Login;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,65 +22,87 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tambahkontakbaru', function () {
-    return view('tambahkontakbaru');
-});
-
-Route::get('/beranda', function () {
-    return view('beranda');
-});
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/master', function () {
-    return view('master');
-});
-
-Route::get('/listKontak', function () {
-    return view('ListKontak');
-});
-
-Route::get('/laporankeuangan', function () {
-    return view('laporankeuangan');
-});
-
 Route::get('/tambahpaketbaru', function () {
     return view('tambahpaketbaru');
 });
 
-Route::get('/paketpppoe', function () {
-    return view('paketpppoe');
-});
+Route::get('/pengaturanadmin', [UserController::class, 'index'])->name('pengaturanadmin');
 
-Route::get('/pakethotspot', function () {
-    return view('pakethotspot');
-});
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout']);
 
-Route::get('/router', function () {
-    return view('router');
-});
+// Add Admin Routes
+Route::get('/tambahadmin', [AdminController::class, 'create'])->name('tambahadmin');
+Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');
 
-Route::get('/tambahrouter', function () {
-    return view('tambahrouter');
-});
+// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.form');
+// Route::post('/login', [LoginController::class, 'login'])->name('login');
 
-Route::get('/ippool', function () {
-    return view('ippool');
-});
+// Route::get('/tambahadmin', [AdminController::class, 'create'])->name('admin.create');
+// Route::post('/tambahadmin', [AdminController::class, 'store'])->name('admin.store');
+// Route::post('/tambahadmin', [AdminController::class, 'tambahadmin'])->name('tambahadmin');
 
-Route::get('/tambahippool', function () {
-    return view('tambahippool');
-});
+// Route::get('/master', function () {
+//     return view('master');
+// });
+// Route::get('/tambahkontakbaru', function () {
+//     return view('tambahkontakbaru');
+// });
 
-Route::get('/pengaturanadmin', function () {
-    return view('pengaturanadmin');
-});
+// Route::get('/beranda', function () {
+//     return view('beranda');
+// });
 
-Route::get('/tambahadmin', function () {
-    return view('tambahadmin');
-});
+
+// Route::get('/listKontak', function () {
+//     return view('ListKontak');
+// });
+
+// Route::get('/laporankeuangan', function () {
+//     return view('laporankeuangan');
+// });
+
+// Route::get('/tambahpaketbaru', function () {
+//     return view('tambahpaketbaru');
+// });
+
+// Route::get('/paketpppoe', function () {
+//     return view('paketpppoe');
+// });
+
+// Route::get('/pakethotspot', function () {
+//     return view('pakethotspot');
+// });
+
+// Route::get('/router', function () {
+//     return view('router');
+// });
+
+// Route::get('/tambahrouter', function () {
+//     return view('tambahrouter');
+// });
+
+// Route::get('/ippool', function () {
+//     return view('ippool');
+// });
+
+// Route::get('/tambahippool', function () {
+//     return view('tambahippool');
+// });
+
+// Route::get('/pengaturanadmin', function () {
+//     return view('pengaturanadmin');
+// });
+
+// Route::get('/tambahadmin', function () {
+//     return view('tambahadmin');
+// });
+
+// Route::get('/loginv2', function () {
+//     return view('loginv2');
+// });
+
 
 
 
