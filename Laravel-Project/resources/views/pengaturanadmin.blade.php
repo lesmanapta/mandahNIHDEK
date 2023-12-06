@@ -37,6 +37,7 @@
                                     </div>
                                 </div>
                                 <a href="/tambahadmin" class="btn btn-success">Tambah Admin</a>
+                                <a href="{{ route('logout') }}" class="btn btn-success">Logout</a>
                             </div>
 
                             <table class="table table-hover text-nowrap">
@@ -57,10 +58,10 @@
                                             <td>{{ $user->fullname }}</td>
                                             <td>{{ $user->user_type }}</td>
                                             <td>{{ $user->last_login }}</td>
-                                            {{-- <td>
-                                                <a href="{{ route('editadmin', $user->id) }}" class="edit-button">Edit</a>
-                                                <a href="{{ route('deleteadmin', $user->id) }}" class="hapus-button">Hapus</a>
-                                            </td> --}}
+                                            <td>
+                                                {{-- <a href="{{ route('editadmin', $user->id) }}" class="edit-button">Edit</a>
+                                                <a href="{{ route('deleteadmin', $user->id) }}" class="hapus-button">Hapus</a> --}}
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

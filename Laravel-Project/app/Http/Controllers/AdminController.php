@@ -17,15 +17,15 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         // Validate the form data
+        
         $request->validate([
             'username' => 'required|unique:users',
             'fullname' => 'required',
-            'user_type' => 'required|in:Super Admin,Admin',
-            'password' => 'required|min:6|confirmed',
+            'user_type' => 'required|in:Super Admin, Admin',
+            'password' => 'required|confirmed|min:6'
         ]);
-
         // Create a new user in the database
-        $user = User::create([
+        User::create([
             'username' => $request->input('username'),
             'fullname' => $request->input('fullname'),
             'user_type' => $request->input('user_type'),

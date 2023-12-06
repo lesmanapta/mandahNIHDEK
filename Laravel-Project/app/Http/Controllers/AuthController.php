@@ -18,7 +18,20 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            return redirect()->intended('/dashboard'); // Redirect to the dashboard or any desired page
+            $user = Auth::user();
+
+            // Set a session
+            $request->session()->put('user_id', $user->id);
+            $request->session()->put('user_fullname', $user->fullname);
+
+            // Set a cookie
+            $remember = $request->has('remember') ? true : false;
+            if ($remember) {
+                $cookie = cookie('user_remember', $user->id, 60 * 24 * 30); // 30 days expiration
+                return redirect()->intended('/')->withCookie($cookie);
+            }
+
+            return redirect()->intended('/');
         }
 
         return redirect()->back()->withErrors(['login' => 'Invalid login credentials']);
@@ -27,6 +40,11 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
+        
+        // Remove session and cookie
+        session()->forget(['user_id', 'user_fullname']);
+        cookie()->forget('user_remember');
+
         return redirect('/login');
     }
 }

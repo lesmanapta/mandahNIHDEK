@@ -16,5 +16,6 @@ class User extends Authenticatable
         'fullname',
         'user_type',
         'password',
+        'last_login',
     ];
 }

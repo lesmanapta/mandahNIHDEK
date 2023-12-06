@@ -46,8 +46,8 @@
                                     <label for="namaPaket" class="col-sm-2 col-form-label">Posisi User</label>
                                     <div class="col-sm-10">
                                         <select class="form-control" id="namapaket1" name="user_type">
-                                            <option value="Super Admin">Full Administrator</option>
-                                            <option value="Admin">Administrator</option>
+                                            <option value="Super Admin">Super Admin</option>
+                                            <option value="Admin">Admin</option>
                                             <!-- Add more options as needed -->
                                         </select>
                                     </div>
@@ -61,7 +61,7 @@
                                 <div class="form-group row">
                                     <label for="exampleKonfirmasiPassword" class="col-sm-2 col-form-label">Konfirmasi Password</label>
                                     <div class="col-sm-10">
-                                        <input type="password" class="form-control" name="confirm_password" id="exampleKonfirmasiPassword">
+                                        <input type="password" class="form-control" name="password_confirmation" id="exampleKonfirmasiPassword">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>

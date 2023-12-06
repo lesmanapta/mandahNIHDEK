@@ -36,6 +36,7 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::get('/tambahadmin', [AdminController::class, 'create'])->name('tambahadmin');
 Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');
 
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 // Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.form');
 // Route::post('/login', [LoginController::class, 'login'])->name('login');
 
