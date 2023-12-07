@@ -29,12 +29,15 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div class="input-group input-group-sm" style="width: 300px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
+
+                                    <form action="" class="form-inline" method="GET">
+                                        <input type="text" name="keyword" class="form-control float-right" placeholder="Search">
+                                        
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-default">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
                                 </div>
                                 <div class="float-sm-right">
                                     <a href="tambahadmin" class="btn btn-success">Tambah Admin</a>

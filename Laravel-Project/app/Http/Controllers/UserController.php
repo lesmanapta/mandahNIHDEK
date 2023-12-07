@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
+        $keyword = $request->keyword;
+        dd($keyword);
+        $users = User::where('fullname', 'LIKE','%'.$keyword.'%')
+                        ->orWhere('username', 'LIKE','%'.$keyword.'%')
+                        ->orWhere('user_type', 'LIKE','%'.$keyword.'%')
+                        ->paginate(5);
         return view('pengaturanadmin', ['users' => $users]);
     }
 }
