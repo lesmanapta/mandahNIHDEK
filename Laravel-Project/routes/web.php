@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ Route::get('/', function () {
 
 Route::get('/tambahpaketbaru', function () {
     return view('tambahpaketbaru');
-});
+})-> middleware('auth');
 
 Route::get('/pengaturanadmin', [UserController::class, 'index'])->name('pengaturanadmin');
 
