@@ -43,10 +43,12 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Update-Delete Admin Routes
 
-Route::get('/editadmin/{id}', 'AdminController@editAdmin')->name('editadmin');
-Route::post('/updateadmin/{id}', 'AdminController@updateAdmin')->name('updateadmin');
-Route::get('/deleteadmin/{id}', 'AdminController@deleteAdmin')->name('deleteadmin');
+// Route::get('/admin/{id}', 'AdminController@editAdmin')->name('admin.edit');
+// Route::put('/admin/{id}', 'AdminController@updateAdmin')->name('admin.update');
 
+Route::get('/editadmin/{id}', [AdminController::class, 'edit'])->name('editadmin');
+Route::put('/updateadmin/{id}', [AdminController::class, 'update'])->name('updateadmin');
+Route::get('/deleteadmin/{id}', [AdminController::class, 'destroy'])->name('deleteadmin');
 
 // Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.form');
 // Route::post('/login', [LoginController::class, 'login'])->name('login');
