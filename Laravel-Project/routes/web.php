@@ -50,6 +50,10 @@ Route::get('/editadmin/{id}', [AdminController::class, 'edit'])->name('editadmin
 Route::put('/updateadmin/{id}', [AdminController::class, 'update'])->name('updateadmin');
 Route::get('/deleteadmin/{id}', [AdminController::class, 'destroy'])->name('deleteadmin');
 
+Route::middleware(['superadmin'])->group(function () {
+    // Routes that only Super Admin can access
+    Route::get('/pengaturanadmin', [AdminController::class, 'pengaturanadmin'])->name('pengaturanadmin');
+});
 // Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.form');
 // Route::post('/login', [LoginController::class, 'login'])->name('login');
 

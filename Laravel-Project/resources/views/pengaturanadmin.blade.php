@@ -65,6 +65,7 @@
                                                 <a href="{{ route('deleteadmin', $user->id) }}" class="hapus-button">Hapus</a>
                                             </td>
                                         </tr>
+                                        
                                     @endforeach
                                 </tbody>
                             </table>

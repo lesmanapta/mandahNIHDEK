@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use App\Http\Middleware\SuperAdminMiddleware;
 
 class Kernel extends HttpKernel
 {
@@ -69,5 +70,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         // ... other middleware
         'auth.custom' => \App\Http\Middleware\AuthenticateCustom::class,
+        'superadmin' => SuperAdminMiddleware::class,
     ];
+
 }

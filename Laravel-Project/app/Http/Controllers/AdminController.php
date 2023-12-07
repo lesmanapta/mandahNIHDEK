@@ -74,4 +74,9 @@ class AdminController extends Controller
     // Redirect to the admin settings page or wherever you want
     return redirect()->route('pengaturanadmin')->with('success', 'Admin deleted successfully.');
 }
+    public function pengaturanadmin()
+{
+    $users = User::all();
+    return view('pengaturanadmin', compact('users'));
+}
 }
