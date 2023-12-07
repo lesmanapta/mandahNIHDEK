@@ -1,6 +1,7 @@
 # Project Mandah Net
 
-![Mandah Net Server Logo](Laravel-Project\public\image\MANDAH.png)
+
+![MANDAH](https://github.com/lesmanapta/mandahNIHDEK/assets/53118115/d986c8f3-960f-4331-b649-bbbec66f8dc7)
 
 ## Overview
 
@@ -24,11 +25,13 @@
 - [ ] Network
 - [ ] Pengaturan Admin
 
+
 ### Login
 
 - [ ] Authentication system
 
 ## 📅 Next Steps
+![MANDAH](https://github.com/lesmanapta/mandahNIHDEK/assets/53118115/63800e1c-556a-488c-b908-97b616b63263)
 
 ### Content
 
