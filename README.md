@@ -31,7 +31,7 @@
 - [ ] Authentication system
 
 ## 📅 Next Steps
-![MANDAH](https://github.com/lesmanapta/mandahNIHDEK/assets/53118115/63800e1c-556a-488c-b908-97b616b63263)
+
 
 ### Content
 
