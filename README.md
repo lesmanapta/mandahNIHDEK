@@ -43,8 +43,8 @@
 - [ ] Login Auth - Perlu perbaikan
 - [ ] Logout
 - [ ] Read Data Admin
-- [ ] Form Daftar Admin - Kendala tidak bisa pilih type Admin, data tidak masuk
-- [ ] Form Edit Admin - Kendala -Done
+- [ ] Form Daftar Admin - Kendala tidak bisa pilih type Admin, data tidak masuk - Done
+- [ ] Form Edit Admin - Kendala - Done
 - [ ] Role Admin - Done
 
 ## 🚀 Frameworks and Technologies
