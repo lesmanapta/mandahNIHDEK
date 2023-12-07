@@ -40,7 +40,7 @@
 ## 🛠️ On-Hold-On-Proggress-Back-End
 
 - [ ] Back-end
-- [ ] Login Auth
+- [ ] Login Auth - Perlu perbaikan
 - [ ] Logout
 - [ ] Read Data Admin
 - [ ] Form Daftar Admin - Kendala tidak bisa pilih type Admin, data tidak masuk
