@@ -35,4 +35,37 @@ class AdminController extends Controller
         // Redirect to the admin settings page or wherever you want
         return redirect()->route('pengaturanadmin')->with('success', 'Admin added successfully.');
     }
+
+    public function editAdmin($id)
+    {
+        // Retrieve the admin data based on the ID
+        $admin = User::find($id);
+
+        return view('editadmin');
+    }
+
+    public function updateAdmin(Request $request, $id)
+    {
+        // Validate the form data
+        $request->validate([
+            'username' => 'required|string|max:45|unique:users,username,' . $id,
+            'fullname' => 'required|string|max:45',
+            'user_type' => 'required|in:Super Admin,Admin',
+            'password' => 'nullable|string|min:6|confirmed',
+        ]);
+
+        // Update the admin data
+        $admin = User::find($id);
+        $admin->update($request->all());
+
+        return redirect('/pengaturanadmin')->with('success', 'Admin updated successfully');
+    }
+
+    public function deleteAdmin($id)
+    {
+        // Delete the admin based on the ID
+        User::destroy($id);
+
+        return redirect('/pengaturanadmin')->with('success', 'Admin deleted successfully');
+    }
 }

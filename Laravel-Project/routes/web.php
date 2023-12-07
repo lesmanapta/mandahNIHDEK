@@ -28,6 +28,7 @@ Route::get('/tambahpaketbaru', function () {
 
 Route::get('/pengaturanadmin', [UserController::class, 'index'])->name('pengaturanadmin');
 
+// Login Admin Routes
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
@@ -36,7 +37,16 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::get('/tambahadmin', [AdminController::class, 'create'])->name('tambahadmin');
 Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');
 
+// Logout Routes
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Update-Delete Admin Routes
+
+Route::get('/editadmin/{id}', 'AdminController@editAdmin')->name('editadmin');
+Route::post('/updateadmin/{id}', 'AdminController@updateAdmin')->name('updateadmin');
+Route::get('/deleteadmin/{id}', 'AdminController@deleteAdmin')->name('deleteadmin');
+
+
 // Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.form');
 // Route::post('/login', [LoginController::class, 'login'])->name('login');
 
