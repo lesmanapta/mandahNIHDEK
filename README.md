@@ -32,15 +32,16 @@
 
 ### Content
 
-- [ ] Belum
+- [ ] Done
 
 ## 🛠️ On-Hold-On-Proggress-Back-End
 
 - [ ] Back-end
 - [ ] Login Auth
+- [ ] Logout
 - [ ] Read Data Admin
-- [ ] Form Daftar Admin (Kendala)
-- [ ]
+- [ ] Form Daftar Admin
+- [ ] Form Edit Admin - Kendala
 
 ## 🚀 Frameworks and Technologies
 
