@@ -27,7 +27,7 @@ Route::get('/tambahpaketbaru', function () {
     return view('tambahpaketbaru');
 })-> middleware('auth');
 
-Route::get('/pengaturanadmin', [UserController::class, 'index'])->name('pengaturanadmin');
+Route::get('/pengaturanadmin', [UserController::class, 'index'])->name('pengaturanadmin')-> middleware('auth');
 
 // Login Admin Routes
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -35,8 +35,8 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
 // Add Admin Routes
-Route::get('/tambahadmin', [AdminController::class, 'create'])->name('tambahadmin');
-Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');
+Route::get('/tambahadmin', [AdminController::class, 'create'])->name('tambahadmin')-> middleware('auth');
+Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store')-> middleware('auth');
 
 // Logout Routes
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -46,9 +46,15 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 // Route::get('/admin/{id}', 'AdminController@editAdmin')->name('admin.edit');
 // Route::put('/admin/{id}', 'AdminController@updateAdmin')->name('admin.update');
 
+<<<<<<< HEAD
+Route::get('/editadmin/{id}', [AdminController::class, 'edit'])->name('editadmin')-> middleware('auth');
+Route::put('/updateadmin/{id}', [AdminController::class, 'update'])->name('updateadmin')-> middleware('auth');
+Route::get('/deleteadmin/{id}', [AdminController::class, 'destroy'])->name('deleteadmin')-> middleware('auth');
+=======
 Route::get('/editadmin/{id}', [AdminController::class, 'edit'])->name('editadmin');
 Route::put('/updateadmin/{id}', [AdminController::class, 'update'])->name('updateadmin');
 Route::get('/deleteadmin/{id}', [AdminController::class, 'destroy'])->name('deleteadmin');
+>>>>>>> 056c67725b4df95b5d138e9786ec34c9fec4796a
 
 Route::middleware(['superadmin'])->group(function () {
     // Routes that only Super Admin can access
@@ -120,8 +126,3 @@ Route::middleware(['superadmin'])->group(function () {
 // Route::get('/loginv2', function () {
 //     return view('loginv2');
 // });
-
-
-
-
-
