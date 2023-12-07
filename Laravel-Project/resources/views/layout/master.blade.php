@@ -326,25 +326,33 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" @auth @if(auth()->user()->user_type === 'Super Admin') '' @else style="display:none;" @endif @endauth>
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Pengaturan
-                <i class="fas fa-angle-left right"></i>
-              </p>
+                <i class="nav-icon fas fa-table"></i>
+                <p>
+                    Pengaturan
+                    <i class="fas fa-angle-left right"></i>
+                </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/pengaturanadmin" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pengaturan Admin</p>
-                </a>
+                <li class="nav-item">
+                    <a href="/pengaturanadmin" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pengaturan Admin</p>
+                    </a>
+                </li>
+                <!-- Add more sub-menu items if needed -->
             </ul>
-
-            
           </li>
-          <a href="{{ route('logout') }}" class="btn btn-danger d-flex align-items-center">Logout</a>
+          <li li class="nav-item" >
+            <a href="{{ route('logout') }}" class="nav-link" style="background-color: #dc3545; color: #fff; border-radius: 5px; padding: 5px 10px; text-align: left; display: flex; align-items: center; margin-left: 10px;">
+              <i class="fas fa-sign-out-alt"></i>  
+                <p> 
+                  <i style="margin-right: 13px;"></i>
+                  Logout
+                </p>
+            </a>
+          </li>
         </nav>
       <!-- /.sidebar-menu -->
     </div>
