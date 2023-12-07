@@ -30,16 +30,16 @@ Route::get('/tambahpaketbaru', function () {
 Route::get('/pengaturanadmin', [UserController::class, 'index'])->name('pengaturanadmin')-> middleware('auth');
 
 // Login Admin Routes
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout']);
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
 // Add Admin Routes
 Route::get('/tambahadmin', [AdminController::class, 'create'])->name('tambahadmin')-> middleware('auth');
 Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store')-> middleware('auth');
 
 // Logout Routes
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 // Update-Delete Admin Routes
 
