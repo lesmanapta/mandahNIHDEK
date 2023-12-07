@@ -38,7 +38,6 @@
                                 </div>
                                 <div class="float-sm-right">
                                     <a href="tambahadmin" class="btn btn-success">Tambah Admin</a>
-                                    <a href="{{ route('logout') }}" class="btn btn-danger">Logout</a>
                                 </div>
                             </div>
 
