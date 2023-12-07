@@ -34,28 +34,29 @@
                                 <div class="form-group row">
                                     <label for="examplenamalengkap" class="col-sm-2 col-form-label">Nama Lengkap</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="fullname" value="{{ old('fullname', $admin->fullname) }}" required>
+                                        <input type="text" class="form-control" name="fullname" id="examplenamalengkap">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="namaPaket" class="col-sm-2 col-form-label">Posisi User</label>
                                     <div class="col-sm-10">
-                                        <select name="user_type"  class="form-control" required>
-                                            <option value="Super Admin" {{ old('user_type', $admin->user_type) == 'Super Admin' ? 'selected' : '' }}>Super Admin</option>
-                                            <option value="Admin" {{ old('user_type', $admin->user_type) == 'Admin' ? 'selected' : '' }}>Admin</option>
+                                        <select class="form-control" id="namapaket1" name="user_type">
+                                            <option value="Super Admin">Super Admin</option>
+                                            <option value="Admin">Admin</option>
+                                            <!-- Add more options as needed -->
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="examplePassword" class="col-sm-2 col-form-label">Password</label>
                                     <div class="col-sm-10">
-                                        <input type="password" class="form-control" name="password">
+                                        <input type="password" class="form-control" name="password" id="examplePassword">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="exampleKonfirmasiPassword" class="col-sm-2 col-form-label">Konfirmasi Password</label>
                                     <div class="col-sm-10">
-                                        <input type="password" class="form-control" name="password_confirmation">
+                                        <input type="password" class="form-control" name="password_confirmation" id="exampleKonfirmasiPassword">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
