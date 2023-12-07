@@ -20,11 +20,11 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})-> middleware('auth');
 
 Route::get('/tambahpaketbaru', function () {
     return view('tambahpaketbaru');
-});
+})-> middleware('auth');
 
 Route::get('/pengaturanadmin', [UserController::class, 'index'])->name('pengaturanadmin');
 
