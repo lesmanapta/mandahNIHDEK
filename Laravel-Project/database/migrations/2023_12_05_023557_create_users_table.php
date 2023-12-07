@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration
             $table->string('username', 45)->unique(); // 2. username with unique constraint
             $table->string('fullname', 45); // 3. fullname
             $table->mediumText('password'); // 4. password
-            $table->enum('roles', ['Super Admin', 'Admin']); // 5. user_type
+            $table->enum('user_type', ['Super Admin', 'Admin']); // 5. user_type
             $table->enum('status', ['Active', 'Inactive'])->default('Active'); // 6. status
             $table->timestamp('last_login')->nullable(); // 7. last_login
             $table->timestamps();
