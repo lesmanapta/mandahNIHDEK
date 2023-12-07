@@ -36,8 +36,10 @@
                                         </button>
                                     </div>
                                 </div>
-                                <a href="/tambahadmin" class="btn btn-success">Tambah Admin</a>
-                                <a href="{{ route('logout') }}" class="btn btn-success">Logout</a>
+                                <div class="float-sm-right">
+                                    <button href="/tambahadmin" class="btn btn-success">Tambah Admin</button>
+                                    <a href="{{ route('logout') }}" class="btn btn-danger">Logout</a>
+                                </div>
                             </div>
 
                             <table class="table table-hover text-nowrap">
