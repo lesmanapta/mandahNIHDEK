@@ -73,5 +73,9 @@ class AdminController extends Controller
 
     // Redirect to the admin settings page or wherever you want
     return redirect()->route('pengaturanadmin')->with('success', 'Admin deleted successfully.');
+<<<<<<< HEAD
+=======
+}
+>>>>>>> 056c67725b4df95b5d138e9786ec34c9fec4796a
 }
 }

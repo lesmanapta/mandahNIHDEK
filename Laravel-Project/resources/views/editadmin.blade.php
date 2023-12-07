@@ -40,9 +40,16 @@
                                 <div class="form-group row">
                                     <label for="namaPaket" class="col-sm-2 col-form-label">Posisi User</label>
                                     <div class="col-sm-10">
+<<<<<<< HEAD
                                         <select name="user_type"  class="form-control" required>
                                             <option value="Super Admin" {{ old('user_type', $admin->user_type) == 'Super Admin' ? 'selected' : '' }}>Super Admin</option>
                                             <option value="Admin" {{ old('user_type', $admin->user_type) == 'Admin' ? 'selected' : '' }}>Admin</option>
+=======
+                                        <select class="form-control" id="namapaket1" name="user_type">
+                                            <option value="Super Admin">Super Admin</option>
+                                            <option value="Admin">Admin</option>
+                                            <!-- Add more options as needeed -->
+>>>>>>> 056c67725b4df95b5d138e9786ec34c9fec4796a
                                         </select>
                                     </div>
                                 </div>
@@ -71,4 +78,8 @@
     </div><!-- /.container-fluid -->
 </section>
 
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> 056c67725b4df95b5d138e9786ec34c9fec4796a
