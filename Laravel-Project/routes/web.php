@@ -46,15 +46,14 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 // Route::get('/admin/{id}', 'AdminController@editAdmin')->name('admin.edit');
 // Route::put('/admin/{id}', 'AdminController@updateAdmin')->name('admin.update');
 
-<<<<<<< HEAD
+
 Route::get('/editadmin/{id}', [AdminController::class, 'edit'])->name('editadmin')-> middleware('auth');
 Route::put('/updateadmin/{id}', [AdminController::class, 'update'])->name('updateadmin')-> middleware('auth');
 Route::get('/deleteadmin/{id}', [AdminController::class, 'destroy'])->name('deleteadmin')-> middleware('auth');
-=======
+
 Route::get('/editadmin/{id}', [AdminController::class, 'edit'])->name('editadmin');
 Route::put('/updateadmin/{id}', [AdminController::class, 'update'])->name('updateadmin');
 Route::get('/deleteadmin/{id}', [AdminController::class, 'destroy'])->name('deleteadmin');
->>>>>>> 056c67725b4df95b5d138e9786ec34c9fec4796a
 
 Route::middleware(['superadmin'])->group(function () {
     // Routes that only Super Admin can access
