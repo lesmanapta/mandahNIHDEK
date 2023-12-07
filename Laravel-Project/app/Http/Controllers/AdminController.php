@@ -64,7 +64,7 @@ class AdminController extends Controller
         ]);
 
         } catch (\Exception $e) {
-            // Cetak pesan kesalahan
+            // print wrong messge
             dd($e->getMessage());
         }
 

@@ -385,5 +385,7 @@
 <script src="{{asset ('AdminLTE/dist/js/pages/dashboard.js')}}"></script>
 
 @yield('content')
+@yield('scripts')
+@stack('scripts')
 </body>
 </html>
