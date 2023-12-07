@@ -27,7 +27,7 @@ Route::get('/tambahpaketbaru', function () {
     return view('tambahpaketbaru');
 })-> middleware('auth');
 
-Route::get('/pengaturanadmin', [UserController::class, 'index'])->name('pengaturanadmin');
+Route::get('/pengaturanadmin', [UserController::class, 'index'])->name('pengaturanadmin')-> middleware('auth');
 
 // Login Admin Routes
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -35,18 +35,20 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
 // Add Admin Routes
-Route::get('/tambahadmin', [AdminController::class, 'create'])->name('tambahadmin');
-Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');
+Route::get('/tambahadmin', [AdminController::class, 'create'])->name('tambahadmin')-> middleware('auth');
+Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store')-> middleware('auth');
 
 // Logout Routes
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Update-Delete Admin Routes
 
-Route::get('/editadmin/{id}', 'AdminController@editAdmin')->name('editadmin');
-Route::post('/updateadmin/{id}', 'AdminController@updateAdmin')->name('updateadmin');
-Route::get('/deleteadmin/{id}', 'AdminController@deleteAdmin')->name('deleteadmin');
+// Route::get('/admin/{id}', 'AdminController@editAdmin')->name('admin.edit');
+// Route::put('/admin/{id}', 'AdminController@updateAdmin')->name('admin.update');
 
+Route::get('/editadmin/{id}', [AdminController::class, 'edit'])->name('editadmin')-> middleware('auth');
+Route::put('/updateadmin/{id}', [AdminController::class, 'update'])->name('updateadmin')-> middleware('auth');
+Route::get('/deleteadmin/{id}', [AdminController::class, 'destroy'])->name('deleteadmin')-> middleware('auth');
 
 // Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.form');
 // Route::post('/login', [LoginController::class, 'login'])->name('login');
@@ -114,8 +116,3 @@ Route::get('/deleteadmin/{id}', 'AdminController@deleteAdmin')->name('deleteadmi
 // Route::get('/loginv2', function () {
 //     return view('loginv2');
 // });
-
-
-
-
-

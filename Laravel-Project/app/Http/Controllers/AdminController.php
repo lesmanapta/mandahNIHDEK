@@ -9,6 +9,34 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function edit($id)
+{
+    $admin = User::findOrFail($id);
+    return view('editadmin', compact('admin'));
+}
+
+    public function update(Request $request, $id)
+{
+    // Validate the form data
+    $request->validate([
+        'fullname' => 'required',
+        'user_type' => 'required|in:Super Admin, Admin',
+        'password' => 'sometimes|confirmed|min:6', // Only validate if a password is provided
+    ]);
+
+    // Find the admin by ID
+    $admin = User::findOrFail($id);
+
+    // Update the user information
+    $admin->update([
+        'fullname' => $request->input('fullname'),
+        'user_type' => $request->input('user_type'),
+        'password' => $request->filled('password') ? bcrypt($request->input('password')) : $admin->password,
+    ]);
+
+    // Redirect to the admin settings page or wherever you want
+    return redirect()->route('pengaturanadmin')->with('success', 'Admin updated successfully.');
+}
     public function create()
     {
         return view('tambahadmin');
@@ -35,37 +63,15 @@ class AdminController extends Controller
         // Redirect to the admin settings page or wherever you want
         return redirect()->route('pengaturanadmin')->with('success', 'Admin added successfully.');
     }
+    public function destroy($id)
+{
+    // Find the admin by ID
+    $admin = User::findOrFail($id);
 
-    public function editAdmin($id)
-    {
-        // Retrieve the admin data based on the ID
-        $admin = User::find($id);
+    // Delete the admin
+    $admin->delete();
 
-        return view('editadmin');
-    }
-
-    public function updateAdmin(Request $request, $id)
-    {
-        // Validate the form data
-        $request->validate([
-            'username' => 'required|string|max:45|unique:users,username,' . $id,
-            'fullname' => 'required|string|max:45',
-            'user_type' => 'required|in:Super Admin,Admin',
-            'password' => 'nullable|string|min:6|confirmed',
-        ]);
-
-        // Update the admin data
-        $admin = User::find($id);
-        $admin->update($request->all());
-
-        return redirect('/pengaturanadmin')->with('success', 'Admin updated successfully');
-    }
-
-    public function deleteAdmin($id)
-    {
-        // Delete the admin based on the ID
-        User::destroy($id);
-
-        return redirect('/pengaturanadmin')->with('success', 'Admin deleted successfully');
-    }
+    // Redirect to the admin settings page or wherever you want
+    return redirect()->route('pengaturanadmin')->with('success', 'Admin deleted successfully.');
+}
 }
