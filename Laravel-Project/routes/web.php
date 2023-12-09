@@ -28,7 +28,9 @@ Route::get('/tambahpaketbaru', function () {
     return view('tambahpaketbaru');
 })-> middleware('auth');
 
-Route::get('/pengaturanadmin', [UserController::class, 'index'])->name('pengaturanadmin')-> middleware('auth');
+
+//ini udah pegang hanya super admin yang bisa
+Route::get('/pengaturanadmin', [UserController::class, 'index'])->name('pengaturanadmin')-> middleware('auth', 'superadmin');
 
 // Login Admin Routes
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login')->middleware('guest');
@@ -52,10 +54,11 @@ Route::get('/editadmin/{id}', [AdminController::class, 'edit'])->name('editadmin
 Route::put('/updateadmin/{id}', [AdminController::class, 'update'])->name('updateadmin')-> middleware('auth');
 Route::get('/deleteadmin/{id}', [AdminController::class, 'destroy'])->name('deleteadmin')-> middleware('auth');
 
-Route::middleware(['superadmin'])->group(function () {
-    // Routes that only Super Admin can access
-    Route::get('/pengaturanadmin', [AdminController::class, 'pengaturanadmin'])->name('pengaturanadmin');
-});
+
+// Route::middleware(['superadmin'])->group(function () {
+//     // Routes that only Super Admin can access
+//     Route::get('/pengaturanadmin', [AdminController::class, 'pengaturanadmin'])->name('pengaturanadmin');
+// });
 // Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.form');
 // Route::post('/login', [LoginController::class, 'login'])->name('login');
 
