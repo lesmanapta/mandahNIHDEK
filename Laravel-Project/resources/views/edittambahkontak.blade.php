@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Tambah Kontak Baru</h1>
+                    <h1 class="m-0">Edit Kontak</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Tambah Kontak Baru</li>
+                        <li class="breadcrumb-item active">Edit Kontak</li>
                     </ol>
                 </ol>
             </div><!-- /.col -->
@@ -100,25 +100,25 @@
                                 <div class="form-group row">
                                     <label for="username" class="col-sm-2 col-form-label">Username</label>
                                     <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="username" id="username" placeholder="username">
+                                    <input value="{{ old('username', $kontak->username) }}" type="text" class="form-control" name="username" id="username" placeholder="username">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="exampleInputNama" class="col-sm-2 col-form-label">Nama Lengkap</label>
                                     <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="fullnameCustomer" id="fullnameCustomer" placeholder="nama">
+                                    <input type="text" class="form-control" value="{{ old('fulnameCustomer', $kontak->fullnameCustomer) }}"name="fullnameCustomer" id="fullnameCustomer" placeholder="nama">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="exampleInputemail" class="col-sm-2 col-form-label">Email</label>
                                     <div class="col-sm-10">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="email">
+                                    <input value="{{ old('email', $kontak->email) }}" type="email" class="form-control" name="email" id="email" placeholder="email">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="exampleInputNomorhp" class="col-sm-2 col-form-label">Nomor HP</label>
                                     <div class="col-sm-10">
-                                    <input type="integer" class="form-control" name="phonenumber" id="phonenumber" placeholder="nomor hp">
+                                    <input value="{{ old('phonenumber', $kontak->phonenumber) }}"type="integer" class="form-control" name="phonenumber" id="phonenumber" placeholder="nomor hp">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -134,9 +134,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="exampleInputAlamat" class="col-sm-2 col-form-label">Alamat Lengkap</label>
+                                    <label for="exampleInputAlamat"  class="col-sm-2 col-form-label">Alamat Lengkap</label>
                                     <div class="col-sm-10">
-                                    <textarea type="text" class="form-control" name="address" id="address" placeholder="alamat lengkap"></textarea>
+                                        <textarea type="text" class="form-control" name="address" id="address" placeholder="alamat lengkap">{{ old('address', $kontak->address) }}</textarea>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>

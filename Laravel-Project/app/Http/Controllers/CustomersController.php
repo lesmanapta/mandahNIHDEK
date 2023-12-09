@@ -7,9 +7,15 @@ use App\Models\Customers;
 
 class CustomersController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $kontaks = Customers::all();
+        $keyword = $request->keyword;
+        $kontaks = Customers::where('fullnameCustomer', 'LIKE','%'.$keyword.'%')
+        ->orWhere('username', 'LIKE','%'.$keyword.'%')
+        ->orWhere('address', 'LIKE', '%'.$keyword.'%')
+        ->orWhere('phonenumber', 'LIKE', '%'.$keyword.'%')
+        ->orWhere('email', 'LIKE', '%'.$keyword.'%')
+        ->paginate(5);
 
         return view('listKontak', compact('kontaks'));
     }

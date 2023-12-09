@@ -101,9 +101,5 @@
                 confirmButtonText: 'OK'
             });
         @endif
-    //     function tampilkanSilang() {
-    //         // Mengganti properti display dari none menjadi block
-    //         document.getElementById('tombolSilang').style.display = 'block';
-    //     }
-    // </script>
+</script>
 @endsection
