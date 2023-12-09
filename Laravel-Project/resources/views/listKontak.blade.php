@@ -1,5 +1,5 @@
 @extends('layout.master')
-
+<link rel="stylesheet" href="css/button.css">
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -50,14 +50,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>nabnab</td>
-                                        <td>Nabiel Taqy</td>
-                                        <td>08117676477</td>
-                                        <td>10-10-2023</td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                    @foreach($kontaks as $kontak)
+                                        <tr>
+                                            <td>{{ $kontak->username }}</td>
+                                            <td>{{ $kontak->fullnameCustomer }}</td>
+                                            <td>{{ $kontak->phonenumber }}</td>
+                                            <td>{{ $kontak->created_at->format('d-m-Y') }}</td>
+                                            <td></td>
+                                            <td>
+                                                <a href="{{ route('editKontak', $kontak->id) }}" class="edit-button">Edit</a>
+                                                <a href="{{ route('hapusKontak', $kontak->id) }}" class="hapus-button">Hapus</a>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

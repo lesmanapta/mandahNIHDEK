@@ -4,6 +4,7 @@ use App\Models\Login;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use GuzzleHttp\Middleware;
@@ -38,12 +39,16 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
 // Add Admin Routes
-Route::get('/tambahadmin', [AdminController::class, 'create'])->name('tambahadmin')-> middleware('auth');
-Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store')-> middleware('auth');
+Route::get('/tambahadmin', [AdminController::class, 'create'])->name('tambahadmin');
+Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');
 
 // Logout Routes
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
+Route::get('/listKontak', [CustomersController::class, 'index'])->name('listKontak');
+
+Route::get('/tambahkontakbaru', [CustomersController::class, 'create'])->name('tambahkontakbaru');
+Route::post('/tambahkontakbaru', [CustomersController::class, 'store'])->name('tambahkontakbaru.store');
 // Update-Delete Admin Routes
 
 // Route::get('/admin/{id}', 'AdminController@editAdmin')->name('admin.edit');
@@ -54,6 +59,9 @@ Route::get('/editadmin/{id}', [AdminController::class, 'edit'])->name('editadmin
 Route::put('/updateadmin/{id}', [AdminController::class, 'update'])->name('updateadmin')-> middleware('auth');
 Route::get('/deleteadmin/{id}', [AdminController::class, 'destroy'])->name('deleteadmin')-> middleware('auth');
 
+Route::get('/edittambahkontak/{id}', [CustomersController::class, 'edit'])->name('editKontak');
+Route::put('/updateKontak/{id}', [CustomersController::class, 'update'])->name('updateKontak');
+Route::get('/hapusKontak/{id}', [CustomersController::class, 'destroy'])->name('hapusKontak');
 
 // Route::middleware(['superadmin'])->group(function () {
 //     // Routes that only Super Admin can access
