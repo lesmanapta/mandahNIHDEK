@@ -34,10 +34,15 @@
                                         <input type="text" name="keyword" class="form-control float-right" placeholder="Search">
                                         
                                         <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default">
+                                            <button id="searchAdmin" type="submit" class="btn btn-default">
                                                 <i class="fas fa-search"></i>
                                             </button>
                                         </div>
+                                        {{-- <input type="reset" name= "Reset" value="Reset" href="/pengaturanadmin"> --}}
+                                        <button style="margin: 3px" id="tombolSilang"  style="display: block;" type="submit" class="btn btn-danger">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                     </form>
                                 </div>
                                 <div class="float-sm-right">
                                     <a href="tambahadmin" class="btn btn-success">Tambah Admin</a>
@@ -96,5 +101,5 @@
                 confirmButtonText: 'OK'
             });
         @endif
-    </script>
+</script>
 @endsection

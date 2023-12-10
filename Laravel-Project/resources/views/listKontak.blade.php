@@ -1,6 +1,6 @@
 @extends('layout.master')
-
 @section('content')
+<link rel="stylesheet" href="css/button.css">
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -28,12 +28,20 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div class="input-group input-group-sm" style="width: 300px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default">
-                                            <i class="fas fa-search"></i>
+
+                                    <form action="" class="form-inline" method="GET">
+                                        <input type="text" name="keyword" class="form-control float-right" placeholder="Search">
+                                        
+                                        <div class="input-group-append">
+                                            <button id="searchAdmin" type="submit" class="btn btn-default">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                        {{-- <input type="reset" name= "Reset" value="Reset" href="/pengaturanadmin"> --}}
+                                        <button style="margin: 3px" id="tombolSilang"  style="display: block;" type="submit" class="btn btn-danger">
+                                            <i class="fas fa-times"></i>
                                         </button>
-                                    </div>
+                                     </form>
                                 </div>
                                 <a href="/tambahkontakbaru" class="btn btn-success">Tambah Kontak</a>
                             </div>
@@ -50,14 +58,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>nabnab</td>
-                                        <td>Nabiel Taqy</td>
-                                        <td>08117676477</td>
-                                        <td>10-10-2023</td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                    @foreach($kontaks as $kontak)
+                                        <tr>
+                                            <td>{{ $kontak->username }}</td>
+                                            <td>{{ $kontak->fullnameCustomer }}</td>
+                                            <td>{{ $kontak->phonenumber }}</td>
+                                            <td>{{ $kontak->created_at->format('d-m-Y') }}</td>
+                                            <td></td>
+                                            <td>
+                                                <a href="{{ route('editKontak', $kontak->id) }}" class="edit-button">Edit</a>
+                                                <a href="{{ route('hapusKontak', $kontak->id) }}" class="hapus-button">Hapus</a>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
