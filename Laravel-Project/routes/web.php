@@ -103,13 +103,13 @@ Route::middleware(['superadmin'])->group(function () {
 //     return view('tambahrouter');
 // });
 
-// Route::get('/ippool', function () {
-//     return view('ippool');
-// });
+Route::get('/ippool', function () {
+    return view('ippool');
+});
 
-// Route::get('/tambahippool', function () {
-//     return view('tambahippool');
-// });
+Route::get('/tambahippool', function () {
+    return view('tambahippool');
+});
 
 // Route::get('/pengaturanadmin', function () {
 //     return view('pengaturanadmin');
