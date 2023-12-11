@@ -36,7 +36,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <a href="/tambahrouter" class="btn btn-success">Router Baru</a>
+                                <a href="router.store" class="btn btn-success">Router Baru</a>
                             </div>
 
                             <table class="table table-hover text-nowrap">

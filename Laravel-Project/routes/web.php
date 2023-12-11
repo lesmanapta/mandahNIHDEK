@@ -136,3 +136,6 @@ Route::get('/tambahippool', function () {
 // });
 
 Route::get('/router', [RoutersController::class, 'index'])->name('router');
+
+Route::get('/tambahrouter', [RoutersController::class, 'create'])->name('tambahrouter');
+Route::post('/router/store', [RoutersController::class, 'store'])->name('router.store');
