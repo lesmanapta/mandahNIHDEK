@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoutersController;
 use GuzzleHttp\Middleware;
 use App\Http\Middleware\SuperAdminMiddleware;
 
@@ -133,3 +134,5 @@ Route::get('/tambahippool', function () {
 // Route::get('/loginv2', function () {
 //     return view('loginv2');
 // });
+
+Route::get('/router', [RoutersController::class, 'index'])->name('router');
