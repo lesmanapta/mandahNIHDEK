@@ -17,7 +17,7 @@ class CustomersController extends Controller
         ->orWhere('email', 'LIKE', '%'.$keyword.'%')
         ->paginate(5);
 
-        return view('listKontak', compact('kontaks'));
+        return view('listKontak', ['kontaks' => $kontaks, 'keyword' => $keyword]);
     }
 
     public function create()

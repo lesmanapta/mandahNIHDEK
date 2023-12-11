@@ -15,6 +15,6 @@ class UserController extends Controller
                         ->orWhere('username', 'LIKE','%'.$keyword.'%')
                         ->orWhere('user_type', 'LIKE', '%'.$keyword.'%')
                         ->paginate(5);
-        return view('pengaturanadmin', ['users' => $users]);
+        return view('pengaturanadmin', ['users' => $users, 'keyword' => $keyword]);
     }
 }
