@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Tambah Kontak Baru</h1>
+                    <h1 class="m-0">Tambah Router Baru</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Tambah Kontak Baru</li>
+                        <li class="breadcrumb-item active">Tambah Router</li>
                     </ol>
                 </ol>
             </div><!-- /.col -->
@@ -30,51 +30,48 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <label for="examplestatus" class="col-sm-2 col-form-label">Status</label>
+                                    <label for="statusRouter" class="col-sm-2 col-form-label">Status</label>
                                     <div class="col-sm-10">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="enable" value="enable">
-                                            <label class="form-check-label" for="enable">Enable</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="disable" value="disable">
-                                            <label class="form-check-label" for="disable">Disable</label>
-                                        </div>
+                                        <select class="form-control" id="statusRouter" name="status">
+                                            <option value="Enable">Enable</option>
+                                            <option value="Disable">Disable</option>
+                                            <!-- Add more options as needed -->
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="exampleNamaRouter" class="col-sm-2 col-form-label">Nama Router</label>
                                     <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="namarouter">
+                                    <input name="name" type="text" class="form-control" id="namarouter" placeholder="nama router">
                                     </div>
                                 </div>   
                                 <div class="form-group row">
                                     <label for="exampleIpAdd" class="col-sm-2 col-form-label">IP Address</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="ipaddress" step="1" placeholder="192.168.88.1:8728">
+                                        <input name="ip_address" type="string" class="form-control" id="ipaddress" step="1" placeholder="192.168.88.1:8728">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="exampleUsername" class="col-sm-2 col-form-label">Username</label>
                                     <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="Username">
+                                    <input name="username" type="text" class="form-control" id="Username" placeholder="username">
                                     </div>
                                 </div>   
                                 <div class="form-group row">
                                     <label for="examplePasswordRouter" class="col-sm-2 col-form-label">Password Router</label>
                                     <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="passwordrouter">
+                                    <input name="password" type="password" class="form-control" id="passwordrouter" placeholder="password">
                                     </div>
                                 </div>   
                                 <div class="form-group row">
                                     <label for="exampleDeskripsiRouter" class="col-sm-2 col-form-label">Deskripsi</label>
                                     <div class="col-sm-10">
-                                    <input type="textarea" class="form-control" id="deskripsirouter">
+                                        <textarea type="text" class="form-control" name="deskripsi" id="deskripsi" placeholder="deskripsi"></textarea>
                                     </div>
                                 </div>                                                                           
                             </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                <a href="#" class="btn btn-secondary">Cancel</a>
+                                <a href="router" class="btn btn-secondary">Cancel</a>
                             </div>
                         </form>
                         <!-- /.card-body -->

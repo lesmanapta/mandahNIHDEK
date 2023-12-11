@@ -29,14 +29,23 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div class="input-group input-group-sm" style="width: 300px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
+
+                                    <form action="" class="form-inline" method="GET">
+
+                                        <input type="text" name="keyword" class="form-control float-right" placeholder="Search" value="{{ old('keyword', $keyword) }}">
+                                        
+                                        <div class="input-group-append">
+                                            <button id="searchAdmin" type="submit" class="btn btn-default">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                        {{-- <input type="reset" name= "Reset" value="Reset" href="/pengaturanadmin"> --}}
+                                    </form>
+                                    <a href="/router" style="margin: 3px" id="tombolSilang"  style="display: block;" class="btn btn-danger">
+                                    <i class="fas fa-times"></i>
+                                    </a>
                                 </div>
-                                <a href="router.store" class="btn btn-success">Router Baru</a>
+                                <a href="tambahrouter" class="btn btn-success">Tambah Router</a>
                             </div>
 
                             <table class="table table-hover text-nowrap">
@@ -59,6 +68,8 @@
                                         <td>{{ $router->deskripsi}}</td>
                                         <td>{{ $router->status }}</td>
                                         <td>
+                                            <a href="{{ route('editrouter', $router->id) }}" class="edit-button">Edit</a>
+                                            <a href="{{ route('deleterouter', $router->id) }}" class="hapus-button">Hapus</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -74,4 +85,20 @@
     </section>
     <!-- Add your content here -->
 </div>
+@endsection
+
+@section('scripts')
+    @parent
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        // Script untuk menampilkan SweetAlert setelah berhasil mengedit admin
+        @if(session('success'))
+            Swal.fire({
+                title: 'Berhasil!',
+                text: '{{ session('success') }}',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        @endif
+</script>
 @endsection

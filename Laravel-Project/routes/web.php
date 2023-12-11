@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoutersController;
 use GuzzleHttp\Middleware;
 use App\Http\Middleware\SuperAdminMiddleware;
+use App\Models\Routers;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,16 +41,16 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
 // Add Admin Routes
-Route::get('/tambahadmin', [AdminController::class, 'create'])->name('tambahadmin');
-Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');
+Route::get('/tambahadmin', [AdminController::class, 'create'])->name('tambahadmin')-> middleware('auth');;
+Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store')-> middleware('auth');;
 
 // Logout Routes
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
-Route::get('/listKontak', [CustomersController::class, 'index'])->name('listKontak');
+Route::get('/listKontak', [CustomersController::class, 'index'])->name('listKontak')-> middleware('auth');;
 
-Route::get('/tambahkontakbaru', [CustomersController::class, 'create'])->name('tambahkontakbaru');
-Route::post('/tambahkontakbaru', [CustomersController::class, 'store'])->name('tambahkontakbaru.store');
+Route::get('/tambahkontakbaru', [CustomersController::class, 'create'])->name('tambahkontakbaru')-> middleware('auth');;
+Route::post('/tambahkontakbaru', [CustomersController::class, 'store'])->name('tambahkontakbaru.store')-> middleware('auth');;
 // Update-Delete Admin Routes
 
 // Route::get('/admin/{id}', 'AdminController@editAdmin')->name('admin.edit');
@@ -60,9 +61,9 @@ Route::get('/editadmin/{id}', [AdminController::class, 'edit'])->name('editadmin
 Route::put('/updateadmin/{id}', [AdminController::class, 'update'])->name('updateadmin')-> middleware('auth');
 Route::get('/deleteadmin/{id}', [AdminController::class, 'destroy'])->name('deleteadmin')-> middleware('auth');
 
-Route::get('/edittambahkontak/{id}', [CustomersController::class, 'edit'])->name('editKontak');
-Route::put('/updateKontak/{id}', [CustomersController::class, 'update'])->name('updateKontak');
-Route::get('/hapusKontak/{id}', [CustomersController::class, 'destroy'])->name('hapusKontak');
+Route::get('/edittambahkontak/{id}', [CustomersController::class, 'edit'])->name('editKontak')-> middleware('auth');;
+Route::put('/updateKontak/{id}', [CustomersController::class, 'update'])->name('updateKontak')-> middleware('auth');;
+Route::get('/hapusKontak/{id}', [CustomersController::class, 'destroy'])->name('hapusKontak')-> middleware('auth');;
 
 // Route::middleware(['superadmin'])->group(function () {
 //     // Routes that only Super Admin can access
@@ -135,7 +136,14 @@ Route::get('/tambahippool', function () {
 //     return view('loginv2');
 // });
 
+// menampilkan list router
 Route::get('/router', [RoutersController::class, 'index'])->name('router');
 
+//add routers
 Route::get('/tambahrouter', [RoutersController::class, 'create'])->name('tambahrouter');
-Route::post('/router/store', [RoutersController::class, 'store'])->name('router.store');
+Route::post('/store', [RoutersController::class, 'store'])->name('router.store');
+
+//crud routers
+Route::get('/editrouter/{id}', [RoutersController::class, 'edit'])->name('editrouter')-> middleware('auth');
+Route::put('/updaterouter/{id}', [RoutersController::class, 'update'])->name('updaterouter')-> middleware('auth');
+Route::get('/deleterouter/{id}', [RoutersController::class, 'destroy'])->name('deleterouter')-> middleware('auth');

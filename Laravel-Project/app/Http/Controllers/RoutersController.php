@@ -3,37 +3,97 @@
 namespace App\Http\Controllers;
 use App\Models\Routers;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+
 
 class RoutersController extends Controller
 {
-    //
-    
-
-    public function index()
+    public function index(Request $request)
     {
-        $Routers = Routers::all();
-        return view('router', ['routers' => $Routers]);
+        $keyword = $request->keyword;
+        $routers = Routers::where('name', 'LIKE','%'.$keyword.'%')
+        ->orWhere('ip_address', 'LIKE','%'.$keyword.'%')
+        ->orWhere('username', 'LIKE', '%'.$keyword.'%')
+        ->orWhere('status', 'LIKE', '%'.$keyword.'%')
+        ->paginate(5);
+
+        return view('router', ['routers' => $routers, 'keyword' => $keyword]);
     }
 
     public function create()
     {
-        return view('router');
+        return view('tambahrouter');
     }
 
     public function store(Request $request)
     {
-        $data = $request->validate([
+        // Validasi input jika diperlukan
+        $request->validate([
             'name' => 'required|string',
             'ip_address' => 'required|string',
             'username' => 'required|string',
             'password' => 'required|string',
             'deskripsi' => 'nullable|string',
-            'status' => 'required|in:Active,Inactive',
+            'status' => ['required', Rule::in(['Enable', 'Disable'])], 
         ]);
 
-        Router::create($data);
+        // Simpan data ke dalam database
+        Routers::create([
+                    'status' => $request->input('status'),
+                    'name' => $request->input('name'),
+                    'ip_address' => $request->input('ip_address'),
+                    'username' => $request->input('username'),
+                    'password' => bcrypt($request->input('password')),
+                    'deskripsi' => $request->input('deskripsi'),
+        ]);
 
-        return redirect()->route('routers.index')->with('success', 'Router created successfully.');
+        return redirect()->route('router')
+            ->with('success', 'Router baru berhasil ditambahkan');
     }
+
+    public function edit($id) 
+    {
+    $router = Routers::findorFail($id);
+    return view ('editrouter', compact('router'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Validasi input jika diperlukan
+        $request->validate([
+            'name' => 'required|string',
+            'ip_address' => 'required|string',
+            'username' => 'required|unique:routers,username,' . $id,
+            'password' => 'required|string',
+            'deskripsi' => 'nullable|string',
+            'status' => ['required', Rule::in(['Enable', 'Disable'])],
+        ]);
+
+        $router = Routers::findOrFail($id);
+
+        // Update data in the database
+        $router->update([
+            'name' => $request->input('name'),
+            'ip_address' => $request->input('ip_address'),
+            'username' => $request->input('username'),
+            'password' => $request->filled('password') ? bcrypt($request->input('password')) : $router->password,
+            'deskripsi' => $request->input('deskripsi'),
+            'status' => $request->input('status'),
+        ]);
+
+        return redirect()->route('router')
+            ->with('success', 'Router berhasil diperbarui');
+    }
+
+    public function destroy($id)
+    {
+        // Hapus data dari database
+        Routers::destroy($id);
+
+        return redirect()->route('router')
+            ->with('success', 'Router berhasil dihapus');
+    }
+    
+
 
 }

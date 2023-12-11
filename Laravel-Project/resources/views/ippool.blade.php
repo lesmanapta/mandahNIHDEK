@@ -65,7 +65,6 @@
                                         <td>Pool1</td>
                                         <td>192.168.100.1-192.168.100.255</td>
                                         <td>RB941</td>
-                                        <td></td>
                                         <td>
                                           <button href="" class="edit-button">Edit</button>
                                         </td>
