@@ -74,5 +74,10 @@ We welcome contributions from the community. If you would like to contribute, pl
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute as per the terms of the license.
+<<<<<<< HEAD
 - Salma Alyasyifa
 - Naurah bisa
+=======
+- Salma naurah gabisa Push kasian banget
+>>>>>>> 0e789093cf11ffe87f063c0b74acf9f1ae1166bc
+- Semoga naurah bisa

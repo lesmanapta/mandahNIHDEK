@@ -114,13 +114,13 @@ Route::get('/hapusKontak/{id}', [CustomersController::class, 'destroy'])->name('
 //     return view('tambahrouter');
 // });
 
-// Route::get('/ippool', function () {
-//     return view('ippool');
-// });
+Route::get('/ippool', function () {
+    return view('ippool');
+});
 
-// Route::get('/tambahippool', function () {
-//     return view('tambahippool');
-// });
+Route::get('/tambahippool', function () {
+    return view('tambahippool');
+});
 
 // Route::get('/pengaturanadmin', function () {
 //     return view('pengaturanadmin');
