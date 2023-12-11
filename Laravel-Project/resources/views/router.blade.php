@@ -51,16 +51,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($routers as $router)
                                     <tr>
-                                        <td>RB941</td>
-                                        <td>192.168.100.1</td>
-                                        <td>admin1</td>
-                                        <td>hmhm</td>
-                                        <td></td>
+                                        <td>{{ $router->name}}</td>
+                                        <td>{{ $router->ip_address }}</td>
+                                        <td>{{ $router->username }}</td>
+                                        <td>{{ $router->deskripsi}}</td>
+                                        <td>{{ $router->status }}</td>
                                         <td>
-                                          <button href="" class="edit-button">Edit</button>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
