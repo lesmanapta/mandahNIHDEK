@@ -26,7 +26,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form class="form-horizontal">
+                        <form action="{{ route('router.store') }}" method="post" class="form-horizontal">
+                            @csrf
                             <div class="card-body">
                                 <div class="form-group row">
                                     <label for="examplestatus" class="col-sm-2 col-form-label">Status</label>
