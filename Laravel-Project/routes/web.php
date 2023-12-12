@@ -29,7 +29,17 @@ Route::get('/', function () {
     return view('welcome');
 })-> middleware('auth');
 
+Route::get('/daftarbandwidth', function () {
+    return view('daftarbandwidth');
+})-> middleware('auth');
 
+Route::get('/tambahpaketbaru', function () {
+    return view('tambahpaketbaru');
+})-> middleware('auth');
+
+Route::get('/bandwithbaru', function () {
+    return view('bandwithbaru');
+})-> middleware('auth');
 
 Route::get('/tambahpaketbaru', function () {
     return view('tambahpaketbaru');

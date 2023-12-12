@@ -48,7 +48,6 @@
                                 </div>
                                 <a href="/bandwithbaru" class="btn btn-success">Bandwidth Baru</a>
                             </div>
-
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                     <tr>

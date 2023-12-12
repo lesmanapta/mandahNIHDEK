@@ -267,7 +267,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
+                <a href="/daftarbandwidth" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Daftar Bandwidth</p>
                 </a>
