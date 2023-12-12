@@ -65,7 +65,7 @@
                                             <td>{{ $pool->range_ip }}</td>
                                             <td>{{ $pool->routers }}</td>
                                             <td>
-                                              {{-- <a href="{{ route('ippool.edit', $pool->id) }}" class="edit-button">Edit</a> --}}
+                                              <a href="{{ route('editippool', $pool->id) }}" class="edit-button">Edit</a>
                                               <a href="{{ route('deleteippool', $pool->id) }}" class="hapus-button">Hapus</a>
                                             </td>
                                         </tr>
