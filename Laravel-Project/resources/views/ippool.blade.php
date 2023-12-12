@@ -52,7 +52,6 @@
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
                                         <th>Nama Pool</th>
                                         <th>Rentang IP</th>
                                         <th>Routers</th>
@@ -62,12 +61,12 @@
                                 <tbody>
                                     @foreach ($inipool as $pool)
                                         <tr>
-                                            <td>{{ $pool->id }}</td>
                                             <td>{{ $pool->pool_name }}</td>
                                             <td>{{ $pool->range_ip }}</td>
                                             <td>{{ $pool->routers }}</td>
                                             <td>
                                               {{-- <a href="{{ route('ippool.edit', $pool->id) }}" class="edit-button">Edit</a> --}}
+                                              <a href="{{ route('deleteippool', $pool->id) }}" class="hapus-button">Hapus</a>
                                             </td>
                                         </tr>
                                     @endforeach

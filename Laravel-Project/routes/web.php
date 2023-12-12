@@ -29,10 +29,15 @@ Route::get('/', function () {
     return view('welcome');
 })-> middleware('auth');
 
+
+
 Route::get('/tambahpaketbaru', function () {
     return view('tambahpaketbaru');
 })-> middleware('auth');
 
+Route::get('/bandwithbaru', function () {
+    return view('bandwithbaru');
+})-> middleware('auth');
 
 //ini udah pegang hanya super admin yang bisa
 Route::get('/pengaturanadmin', [UserController::class, 'index'])->name('pengaturanadmin')-> middleware('auth', 'superadmin');
@@ -86,4 +91,7 @@ Route::post('/tambahippool', [PoolController::class, 'store'])->name('tambahippo
 
 Route::get('/editippool/{id}', [PoolController::class, 'edit'])->name('editippool');
 Route::put('/updateippool/{id}', [PoolController::class, 'update'])->name('updateippool');
-Route::delete('/deleteippool/{id}', [PoolController::class, 'destroy'])->name('deleteippool');
+Route::get('/deleteippool/{id}', [PoolController::class, 'destroy'])->name('deleteippool');
+
+
+
