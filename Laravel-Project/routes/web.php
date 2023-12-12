@@ -11,6 +11,8 @@ use App\Http\Controllers\RoutersController;
 use GuzzleHttp\Middleware;
 use App\Http\Middleware\SuperAdminMiddleware;
 use App\Models\Routers;
+use App\Http\Controllers\PoolController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -65,78 +67,7 @@ Route::get('/edittambahkontak/{id}', [CustomersController::class, 'edit'])->name
 Route::put('/updateKontak/{id}', [CustomersController::class, 'update'])->name('updateKontak')-> middleware('auth');;
 Route::get('/hapusKontak/{id}', [CustomersController::class, 'destroy'])->name('hapusKontak')-> middleware('auth');;
 
-// Route::middleware(['superadmin'])->group(function () {
-//     // Routes that only Super Admin can access
-//     Route::get('/pengaturanadmin', [AdminController::class, 'pengaturanadmin'])->name('pengaturanadmin');
-// });
-// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.form');
-// Route::post('/login', [LoginController::class, 'login'])->name('login');
 
-// Route::get('/tambahadmin', [AdminController::class, 'create'])->name('admin.create');
-// Route::post('/tambahadmin', [AdminController::class, 'store'])->name('admin.store');
-// Route::post('/tambahadmin', [AdminController::class, 'tambahadmin'])->name('tambahadmin');
-
-// Route::get('/master', function () {
-//     return view('master');
-// });
-// Route::get('/tambahkontakbaru', function () {
-//     return view('tambahkontakbaru');
-// });
-
-// Route::get('/beranda', function () {
-//     return view('beranda');
-// });
-
-
-// Route::get('/listKontak', function () {
-//     return view('ListKontak');
-// });
-
-// Route::get('/laporankeuangan', function () {
-//     return view('laporankeuangan');
-// });
-
-// Route::get('/tambahpaketbaru', function () {
-//     return view('tambahpaketbaru');
-// });
-
-// Route::get('/paketpppoe', function () {
-//     return view('paketpppoe');
-// });
-
-// Route::get('/pakethotspot', function () {
-//     return view('pakethotspot');
-// });
-
-// Route::get('/router', function () {
-//     return view('router');
-// });
-
-// Route::get('/tambahrouter', function () {
-//     return view('tambahrouter');
-// });
-
-Route::get('/ippool', function () {
-    return view('ippool');
-});
-
-Route::get('/tambahippool', function () {
-    return view('tambahippool');
-});
-
-// Route::get('/pengaturanadmin', function () {
-//     return view('pengaturanadmin');
-// });
-
-// Route::get('/tambahadmin', function () {
-//     return view('tambahadmin');
-// });
-
-// Route::get('/loginv2', function () {
-//     return view('loginv2');
-// });
-
-// menampilkan list router
 Route::get('/router', [RoutersController::class, 'index'])->name('router');
 
 //add routers
@@ -147,3 +78,12 @@ Route::post('/store', [RoutersController::class, 'store'])->name('router.store')
 Route::get('/editrouter/{id}', [RoutersController::class, 'edit'])->name('editrouter')-> middleware('auth');
 Route::put('/updaterouter/{id}', [RoutersController::class, 'update'])->name('updaterouter')-> middleware('auth');
 Route::get('/deleterouter/{id}', [RoutersController::class, 'destroy'])->name('deleterouter')-> middleware('auth');
+
+
+Route::get('/ippool', [PoolController::class, 'index'])->name('ippool.index');
+Route::get('/tambahippool', [PoolController::class, 'create'])->name('tambahippool');
+Route::post('/tambahippool', [PoolController::class, 'store'])->name('tambahippool.store');
+
+Route::get('/editippool/{id}', [PoolController::class, 'edit'])->name('editippool');
+Route::put('/updateippool/{id}', [PoolController::class, 'update'])->name('updateippool');
+Route::delete('/deleteippool/{id}', [PoolController::class, 'destroy'])->name('deleteippool');

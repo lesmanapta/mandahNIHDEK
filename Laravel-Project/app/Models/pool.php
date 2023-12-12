@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class pool extends Model
 {
-    use HasFactory;
     protected $table = 'pool';
-
     protected $fillable = [
-        'poolname',
+        'pool_name',
         'range_ip',
         'routers'
     ];
 }
+

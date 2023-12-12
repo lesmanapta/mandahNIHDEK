@@ -60,15 +60,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Pool1</td>
-                                        <td>192.168.100.1-192.168.100.255</td>
-                                        <td>RB941</td>
-                                        <td>
-                                          <button href="" class="edit-button">Edit</button>
-                                        </td>
-                                    </tr>
+                                    @foreach ($inipool as $pool)
+                                        <tr>
+                                            <td>{{ $pool->id }}</td>
+                                            <td>{{ $pool->pool_name }}</td>
+                                            <td>{{ $pool->range_ip }}</td>
+                                            <td>{{ $pool->routers }}</td>
+                                            <td>
+                                              {{-- <a href="{{ route('ippool.edit', $pool->id) }}" class="edit-button">Edit</a> --}}
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
