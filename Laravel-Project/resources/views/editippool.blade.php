@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Tambah Pool Baru</h1>
+                    <h1 class="m-0">Edit Pool<h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Tambah Pool Baru</li>
+                        <li class="breadcrumb-item active">Edit Pool</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -25,8 +25,9 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <form method="POST" action="{{ route('editippool') }}">
+                            <form method="POST" action="{{ route('updateippool', ['id' => $pool]) }}">
                                 @csrf
+                                @method('PUT')
                                 <div class="card-body">
                                     <div class="form-group row">
                                         <label for="exampleNamaPool" class="col-sm-2 col-form-label">Nama Pool</label>
@@ -70,7 +71,7 @@
                                     </div>
 
                                     <button type="submit" class="btn btn-primary">Submit</button>
-                                    <a href="#" class="btn btn-secondary">Cancel</a>
+                                    <a href="/ippool" class="btn btn-secondary">Cancel</a>
                                 </div>
                             </form>
                             <!-- /.card-body -->

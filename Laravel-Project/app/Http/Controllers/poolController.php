@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pool;
-use App\Models\Routers; // Pastikan untuk mengimport model Router
+use App\Models\Routers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class PoolController extends Controller
 {
-    
     public function index(Request $request)
     {
         $keyword = $request->keyword;
@@ -23,45 +22,52 @@ class PoolController extends Controller
 
     public function create()
     {
-        $routers = Routers::all(); // Mengambil semua router dari database
+        $routers = Routers::all();
         return view('tambahippool', compact('routers'));
     }
 
     public function store(Request $request)
     {
-    Log::info('Store Request Data: ' . json_encode($request->all())); // Log request data
+        Log::info('Store Request Data: ' . json_encode($request->all()));
 
-    $request->validate([
-        'pool_name' => 'required|unique:pool', 
-        'range_ip' => 'required|string',
-        'routers' => 'required|exists:routers,id',
-    ]);
+        $request->validate([
+            'pool_name' => 'required|unique:pool', 
+            'range_ip' => 'required|string',
+            'routers' => 'required|exists:routers,id',
+        ]);
 
-    Log::info('Validated Data: ' . json_encode($request->all())); // Log validated data
+        Log::info('Validated Data: ' . json_encode($request->all()));
 
-    Pool::create([
-        'pool_name' => $request->input('pool_name'),
-        'range_ip' => $request->input('range_ip'),
-        'routers' => $request->input('routers'),
-    ]);
+        Pool::create([
+            'pool_name' => $request->input('pool_name'),
+            'range_ip' => $request->input('range_ip'),
+            'routers' => $request->input('routers'),
+        ]);
 
-    Log::info('Pool Created');
+        Log::info('Pool Created');
 
-    return redirect()->route('ippool.index')
-        ->with('success', 'Pool baru berhasil ditambahkan');
+        return redirect()->route('ippool.index')
+            ->with('success', 'Pool baru berhasil ditambahkan');
+    }
+
+    public function edit($id)
+    {
+        $pool = Pool::findOrFail($id); // Ganti 'admin' menjadi 'pool'
+        $routers = Routers::all();
+        return view('editippool', compact('pool', 'routers')); // Ganti 'admin' menjadi 'pool'
     }
 
     public function update(Request $request, $id)
     {
-        Log::info('Update Request Data: ' . json_encode($request->all())); // Log request data
+        Log::info('Update Request Data: ' . json_encode($request->all()));
 
         $request->validate([
-            'pool_name' => 'required|unique:pool,pool_name,' . $id, // Tambahkan pengecualian untuk pool_name dengan ID yang sama
+            'pool_name' => 'required|unique:pool,pool_name,' . $id,
             'range_ip' => 'required|string',
-            'routers' => 'required|exists:routers,name',
+            'routers' => 'required|exists:routers,id',
         ]);
 
-        Log::info('Validated Data: ' . json_encode($request->all())); // Log validated data
+        Log::info('Validated Data: ' . json_encode($request->all()));
 
         $inipool = Pool::findOrFail($id);
 
@@ -77,11 +83,11 @@ class PoolController extends Controller
             ->with('success', 'Pool berhasil diperbarui');
     }
 
-        public function destroy($id)
-        {
-            Pool::destroy($id);
+    public function destroy($id)
+    {
+        Pool::destroy($id);
 
-            return redirect()->route('ippool.index')
-                ->with('success', 'Pool berhasil dihapus');
-        }
+        return redirect()->route('ippool.index')
+            ->with('success', 'Pool berhasil dihapus');
+    }
 }
