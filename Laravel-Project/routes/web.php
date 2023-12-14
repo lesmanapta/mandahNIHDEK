@@ -99,6 +99,7 @@ Route::get('/ippool', [PoolController::class, 'index'])->name('ippool.index');
 Route::get('/tambahippool', [PoolController::class, 'create'])->name('tambahippool');
 Route::post('/tambahippool', [PoolController::class, 'store'])->name('tambahippool.store');
 
+// crud pool
 Route::get('/editippool/{id}', [PoolController::class, 'edit'])->name('editippool');
 Route::put('/updateippool/{id}', [PoolController::class, 'update'])->name('updateippool');
 Route::get('/deleteippool/{id}', [PoolController::class, 'destroy'])->name('deleteippool');
