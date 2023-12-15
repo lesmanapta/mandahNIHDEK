@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="css/button.css">
-@extends('layout.master')
+
 <style>
   .edit-button {
     background-color: green;
