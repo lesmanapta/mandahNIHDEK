@@ -16,7 +16,8 @@ class Routers extends Model
         'ip_address',
         'username',
         'password',
-        'description',
+        'deskripsi',
         'status',
     ];
+    public $timestamps = false; // Menonaktifkan created_at dan updated_at
 }
