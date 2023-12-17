@@ -33,8 +33,8 @@
                                     <label for="statusRouter" class="col-sm-2 col-form-label">Status</label>
                                     <div class="col-sm-10">
                                         <select class="form-control" id="statusRouter" name="status">
-                                            <option value="Enable">Enable</option>
-                                            <option value="Disable">Disable</option>
+                                            <option value="Active">Active</option>
+                                            <option value="Inactive">Inactive</option>
                                             <!-- Add more options as needed -->
                                         </select>
                                     </div>

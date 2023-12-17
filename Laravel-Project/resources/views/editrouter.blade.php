@@ -34,15 +34,15 @@
                                     <label for="status" class="col-sm-2 col-form-label">Status</label>
                                     <div class="col-sm-10">
                                         <select name="status" class="form-control" required>
-                                            <option value="Enable" {{ old('status', $router->status) === 'Enable' ? 'selected' : '' }}>Enable</option>
-                                            <option value="Disable" {{ old('status', $router->status) === 'Disable' ? 'selected' : '' }}>Disable</option>
+                                            <option value="Active" {{ old('status', $router->status) === 'Active' ? 'selected' : '' }}>Active</option>
+                                            <option value="Inactive" {{ old('status', $router->status) === 'Inactive' ? 'selected' : '' }}>Inactive</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="username" class="col-sm-2 col-form-label">Nama Router</label>
+                                    <label for="name" class="col-sm-2 col-form-label">Nama Router</label>
                                     <div class="col-sm-10">
-                                    <input value="{{ old('name', $router->name) }}" type="text" class="form-control" name="name" id="username" placeholder="nama router">
+                                    <input value="{{ old('name', $router->name) }}" type="text" class="form-control" name="name" id="name" placeholder="nama router">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -64,9 +64,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="exampleKonfirmasiPassword1" class="col-sm-2 col-form-label">Konfirmasi Password</label>
+                                    <label for="password_confirmation" class="col-sm-2 col-form-label">Konfirmasi Password</label>
                                     <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="password_confirmation" id="exampleKonfirmasiPassword" placeholder="password">
+                                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="password">
                                     </div>
                                 </div>
                                 <div class="form-group row">

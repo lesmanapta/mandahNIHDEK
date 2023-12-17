@@ -104,5 +104,7 @@ Route::get('/editippool/{id}', [PoolController::class, 'edit'])->name('editippoo
 Route::put('/updateippool/{id}', [PoolController::class, 'update'])->name('updateippool');
 Route::get('/deleteippool/{id}', [PoolController::class, 'destroy'])->name('deleteippool');
 
-
+// Route::get('/cobarouter', [RoutersController::class, 'index']{
+//     return view ('cobarouter');
+// });
 
