@@ -45,35 +45,36 @@
                                 </div>
                                 <a href="/tambahkontakbaru" class="btn btn-success">Tambah Kontak</a>
                             </div>
-
-                            <table class="table table-hover text-nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>Username</th>
-                                        <th>Nama Lengkap</th>
-                                        <th>Nomor Hp</th>
-                                        <th>Tanggal Aktif</th>
-                                        <th>isi Ulang Akun</th>
-                                        <th>Proses</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($kontaks as $kontak)
+                            <div class="table-responsive">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
                                         <tr>
-                                            <td>{{ $kontak->username }}</td>
-                                            <td>{{ $kontak->fullnameCustomer }}</td>
-                                            <td>{{ $kontak->phonenumber }}</td>
-                                            <td>{{ $kontak->created_at->format('d-m-Y') }}</td>
-                                            <td></td>
-                                            <td>
-                                                <a href="{{ route('editKontak', $kontak->id) }}" class="edit-button">Edit</a>
-                                                <a href="{{ route('hapusKontak', $kontak->id) }}" class="hapus-button">Hapus</a>
-                                            </td>
-                                            <td></td>
+                                            <th>Username</th>
+                                            <th>Nama Lengkap</th>
+                                            <th>Nomor Hp</th>
+                                            <th>Tanggal Aktif</th>
+                                            <th>isi Ulang Akun</th>
+                                            <th>Proses</th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($kontaks as $kontak)
+                                            <tr>
+                                                <td>{{ $kontak->username }}</td>
+                                                <td>{{ $kontak->fullnameCustomer }}</td>
+                                                <td>{{ $kontak->phonenumber }}</td>
+                                                <td>{{ $kontak->created_at->format('d-m-Y') }}</td>
+                                                <td></td>
+                                                <td>
+                                                    <a href="{{ route('editKontak', $kontak->id) }}" class="edit-button">Edit</a>
+                                                    <a href="{{ route('hapusKontak', $kontak->id) }}" class="hapus-button">Hapus</a>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>

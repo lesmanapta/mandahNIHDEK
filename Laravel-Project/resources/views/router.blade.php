@@ -49,35 +49,36 @@
                                     <a href="tambahrouter" class="btn btn-success">Tambah Router</a>
                                 </div>
                             </div>
-
-                            <table class="table table-hover text-nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>Nama Router</th>
-                                        <th>IP Address</th>
-                                        <th>Username</th>
-                                        <th>Deskripsi</th>
-                                        <th>Status</th>
-                                        <th>Proses</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($routers as $router)
+                            <div class="table-responsive">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
                                         <tr>
-                                            <td>{{ $router->name}}</td>
-                                            <td>{{ $router->ip_address }}</td>
-                                            <td>{{ $router->username }}</td>
-                                            <td>{{ $router->deskripsi}}</td>
-                                            <td>{{ $router->status }}</td>
-                                            <td>
-                                                <a href="{{ route('editrouter', $router->id) }}" class="edit-button">Edit</a>
-                                                <a href="{{ route('deleterouter', $router->id) }}" class="hapus-button">Hapus</a>
-                                            </td>
+                                            <th>Nama Router</th>
+                                            <th>IP Address</th>
+                                            <th>Username</th>
+                                            <th>Deskripsi</th>
+                                            <th>Status</th>
+                                            <th>Proses</th>
                                         </tr>
-                                        
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($routers as $router)
+                                            <tr>
+                                                <td>{{ $router->name}}</td>
+                                                <td>{{ $router->ip_address }}</td>
+                                                <td>{{ $router->username }}</td>
+                                                <td>{{ $router->deskripsi}}</td>
+                                                <td>{{ $router->status }}</td>
+                                                <td>
+                                                    <a href="{{ route('editrouter', $router->id) }}" class="edit-button">Edit</a>
+                                                    <a href="{{ route('deleterouter', $router->id) }}" class="hapus-button">Hapus</a>
+                                                </td>
+                                            </tr>
+                                            
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>

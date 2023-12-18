@@ -48,30 +48,32 @@
                                 </div>
                                 <a href="/bandwithbaru" class="btn btn-success">Bandwidth Baru</a>
                             </div>
-                            <table class="table table-hover text-nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>Nama Bandwidth</th>
-                                        <th>Rate Download</th>
-                                        <th>Rate Upload</th>
-                                        <th>Proses</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {{-- @foreach ($inipool as $pool)
+                            <div class="table-responsive">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
                                         <tr>
-                                            <td>{{ $pool->id }}</td>
-                                            <td>{{ $pool->pool_name }}</td>
-                                            <td>{{ $pool->range_ip }}</td>
-                                            <td>{{ $pool->routers }}</td>
-                                            <td>
-                                              <a href="{{ route('ippool.edit', $pool->id) }}" class="edit-button">Edit</a>
-                                              <a href="{{ route('deleteippool', $pool->id) }}" class="hapus-button">Hapus</a>
-                                            </td>
+                                            <th>Nama Bandwidth</th>
+                                            <th>Rate Download</th>
+                                            <th>Rate Upload</th>
+                                            <th>Proses</th>
                                         </tr>
-                                    @endforeach --}}
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        {{-- @foreach ($inipool as $pool)
+                                            <tr>
+                                                <td>{{ $pool->id }}</td>
+                                                <td>{{ $pool->pool_name }}</td>
+                                                <td>{{ $pool->range_ip }}</td>
+                                                <td>{{ $pool->routers }}</td>
+                                                <td>
+                                                  <a href="{{ route('ippool.edit', $pool->id) }}" class="edit-button">Edit</a>
+                                                  <a href="{{ route('deleteippool', $pool->id) }}" class="hapus-button">Hapus</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach --}}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>

@@ -46,37 +46,38 @@
                                     </a>
                                 </div>
                                 <div class="float-sm-right">
-                                    <a href="tambahadmin" class="btn btn-success">Tambah Admin</a>
+                                    <a href="tambahadmin" class="btn btn-success btn-sm btn-block">Tambah Admin</a>
                                 </div>
                             </div>
-
-                            <table class="table table-hover text-nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>Username</th>
-                                        <th>Nama Lengkap</th>
-                                        <th>Jenis</th>
-                                        <th>Terakhir Login</th>
-                                        <th>Proses</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($users as $user)
+                            <div class="table-responsive">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
                                         <tr>
-                                            <td>{{ $user->username }}</td>
-                                            <td>{{ $user->fullname }}</td>
-                                            <td>{{ $user->user_type }}</td>
-                                            <td>{{ $user->last_login }}</td>
-                                            <td>
-                                                <a href="{{ route('editadmin', $user->id) }}" class="edit-button">Edit</a>
-                                                <a href="{{ route('deleteadmin', $user->id) }}" class="hapus-button">Hapus</a>
-                                            </td>
+                                            <th>Username</th>
+                                            <th>Nama Lengkap</th>
+                                            <th>Jenis</th>
+                                            <th>Terakhir Login</th>
+                                            <th>Proses</th>
+    
                                         </tr>
-                                        
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($users as $user)
+                                            <tr>
+                                                <td>{{ $user->username }}</td>
+                                                <td>{{ $user->fullname }}</td>
+                                                <td>{{ $user->user_type }}</td>
+                                                <td>{{ $user->last_login }}</td>
+                                                <td>
+                                                    <a href="{{ route('editadmin', $user->id) }}" class="edit-button">Edit</a>
+                                                    <a href="{{ route('deleteadmin', $user->id) }}" class="hapus-button">Hapus</a>
+                                                </td>
+                                            </tr>
+                                            
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>
