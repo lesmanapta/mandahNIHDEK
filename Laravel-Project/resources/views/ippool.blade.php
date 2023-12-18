@@ -1,14 +1,5 @@
 
-<style>
-  .edit-button {
-    background-color: green;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-</style>
+<link rel="stylesheet" href="css/button.css">
 
 @extends('layout.master')
 
