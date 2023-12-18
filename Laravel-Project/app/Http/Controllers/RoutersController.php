@@ -66,7 +66,7 @@ class RoutersController extends Controller
             'username' => 'required|unique:routers,username,' . $id,
             'password' => 'required|string',
             'deskripsi' => 'nullable|string',
-            'status' => ['required', Rule::in(['Active', 'Inactive'])],
+            'status' => ['required', Rule::in(['Enable', 'Disable'])],
         ]);
 
         $router = Routers::findOrFail($id);
