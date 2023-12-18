@@ -34,7 +34,7 @@ class RoutersController extends Controller
             'username' => 'required|string',
             'password' => 'required|string',
             'deskripsi' => 'nullable|string',
-            'status' => ['required', Rule::in(['Active', 'Inactive'])], 
+            'status' => ['required', Rule::in(['Enable', 'Disable'])], 
         ]);
 
         // Simpan data ke dalam database

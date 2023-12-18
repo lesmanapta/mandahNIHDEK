@@ -34,8 +34,8 @@
                                     <label for="status" class="col-sm-2 col-form-label">Status</label>
                                     <div class="col-sm-10">
                                         <select name="status" class="form-control" required>
-                                            <option value="Active" {{ old('status', $router->status) === 'Active' ? 'selected' : '' }}>Active</option>
-                                            <option value="Inactive" {{ old('status', $router->status) === 'Inactive' ? 'selected' : '' }}>Inactive</option>
+                                            <option value="Enable" {{ old('status', $router->status) === 'Enable' ? 'selected' : '' }}>Enable</option>
+                                            <option value="Disable" {{ old('status', $router->status) === 'Disable' ? 'selected' : '' }}>Disable</option>
                                         </select>
                                     </div>
                                 </div>

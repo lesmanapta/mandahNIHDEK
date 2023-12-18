@@ -20,7 +20,7 @@ class CreateRoutersTable extends Migration
             $table->string('username');
 	        $table->mediumText('password');
             $table->string('deskripsi')->nullable();
-            $table->enum('status', ['Active', 'Inactive'])->default('Active');
+            $table->enum('status', ['Enable', 'Disable'])->default('Disable');
         });
     }
 
