@@ -10,6 +10,18 @@
   }
 </style>
 
+<style>
+    .hapus-button {
+      background-color: rgb(198, 5, 5);
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+  
+
 @extends('layout.master')
 
 @section('content')
