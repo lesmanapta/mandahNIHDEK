@@ -1,14 +1,5 @@
 
-<style>
-  .edit-button {
-    background-color: green;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-</style>
+<link rel="stylesheet" href="css/button.css">
 
 <style>
     .hapus-button {
@@ -36,7 +27,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Ip Pool</li>
+                        <li class="breadcrumb-item active">IP Pool</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -52,39 +43,48 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div class="input-group input-group-sm" style="width: 300px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <a href="/tambahippool" class="btn btn-success">Pool Baru</a>
-                            </div>
+                                    <form action="" class="form-inline" method="GET">
 
-                            <table class="table table-hover text-nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>Nama Pool</th>
-                                        <th>Rentang IP</th>
-                                        <th>Routers</th>
-                                        <th>Proses</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($inipool as $pool)
+                                        <input type="text" name="keyword" class="form-control float-right" placeholder="Search" value="{{ old('keyword', $keyword) }}">
+                                        
+                                        <div class="input-group-append">
+                                            <button id="searchAdmin" type="submit" class="btn btn-default">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                        {{-- <input type="reset" name= "Reset" value="Reset" href="/pengaturanadmin"> --}}
+                                    </form>
+                                    <a href="/ippool" style="margin: 3px" id="tombolSilang"  style="display: block;" class="btn btn-danger">
+                                    <i class="fas fa-times"></i>
+                                    </a>
+                                </div>
+                                <a href="/tambahippool" class="btn btn-success btn-sm">Pool Baru</a>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
                                         <tr>
-                                            <td>{{ $pool->pool_name }}</td>
-                                            <td>{{ $pool->range_ip }}</td>
-                                            <td>{{ $pool->routers }}</td>
-                                            <td>
-                                              <a href="{{ route('editippool', $pool->id) }}" class="edit-button">Edit</a>
-                                              <a href="{{ route('deleteippool', $pool->id) }}" class="hapus-button">Hapus</a>
-                                            </td>
+                                            <th>Nama Pool</th>
+                                            <th>Rentang IP</th>
+                                            <th>Routers</th>
+                                            <th>Proses</th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($inipool as $pool)
+                                            <tr>
+                                                <td>{{ $pool->pool_name }}</td>
+                                                <td>{{ $pool->range_ip }}</td>
+                                                <td>{{ $pool->routers }}</td>
+                                                <td>
+                                                  <a href="{{ route('editippool', $pool->id) }}" class="edit-button">Edit</a>
+                                                  <a href="{{ route('deleteippool', $pool->id) }}" class="hapus-button">Hapus</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>

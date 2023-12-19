@@ -1,19 +1,19 @@
-<link rel="stylesheet" href="css/button.css">
 @extends('layout.master')
-
 @section('content')
+<link rel="stylesheet" href="css/button.css">
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Routers</h1>
+                    <h1 class="m-0">Router</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Routers</li>
+                        <li class="breadcrumb-item active">Router</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -35,46 +35,50 @@
                                         <input type="text" name="keyword" class="form-control float-right" placeholder="Search" value="{{ old('keyword', $keyword) }}">
                                         
                                         <div class="input-group-append">
-                                            <button id="searchAdmin" type="submit" class="btn btn-default">
+                                            <button id="searchRouter" type="submit" class="btn btn-default">
                                                 <i class="fas fa-search"></i>
                                             </button>
                                         </div>
-                                        {{-- <input type="reset" name= "Reset" value="Reset" href="/pengaturanadmin"> --}}
+                                        {{-- <input type="reset" name= "Reset" value="Reset" href="/cobarouter"> --}}
                                     </form>
                                     <a href="/router" style="margin: 3px" id="tombolSilang"  style="display: block;" class="btn btn-danger">
                                     <i class="fas fa-times"></i>
                                     </a>
                                 </div>
-                                <a href="tambahrouter" class="btn btn-success">Tambah Router</a>
+                                <div class="float-sm-right">
+                                    <a href="tambahrouter" class="btn btn-success">Tambah Router</a>
+                                </div>
                             </div>
-
-                            <table class="table table-hover text-nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>Nama Router</th>
-                                        <th>IP Address</th>
-                                        <th>Username</th>
-                                        <th>Deskripsi</th>
-                                        <th>Status</th>
-                                        <th>Proses</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($routers as $router)
-                                    <tr>
-                                        <td>{{ $router->name}}</td>
-                                        <td>{{ $router->ip_address }}</td>
-                                        <td>{{ $router->username }}</td>
-                                        <td>{{ $router->deskripsi}}</td>
-                                        <td>{{ $router->status }}</td>
-                                        <td>
-                                            <a href="{{ route('editrouter', $router->id) }}" class="edit-button">Edit</a>
-                                            <a href="{{ route('deleterouter', $router->id) }}" class="hapus-button">Hapus</a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                            <div class="table-responsive">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Router</th>
+                                            <th>IP Address</th>
+                                            <th>Username</th>
+                                            <th>Deskripsi</th>
+                                            <th>Status</th>
+                                            <th>Proses</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($routers as $router)
+                                            <tr>
+                                                <td>{{ $router->name}}</td>
+                                                <td>{{ $router->ip_address }}</td>
+                                                <td>{{ $router->username }}</td>
+                                                <td>{{ $router->deskripsi}}</td>
+                                                <td>{{ $router->status }}</td>
+                                                <td>
+                                                    <a href="{{ route('editrouter', $router->id) }}" class="edit-button">Edit</a>
+                                                    <a href="{{ route('deleterouter', $router->id) }}" class="hapus-button">Hapus</a>
+                                                </td>
+                                            </tr>
+                                            
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>
