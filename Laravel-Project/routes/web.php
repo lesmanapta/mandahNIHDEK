@@ -2,6 +2,7 @@
 
 use App\Models\Login;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BandwidthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomersController;
@@ -12,7 +13,7 @@ use GuzzleHttp\Middleware;
 use App\Http\Middleware\SuperAdminMiddleware;
 use App\Models\Routers;
 use App\Http\Controllers\PoolController;
-
+use App\Models\Bandwidth;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,4 +108,4 @@ Route::get('/deleteippool/{id}', [PoolController::class, 'destroy'])->name('dele
 // Route::get('/cobarouter', [RoutersController::class, 'index']{
 //     return view ('cobarouter');
 // });
-
+Route::get('/daftarbandwidth', [BandwidthController::class, 'index'])->name('bandwidth.index');
