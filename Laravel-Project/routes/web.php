@@ -109,3 +109,5 @@ Route::get('/deleteippool/{id}', [PoolController::class, 'destroy'])->name('dele
 //     return view ('cobarouter');
 // });
 Route::get('/daftarbandwidth', [BandwidthController::class, 'index'])->name('bandwidth.index');
+Route::get('/bandwidthbaru', [BandwidthController::class, 'create'])->name('bandwidthbaru');
+Route::post('/bandwidthbaru', [BandwidthController::class, 'store'])->name('bandwidthbaru.store');

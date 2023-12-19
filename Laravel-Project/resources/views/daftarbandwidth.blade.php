@@ -54,7 +54,7 @@
                                           </button>
                                       </div>
                                   </div>
-                                  <a href="{{ route('bandwidth.index') }}" class="btn btn-success">Bandwidth Baru</a>
+                                  <a href="{{ route('bandwidthbaru') }}" class="btn btn-success">Bandwidth Baru</a>
                               </div>
                               <div class="table-responsive">
                                   <table class="table table-hover text-nowrap">

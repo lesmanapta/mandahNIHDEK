@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('rate_down_unit', ['Kbps', 'Mbps']);
             $table->unsignedInteger('rate_up');
             $table->enum('rate_up_unit', ['Kbps', 'Mbps']);
+            $table->timestamps();
         });
     }
 

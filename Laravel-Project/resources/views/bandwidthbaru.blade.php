@@ -25,22 +25,22 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            {{-- <form method="POST" action="{{ route('your.route.name') }}">
-                                @csrf --}}
+                            <form method="POST" action="{{ route('bandwidthbaru.store') }}">
+                                @csrf
                                 <div class="card-body">
                                     <div class="form-group row">
-                                        <label for="bandwith" class="col-sm-2 col-form-label">Nama Bandwidth</label>
+                                        <label for="namabandwith" class="col-sm-2 col-form-label">Nama Bandwidth</label>
                                         <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="namabandwith" id="namabandwith" placeholder="nama bandwith">
+                                            <input type="text" class="form-control" name="name_bw" id="namabandwith" placeholder="Nama Bandwidth">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="rateDownload" class="col-sm-2 col-form-label">Rate Download</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="rateDownload" name="rateDownload">
+                                            <input type="text" class="form-control" id="rateDownload" name="rate_down">
                                         </div>
                                         <div class="col-sm-2">
-                                            <select class="form-control" name="downloadUnit">
+                                            <select class="form-control" name="rate_down_unit">
                                                 <option value="Kbps">Kbps</option>
                                                 <option value="Mbps">Mbps</option>
                                             </select>
@@ -50,10 +50,10 @@
                                     <div class="form-group row">
                                         <label for="rateUpload" class="col-sm-2 col-form-label">Rate Upload</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="rateUpload" name="rateUpload">
+                                            <input type="text" class="form-control" id="rateUpload" name="rate_up">
                                         </div>
                                         <div class="col-sm-2">
-                                            <select class="form-control" name="uploadUnit">
+                                            <select class="form-control" name="rate_up_unit">
                                                 <option value="Kbps">Kbps</option>
                                                 <option value="Mbps">Mbps</option>
                                             </select>
