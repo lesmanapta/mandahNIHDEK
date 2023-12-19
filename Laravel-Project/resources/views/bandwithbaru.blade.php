@@ -29,6 +29,12 @@
                                 @csrf --}}
                                 <div class="card-body">
                                     <div class="form-group row">
+                                        <label for="bandwith" class="col-sm-2 col-form-label">Nama Bandwidth</label>
+                                        <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="namabandwith" id="namabandwith" placeholder="nama bandwith">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label for="rateDownload" class="col-sm-2 col-form-label">Rate Download</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" id="rateDownload" name="rateDownload">
