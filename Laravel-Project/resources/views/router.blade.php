@@ -78,6 +78,9 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <div class="float-right">
+                                    {{ $routers -> links() }}
+                                </div>
                             </div>
                         </div>
                         <!-- /.card-body -->

@@ -47,12 +47,20 @@
                           <div class="card-body">
                               <div class="d-flex justify-content-between align-items-center mb-3">
                                   <div class="input-group input-group-sm" style="width: 300px;">
-                                      <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                                      <div class="input-group-append">
-                                          <button type="submit" class="btn btn-default">
-                                              <i class="fas fa-search"></i>
-                                          </button>
-                                      </div>
+                                    <form action="" class="form-inline" method="GET">
+
+                                        <input type="text" name="keyword" class="form-control float-right" placeholder="Search" value="{{ old('keyword', $keyword) }}">
+                                        
+                                        <div class="input-group-append">
+                                            <button id="searchAdmin" type="submit" class="btn btn-default">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                        {{-- <input type="reset" name= "Reset" value="Reset" href="/pengaturanadmin"> --}}
+                                    </form>
+                                    <a href="/daftarbandwidth" style="margin: 3px" id="tombolSilang"  style="display: block;" class="btn btn-danger">
+                                    <i class="fas fa-times"></i>
+                                    </a>
                                   </div>
                                   <a href="{{ route('bandwidthbaru') }}" class="btn btn-success">Bandwidth Baru</a>
                               </div>
@@ -84,6 +92,9 @@
                                           @endforeach
                                       </tbody>
                                   </table>
+                                    <div class="float-right">
+                                        {{ $bandwidths -> links() }}
+                                    </div>
                               </div>
                           </div>
                           <!-- /.card-body -->

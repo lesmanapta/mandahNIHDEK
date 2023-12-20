@@ -74,6 +74,9 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <div class="float-right">
+                                    {{ $kontaks -> links() }}
+                                </div>
                             </div>
                         </div>
                         <!-- /.card-body -->

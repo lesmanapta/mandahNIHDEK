@@ -7,9 +7,14 @@ use App\Models\Bandwidth;
 
 class BandwidthController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $bandwidths = Bandwidth::all();
+        // $bandwidths = Bandwidth::all();
+        $keyword = $request->keyword;
+
+        $bandwidths = Bandwidth::where('name_bw', 'LIKE','%'.$keyword.'%')
+        ->paginate(5);
+
         return view('daftarbandwidth', compact('bandwidths'));
     }
 

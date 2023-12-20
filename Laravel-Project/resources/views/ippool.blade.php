@@ -1,18 +1,6 @@
 
 <link rel="stylesheet" href="css/button.css">
 
-<style>
-    .hapus-button {
-      background-color: rgb(198, 5, 5);
-      color: white;
-      padding: 5px 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  </style>
-  
-
 @extends('layout.master')
 
 @section('content')
@@ -54,7 +42,7 @@
                                         </div>
                                         {{-- <input type="reset" name= "Reset" value="Reset" href="/pengaturanadmin"> --}}
                                     </form>
-                                    <a href="/ippool" style="margin: 3px" id="tombolSilang"  style="display: block;" class="btn btn-danger">
+                                    <a href="/ippooln" style="margin: 3px" id="tombolSilang"  style="display: block;" class="btn btn-danger">
                                     <i class="fas fa-times"></i>
                                     </a>
                                 </div>
@@ -84,6 +72,9 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <div class="float-right">
+                                    {{ $inipool -> links() }}
+                                </div>
                             </div>
                         </div>
                         <!-- /.card-body -->

@@ -75,8 +75,12 @@
                                             </tr>
                                             
                                         @endforeach
+                                        
                                     </tbody>
                                 </table>
+                                <div class="float-right">
+                                    {{ $users -> links() }}
+                                </div>
                             </div>
                         </div>
                         <!-- /.card-body -->
