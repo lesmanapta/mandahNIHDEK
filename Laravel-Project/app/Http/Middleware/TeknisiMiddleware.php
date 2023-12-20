@@ -1,12 +1,12 @@
 <?php
 
+
 namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 
-class Bendahara
+class TeknisiMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,8 +17,8 @@ class Bendahara
      */
     public function handle(Request $request, Closure $next)
     {
-        // Check if the user is logged in and has 'Bendahara' user_type
-        if ($request->user() && $request->user()->user_type === 'Bendahara') {
+        // Check if the user is logged in and has 'Super Admin' user_type
+        if ($request->user() && $request->user()->user_type === 'Teknisi') {
             return $next($request);
         }
 

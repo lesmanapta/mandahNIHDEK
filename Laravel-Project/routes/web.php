@@ -59,8 +59,8 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
 // Add Admin Routes
-Route::get('/tambahadmin', [AdminController::class, 'create'])->name('tambahadmin')-> middleware('auth');;
-Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store')-> middleware('auth');;
+Route::get('/tambahadmin', [AdminController::class, 'create'])->name('tambahadmin')-> middleware('auth', 'superadmin');;
+Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store')-> middleware('auth', 'superadmin');;
 
 // Logout Routes
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
@@ -75,39 +75,39 @@ Route::post('/tambahkontakbaru', [CustomersController::class, 'store'])->name('t
 // Route::put('/admin/{id}', 'AdminController@updateAdmin')->name('admin.update');
 
 
-Route::get('/editadmin/{id}', [AdminController::class, 'edit'])->name('editadmin')-> middleware('auth');
-Route::put('/updateadmin/{id}', [AdminController::class, 'update'])->name('updateadmin')-> middleware('auth');
-Route::get('/deleteadmin/{id}', [AdminController::class, 'destroy'])->name('deleteadmin')-> middleware('auth');
+Route::get('/editadmin/{id}', [AdminController::class, 'edit'])->name('editadmin')-> middleware('auth', 'superadmin');
+Route::put('/updateadmin/{id}', [AdminController::class, 'update'])->name('updateadmin')-> middleware('auth', 'superadmin');
+Route::get('/deleteadmin/{id}', [AdminController::class, 'destroy'])->name('deleteadmin')-> middleware('auth', 'superadmin');
 
 Route::get('/edittambahkontak/{id}', [CustomersController::class, 'edit'])->name('editKontak')-> middleware('auth');;
 Route::put('/updateKontak/{id}', [CustomersController::class, 'update'])->name('updateKontak')-> middleware('auth');;
 Route::get('/hapusKontak/{id}', [CustomersController::class, 'destroy'])->name('hapusKontak')-> middleware('auth');;
 
 
-Route::get('/router', [RoutersController::class, 'index'])->name('router');
+Route::get('/router', [RoutersController::class, 'index'])->name('router')->middleware('auth','teknisi', 'superadmin');
 
 //add routers
-Route::get('/tambahrouter', [RoutersController::class, 'create'])->name('tambahrouter');
-Route::post('/store', [RoutersController::class, 'store'])->name('router.store');
+Route::get('/tambahrouter', [RoutersController::class, 'create'])->name('tambahrouter')->middleware('auth','teknisi', 'superadmin');
+Route::post('/store', [RoutersController::class, 'store'])->name('router.store')->middleware('auth','teknisi', 'superadmin');
 
 //crud routers
-Route::get('/editrouter/{id}', [RoutersController::class, 'edit'])->name('editrouter')-> middleware('auth');
-Route::put('/updaterouter/{id}', [RoutersController::class, 'update'])->name('updaterouter')-> middleware('auth');
-Route::get('/deleterouter/{id}', [RoutersController::class, 'destroy'])->name('deleterouter')-> middleware('auth');
+Route::get('/editrouter/{id}', [RoutersController::class, 'edit'])->name('editrouter')-> middleware('auth','teknisi', 'superadmin');
+Route::put('/updaterouter/{id}', [RoutersController::class, 'update'])->name('updaterouter')-> middleware('auth','teknisi', 'superadmin');
+Route::get('/deleterouter/{id}', [RoutersController::class, 'destroy'])->name('deleterouter')-> middleware('auth','teknisi', 'superadmin');
 
 
-Route::get('/ippool', [PoolController::class, 'index'])->name('ippool.index');
-Route::get('/tambahippool', [PoolController::class, 'create'])->name('tambahippool');
-Route::post('/tambahippool', [PoolController::class, 'store'])->name('tambahippool.store');
+Route::get('/ippool', [PoolController::class, 'index'])->name('ippool.index')->middleware('auth','teknisi', 'superadmin');
+Route::get('/tambahippool', [PoolController::class, 'create'])->name('tambahippool')->middleware('auth','teknisi', 'superadmin');
+Route::post('/tambahippool', [PoolController::class, 'store'])->name('tambahippool.store')->middleware('auth','teknisi', 'superadmin');
 
 // crud pool
-Route::get('/editippool/{id}', [PoolController::class, 'edit'])->name('editippool');
-Route::put('/updateippool/{id}', [PoolController::class, 'update'])->name('updateippool');
-Route::get('/deleteippool/{id}', [PoolController::class, 'destroy'])->name('deleteippool');
+Route::get('/editippool/{id}', [PoolController::class, 'edit'])->name('editippool')->middleware('auth','teknisi', 'superadmin');
+Route::put('/updateippool/{id}', [PoolController::class, 'update'])->name('updateippool')->middleware('auth','teknisi', 'superadmin');
+Route::get('/deleteippool/{id}', [PoolController::class, 'destroy'])->name('deleteippool')->middleware('auth','teknisi', 'superadmin');
 
 // Route::get('/cobarouter', [RoutersController::class, 'index']{
 //     return view ('cobarouter');
 // });
-Route::get('/daftarbandwidth', [BandwidthController::class, 'index'])->name('bandwidth.index');
-Route::get('/bandwidthbaru', [BandwidthController::class, 'create'])->name('bandwidthbaru');
-Route::post('/bandwidthbaru', [BandwidthController::class, 'store'])->name('bandwidthbaru.store');
+Route::get('/daftarbandwidth', [BandwidthController::class, 'index'])->name('bandwidth.index')->middleware('auth','teknisi', 'superadmin');
+Route::get('/bandwidthbaru', [BandwidthController::class, 'create'])->name('bandwidthbaru')->middleware('auth', 'teknisi', 'superadmin');
+Route::post('/bandwidthbaru', [BandwidthController::class, 'store'])->name('bandwidthbaru.store')->middleware('auth', 'teknisi', 'superadmin');

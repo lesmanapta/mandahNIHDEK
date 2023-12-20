@@ -49,7 +49,7 @@
                                   <div class="input-group input-group-sm" style="width: 300px;">
                                     <form action="" class="form-inline" method="GET">
 
-                                        <input type="text" name="keyword" class="form-control float-right" placeholder="Search" value="{{ old('keyword', $keyword) }}">
+                                        <input type="text" name="keyword" class="form-control float-right" placeholder="Search" value="">
                                         
                                         <div class="input-group-append">
                                             <button id="searchAdmin" type="submit" class="btn btn-default">

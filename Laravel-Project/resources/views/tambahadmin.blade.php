@@ -48,6 +48,8 @@
                                         <select class="form-control" id="namapaket1" name="user_type">
                                             <option value="Super Admin">Super Admin</option>
                                             <option value="Admin">Admin</option>
+                                            <option value="Teknisi">Teknisi</option>
+                                            <option value="Keuangan">Keuangan</option>
                                             <!-- Add more options as needed -->
                                         </select>
                                     </div>

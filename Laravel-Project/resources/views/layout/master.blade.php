@@ -245,8 +245,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item" @auth @if(auth()->user()->user_type === 'Super Admin' || auth()->user()->user_type === 'Teknisi') '' @else style="display:none;" @endif @endauth>            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Layanan
@@ -274,8 +273,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item" @auth @if(auth()->user()->user_type === 'Super Admin' || auth()->user()->user_type === 'Keuangan') '' @else style="display:none;" @endif @endauth>            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
                 Laporan
@@ -303,8 +301,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item" @auth @if(auth()->user()->user_type === 'Super Admin' || auth()->user()->user_type === 'Teknisi') '' @else style="display:none;" @endif @endauth>            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Network

@@ -4,6 +4,8 @@ namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use App\Http\Middleware\SuperAdminMiddleware;
+use App\Http\Middleware\TeknisiMiddleware;
+use App\Http\Middleware\KeuanganMiddleware;
 
 class Kernel extends HttpKernel
 {
@@ -71,6 +73,8 @@ class Kernel extends HttpKernel
         // ... other middleware
         'auth.custom' => \App\Http\Middleware\AuthenticateCustom::class,
         'superadmin' => SuperAdminMiddleware::class,
+        'teknisi' => TeknisiMiddleware::class,
+        'keuangan' => KeuanganMiddleware::class,
     ];
 
 }

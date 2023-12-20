@@ -21,7 +21,7 @@ class AdminController extends Controller
     // Validate the form data
     $request->validate([
         'fullname' => 'required',
-        'user_type' => ['required', Rule::in(['Super Admin', 'Admin'])],
+        'user_type' => ['required', Rule::in(['Super Admin', 'Admin', 'Teknisi', 'Keuangan'])],
         'password' => 'sometimes|confirmed|min:6', // Only validate if a password is provided
     ]);
 
@@ -50,7 +50,7 @@ class AdminController extends Controller
         $request->validate([
             'username' => 'required|unique:users',
             'fullname' => 'required',
-            'user_type' => ['required', Rule::in(['Super Admin', 'Admin'])],
+            'user_type' => ['required', Rule::in(['Super Admin', 'Admin', 'Teknisi', 'Keuangan'])],
             'password' => 'required|confirmed|min:6'
         ]);
 
