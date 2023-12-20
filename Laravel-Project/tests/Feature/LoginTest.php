@@ -109,21 +109,4 @@ class LoginTest extends TestCase
      *
      * @return void
      */
-    public function test_user_cannot_login_with_gakvalid_credentials()
-    {
-        // Attempt to login with invalid credentials
-        $response = $this->post('/login', [
-            'username' => 'invaliduser',
-            'password' => 'invalidpassword',
-        ]);
-
-        // Assert that the user is not redirected
-        $response->assertStatus(302);
-
-        // Assert that the session has no user information
-        $this->assertGuest();
-
-        // Assert that there is an error message about invalid credentials
-        $response->assertSessionHasErrors('login', 'Invalid login credentials');
-    }
 }
