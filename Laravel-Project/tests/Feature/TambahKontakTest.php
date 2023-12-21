@@ -48,6 +48,7 @@ class TambahKontakTest extends TestCase
             'phonenumber' => '123456789',
             'address' => '123 Main St, City',
         ]);
+        $response->assertSeeText('List Kontak');
     }
 
     /** @test */
@@ -60,4 +61,35 @@ class TambahKontakTest extends TestCase
     }
 
     /** @test */
+    public function test_email_field_requires_at_symbol_for_gmail()
+    {
+    $kontakData = [
+        'username' => 'john_doe',
+        'email' => 'gmail.com', // Incorrect email format for Gmail
+    ];
+
+    $response = $this->post('/tambahkontakbaru', $kontakData);
+
+    $response->assertSessionMissing('success')
+        ->assertSessionHasErrors(['email']);
+
+    $this->assertDatabaseMissing('customers', $kontakData);
+    }
+
+    /** @test */
+    public function test_phone_number_field_requires_numeric_value()
+    {
+    $kontakData = [
+        'username' => 'john_doe',
+        'phonenumber' => 'not_a_number', // Incorrect phone number format
+    ];
+
+    $response = $this->post('/tambahkontakbaru', $kontakData);
+
+    $response->assertSessionMissing('success')
+        ->assertSessionHasErrors(['phonenumber']);
+
+    $this->assertDatabaseMissing('customers', $kontakData);
+    }
+
 }
