@@ -27,9 +27,6 @@ use App\Models\Bandwidth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})-> middleware('auth');
 
 Route::get('/daftarbandwidth', function () {
     return view('daftarbandwidth');
@@ -51,7 +48,7 @@ Route::get('/bandwithbaru', function () {
     return view('bandwithbaru');
 })-> middleware('auth');
 
-Route::get('/beranda', function () {
+Route::get('/', function () {
     return view('beranda');
 })-> middleware('auth');
 
