@@ -42,24 +42,28 @@
                                 <thead>
                                     <tr>
                                         <th>Nama Paket</th>
-                                        <th>Jenis Paket</th>
-                                        <th>Daftar Bandwith</th>
+                                        <th>Status</th>
+                                        <th>Nama Bandwidth</th>
                                         <th>Harga</th>
                                         <th>Masa Aktif</th>
-                                        <th>Router</th>
+                                        <th>Nama Router</th>
                                         <th>Proses</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($plans as $plan)
                                     <tr>
-                                        <td>5 MB - Nabiel</td>
-                                        <td>PPPoE</td>
-                                        <td>5 MB</td>
-                                        <td>150.000,00</td>
-                                        <td>31-12-2023</td>
-                                        <td>RB-450</td>
-                                        <td></td>
+                                        <td>{{ $plan->namapaket }}</td>
+                                        <td>{{ $plan->status }}</td>
+                                        <td>{{ $plan->namabandwith }}</td>
+                                        <td>{{ $plan->harga }}</td>
+                                        <td>{{ $plan->masa_aktif }}</td>
+                                        <td>{{ $plan->nama_router }}</td>
+                                        <td>
+                                            <!-- Add buttons for edit and delete here -->
+                                        </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

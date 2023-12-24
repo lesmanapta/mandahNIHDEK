@@ -13,6 +13,7 @@ use GuzzleHttp\Middleware;
 use App\Http\Middleware\SuperAdminMiddleware;
 use App\Models\Routers;
 use App\Http\Controllers\PoolController;
+use App\Http\Controllers\TambahPaketController;
 use App\Models\Bandwidth;
 
 /*
@@ -49,6 +50,15 @@ Route::get('/tambahpaketbaru', function () {
 Route::get('/bandwithbaru', function () {
     return view('bandwithbaru');
 })-> middleware('auth');
+
+Route::get('/beranda', function () {
+    return view('beranda');
+})-> middleware('auth');
+
+// Route::get('/paketpppoe', function () {
+//     return view('paketpppoe');
+// })-> middleware('auth');
+
 
 //ini udah pegang hanya super admin yang bisa
 Route::get('/pengaturanadmin', [UserController::class, 'index'])->name('pengaturanadmin')-> middleware('auth', 'superadmin');
@@ -111,3 +121,7 @@ Route::get('/deleteippool/{id}', [PoolController::class, 'destroy'])->name('dele
 Route::get('/daftarbandwidth', [BandwidthController::class, 'index'])->name('bandwidth.index')->middleware('auth','teknisi');
 Route::get('/bandwidthbaru', [BandwidthController::class, 'create'])->name('bandwidthbaru')->middleware('auth', 'teknisi');
 Route::post('/bandwidthbaru', [BandwidthController::class, 'store'])->name('bandwidthbaru.store')->middleware('auth', 'teknisi');
+
+Route::get('/paketpppoe', [TambahPaketController::class, 'index'])->name('paketpppoe.index');
+Route::get('/tambahpaketbaru', [TambahPaketController::class, 'create'])->name('tambahpaketbaru');
+Route::post('/tambahpaketbaru', [TambahPaketController::class, 'store'])->name('tambahpaketbaru.store');
