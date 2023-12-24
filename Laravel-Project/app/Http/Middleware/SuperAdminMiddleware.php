@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SuperAdminMiddleware
 {
@@ -21,6 +22,9 @@ class SuperAdminMiddleware
         if ($request->user() && $request->user()->user_type === 'Super Admin') {
             return $next($request);
         }
+        // if (Auth::user()->user_type == 'Super Admin') {
+        //     return $next($request);
+        // }
 
         // Redirect to home or show an error page, adjust as needed
         return redirect('/')->with('error', 'You do not have permission to access this page.');

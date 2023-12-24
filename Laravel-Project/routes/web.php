@@ -84,30 +84,30 @@ Route::put('/updateKontak/{id}', [CustomersController::class, 'update'])->name('
 Route::get('/hapusKontak/{id}', [CustomersController::class, 'destroy'])->name('hapusKontak')-> middleware('auth');;
 
 
-Route::get('/router', [RoutersController::class, 'index'])->name('router')->middleware('auth','teknisi', 'superadmin');
+Route::get('/router', [RoutersController::class, 'index'])->name('router')->middleware('auth', 'teknisi');
 
 //add routers
-Route::get('/tambahrouter', [RoutersController::class, 'create'])->name('tambahrouter')->middleware('auth','teknisi', 'superadmin');
-Route::post('/store', [RoutersController::class, 'store'])->name('router.store')->middleware('auth','teknisi', 'superadmin');
+Route::get('/tambahrouter', [RoutersController::class, 'create'])->name('tambahrouter')->middleware('auth','teknisi');
+Route::post('/store', [RoutersController::class, 'store'])->name('router.store')->middleware('auth','teknisi');
 
 //crud routers
-Route::get('/editrouter/{id}', [RoutersController::class, 'edit'])->name('editrouter')-> middleware('auth','teknisi', 'superadmin');
-Route::put('/updaterouter/{id}', [RoutersController::class, 'update'])->name('updaterouter')-> middleware('auth','teknisi', 'superadmin');
-Route::get('/deleterouter/{id}', [RoutersController::class, 'destroy'])->name('deleterouter')-> middleware('auth','teknisi', 'superadmin');
+Route::get('/editrouter/{id}', [RoutersController::class, 'edit'])->name('editrouter')-> middleware('auth','teknisi');
+Route::put('/updaterouter/{id}', [RoutersController::class, 'update'])->name('updaterouter')-> middleware('auth','teknisi');
+Route::get('/deleterouter/{id}', [RoutersController::class, 'destroy'])->name('deleterouter')-> middleware('auth','teknisi');
 
 
-Route::get('/ippool', [PoolController::class, 'index'])->name('ippool.index')->middleware('auth','teknisi', 'superadmin');
-Route::get('/tambahippool', [PoolController::class, 'create'])->name('tambahippool')->middleware('auth','teknisi', 'superadmin');
-Route::post('/tambahippool', [PoolController::class, 'store'])->name('tambahippool.store')->middleware('auth','teknisi', 'superadmin');
+Route::get('/ippool', [PoolController::class, 'index'])->name('ippool.index')->middleware('auth','teknisi');
+Route::get('/tambahippool', [PoolController::class, 'create'])->name('tambahippool')->middleware('auth','teknisi');
+Route::post('/tambahippool', [PoolController::class, 'store'])->name('tambahippool.store')->middleware('auth','teknisi');
 
 // crud pool
-Route::get('/editippool/{id}', [PoolController::class, 'edit'])->name('editippool')->middleware('auth','teknisi', 'superadmin');
-Route::put('/updateippool/{id}', [PoolController::class, 'update'])->name('updateippool')->middleware('auth','teknisi', 'superadmin');
-Route::get('/deleteippool/{id}', [PoolController::class, 'destroy'])->name('deleteippool')->middleware('auth','teknisi', 'superadmin');
+Route::get('/editippool/{id}', [PoolController::class, 'edit'])->name('editippool')->middleware('auth','teknisi');
+Route::put('/updateippool/{id}', [PoolController::class, 'update'])->name('updateippool')->middleware('auth','teknisi');
+Route::get('/deleteippool/{id}', [PoolController::class, 'destroy'])->name('deleteippool')->middleware('auth','teknisi');
 
 // Route::get('/cobarouter', [RoutersController::class, 'index']{
 //     return view ('cobarouter');
 // });
-Route::get('/daftarbandwidth', [BandwidthController::class, 'index'])->name('bandwidth.index')->middleware('auth','teknisi', 'superadmin');
-Route::get('/bandwidthbaru', [BandwidthController::class, 'create'])->name('bandwidthbaru')->middleware('auth', 'teknisi', 'superadmin');
-Route::post('/bandwidthbaru', [BandwidthController::class, 'store'])->name('bandwidthbaru.store')->middleware('auth', 'teknisi', 'superadmin');
+Route::get('/daftarbandwidth', [BandwidthController::class, 'index'])->name('bandwidth.index')->middleware('auth','teknisi');
+Route::get('/bandwidthbaru', [BandwidthController::class, 'create'])->name('bandwidthbaru')->middleware('auth', 'teknisi');
+Route::post('/bandwidthbaru', [BandwidthController::class, 'store'])->name('bandwidthbaru.store')->middleware('auth', 'teknisi');

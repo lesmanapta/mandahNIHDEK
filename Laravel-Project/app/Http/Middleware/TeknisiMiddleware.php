@@ -18,7 +18,7 @@ class TeknisiMiddleware
     public function handle(Request $request, Closure $next)
     {
         // Check if the user is logged in and has 'Super Admin' user_type
-        if ($request->user() && $request->user()->user_type === 'Teknisi') {
+        if ($request->user() && $request->user()->user_type === 'Teknisi'|| $request->user()->user_type === 'Super Admin') {
             return $next($request);
         }
 
