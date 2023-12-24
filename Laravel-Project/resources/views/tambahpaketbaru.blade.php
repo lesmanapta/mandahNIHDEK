@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                        <li class="breadcrumb-item active">Tambah Admin</li>
+                        <li class="breadcrumb-item active">Tambah Paket</li>
                     </ol>
                 </ol>
             </div><!-- /.col -->
@@ -95,7 +95,7 @@
                                     <label for="selectippool" class="col-sm-2 col-form-label">IP Pool</label>
                                     <div class="col-sm-10">
                                         <select class="form-control" id="ippool" name="ippol">
-                                            <option value="">Pilih Pool</option>
+                                            <option>Pilih Pool</option>
                                             @foreach($pools as $pool)
                                                 <option value="{{ $pool }}">{{ $pool }}</option>
                                             @endforeach

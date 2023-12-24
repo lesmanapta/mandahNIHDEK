@@ -57,7 +57,7 @@
                                         <td>{{ $plan->status }}</td>
                                         <td>{{ $plan->namabandwith }}</td>
                                         <td>{{ $plan->harga }}</td>
-                                        <td>{{ $plan->masa_aktif }}</td>
+                                        <td>{{ $plan->masa_aktif.' '.$plan->masa_aktif_unit}}</td>
                                         <td>{{ $plan->nama_router }}</td>
                                         <td>
                                             <!-- Add buttons for edit and delete here -->
@@ -76,4 +76,19 @@
     </section>
     <!-- Add your content here -->
 </div>
+@endsection
+@section('scripts')
+    @parent
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        // Script untuk menampilkan SweetAlert setelah berhasil mengedit admin
+        @if(session('success'))
+            Swal.fire({
+                title: 'Berhasil!',
+                text: '{{ session('success') }}',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        @endif
+</script>
 @endsection

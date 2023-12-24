@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BandwidthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\CustomersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -15,6 +16,7 @@ use App\Models\Routers;
 use App\Http\Controllers\PoolController;
 use App\Http\Controllers\TambahPaketController;
 use App\Models\Bandwidth;
+use App\Models\Customers;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +53,9 @@ Route::get('/bandwithbaru', function () {
 Route::get('/', function () {
     return view('beranda');
 })-> middleware('auth');
+
+//menampilkan jumlah pelanggan
+Route::get('/', [CustomersController::class,'jumlahPelanggan'])->middleware('auth');
 
 // Route::get('/paketpppoe', function () {
 //     return view('paketpppoe');

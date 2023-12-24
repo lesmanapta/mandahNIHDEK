@@ -7,6 +7,7 @@ use App\Models\Plan;
 use App\Models\Bandwidth;
 use App\Models\Routers;
 use App\Models\Pool;
+use Illuminate\Validation\Rule;
 
 class TambahPaketController extends Controller
 {
@@ -34,16 +35,29 @@ class TambahPaketController extends Controller
         'namabandwith' => 'required|string',
         'harga' => 'required|integer',
         'masa_aktif' => 'required|integer',
-        'masa_aktif_unit' => 'required|in:menit,jam,hari,bulan',
+        'masa_aktif_unit' => 'required', Rule::in(['menit','jam','hari','bulan']),
         'nama_router' => 'required|string',
         'ippol' => 'required|string',
     ]);
 
     // Simpan data ke dalam database
-    Plan::create($request->all());
+        Plan::create([
+            'status' => $request->input('status'),
+            'namapaket' => $request->input('namapaket'),
+            'namabandwith' => $request->input('namabandwith'),
+            'harga' => $request->input('harga'),
+            'masa_aktif' => $request->input('masa_aktif'),
+            'masa_aktif_unit' => $request->input('masa_aktif_unit'),
+            'nama_router' => $request->input('nama_router'),
+            'ippol' => $request->input('ippol'),
+    ]);
 
-    // Redirect atau tampilkan pesan sukses
-    return redirect()->route('tambahpaketbaru')->with('success', 'Paket berhasil ditambahkan');
+    return redirect()->route('paketpppoe.index')->with('success', 'Paket baru berhasil ditambahkan');
+
+    // Plan::create($request->all());
+
+    // // Redirect atau tampilkan pesan sukses
+    // return redirect()->route('tambahpaketbaru')->with('success', 'Paket berhasil ditambahkan');
     }
 
     public function destroy($id)
@@ -52,6 +66,6 @@ class TambahPaketController extends Controller
         Plan::destroy($id);
 
         // Redirect atau tampilkan pesan sukses
-        return redirect()->route('paketpppoe')->with('success', 'Paket berhasil dihapus');
+        return redirect()->route('paketpppoe.index')->with('success', 'Paket berhasil dihapus');
     }
 }

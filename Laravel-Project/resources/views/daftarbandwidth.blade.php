@@ -107,4 +107,18 @@
       <!-- Add your content here -->
   </div>
   @endsection
-  
+  @section('scripts')
+    @parent
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        // Script untuk menampilkan SweetAlert setelah berhasil mengedit admin
+        @if(session('success'))
+            Swal.fire({
+                title: 'Berhasil!',
+                text: '{{ session('success') }}',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        @endif
+</script>
+@endsection
