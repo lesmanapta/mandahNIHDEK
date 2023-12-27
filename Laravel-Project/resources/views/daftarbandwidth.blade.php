@@ -7,7 +7,7 @@
       border-radius: 5px;
       cursor: pointer;
     }
-  
+
     .hapus-button {
       background-color: red;
       color: white;
@@ -17,9 +17,9 @@
       cursor: pointer;
     }
   </style>
-  
+
   @extends('layout.master')
-  
+
   @section('content')
   <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -31,14 +31,14 @@
                   </div><!-- /.col -->
                   <div class="col-sm-6">
                       <ol class="breadcrumb float-sm-right">
-                          <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                          <li class="breadcrumb-item"><a href="/beranda">Beranda</a></li>
                           <li class="breadcrumb-item active">Daftar Bandwidth</li>
                       </ol>
                   </div><!-- /.col -->
               </div><!-- /.row -->
           </div><!-- /.container-fluid -->
       </div><!-- /.content-header -->
-  
+
       <section class="content">
           <div class="container-fluid">
               <div class="row">
@@ -50,7 +50,7 @@
                                     <form action="" class="form-inline" method="GET">
 
                                         <input type="text" name="keyword" class="form-control float-right" placeholder="Search" value="">
-                                        
+
                                         <div class="input-group-append">
                                             <button id="searchAdmin" type="submit" class="btn btn-default">
                                                 <i class="fas fa-search"></i>
