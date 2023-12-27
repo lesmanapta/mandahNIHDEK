@@ -39,7 +39,7 @@ class BandwidthController extends Controller
     public function edit($id)
     {
         $bandwidth = Bandwidth::find($id);
-        return view('bandwidth.edit', compact('bandwidth'));
+        return view('editbandwidth', compact('bandwidth'));
     }
 
     public function update(Request $request, $id)

@@ -45,46 +45,47 @@
                  <div class="col-12">
                      <div class="card">
                          <div class="card-body">
-                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                 <div class="input-group input-group-sm" style="width: 300px;">
-                                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                                     <div class="input-group-append">
-                                         <button type="submit" class="btn btn-default">
-                                             <i class="fas fa-search"></i>
-                                         </button>
-                                     </div>
-                                 </div>
-                                 <a href="{{ route('bandwidthbaru') }}" class="btn btn-success">Bandwidth Baru</a>
-                             </div>
-                             <div class="table-responsive">
-                                 <table class="table table-hover text-nowrap">
-                                     <thead>
-                                         <tr>
-                                             <th>Nama Bandwidth</th>
-                                             <th>Rate Download</th>
-                                             <th>Rate Upload</th>
-                                             <th>Proses</th>
-                                         </tr>
-                                     </thead>
-                                     <tbody>
-                                         @foreach ($bandwidths as $bandwidth)
-                                             <tr>
-                                                 <td>{{ $bandwidth->name_bw }}</td>
-                                                 <td>{{ $bandwidth->rate_down }} {{ $bandwidth->rate_down_unit }}</td>
-                                                 <td>{{ $bandwidth->rate_up }} {{ $bandwidth->rate_up_unit }}</td>
-                                                 <td>
-                                                   {{-- <a href="{{ route('bandwidth.edit', $bandwidth->id) }}" class="edit-button">Edit</a>
-                                                   <form action="{{ route('bandwidth.destroy', $bandwidth->id) }}" method="POST" style="display:inline;">
-                                                       @csrf
-                                                       @method('DELETE')
-                                                       <button type="submit" class="hapus-button" onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Hapus</button>
-                                                   </form> --}}
-                                                 </td>
-                                             </tr>
-                                         @endforeach
-                                     </tbody>
-                                 </table>
-                             </div>
+                         <form method="POST" action="{{ route('updatebandwidth', ['id' => $bandwidth]) }}">
+                                @csrf
+                                @method('PUT')
+                                    <div class="form-group row">
+                                        <label for="namabandwith" class="col-sm-2 col-form-label">Nama Bandwidth</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="name_bw" id="namabandwith" placeholder="Nama Bandwidth">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="rateDownload" class="col-sm-2 col-form-label">Rate Download</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="rateDownload" name="rate_down">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <select class="form-control" name="rate_down_unit">
+                                                <option value="Kbps">Kbps</option>
+                                                <option value="Mbps">Mbps</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="rateUpload" class="col-sm-2 col-form-label">Rate Upload</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="rateUpload" name="rate_up">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <select class="form-control" name="rate_up_unit">
+                                                <option value="Kbps">Kbps</option>
+                                                <option value="Mbps">Mbps</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-10 offset-sm-2">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <a href="#" class="btn btn-secondary">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                          </div>
                          <!-- /.card-body -->
                      </div>

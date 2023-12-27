@@ -124,6 +124,11 @@ Route::get('/daftarbandwidth', [BandwidthController::class, 'index'])->name('ban
 Route::get('/bandwidthbaru', [BandwidthController::class, 'create'])->name('bandwidthbaru')->middleware('auth', 'teknisi');
 Route::post('/bandwidthbaru', [BandwidthController::class, 'store'])->name('bandwidthbaru.store')->middleware('auth', 'teknisi');
 
+Route::get('/editbandwidth/{id}', [BandwidthController::class,'edit'])->name('editbandwidth');
+Route::put('/updatebandwidth/{id}', [BandwidthController::class,'update'])->name('updatebandwidth');
+Route::get('/deletebandwidth/{id}', [BandwidthController::class,'destroy'])->name('deletebandwidth');
+
+
 Route::get('/paketpppoe', [TambahPaketController::class, 'index'])->name('paketpppoe.index');
 Route::get('/tambahpaketbaru', [TambahPaketController::class, 'create'])->name('tambahpaketbaru');
 Route::post('/tambahpaketbaru', [TambahPaketController::class, 'store'])->name('tambahpaketbaru.store');

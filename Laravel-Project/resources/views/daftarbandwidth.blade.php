@@ -81,12 +81,11 @@
                                                   <td>{{ $bandwidth->rate_down }} {{ $bandwidth->rate_down_unit }}</td>
                                                   <td>{{ $bandwidth->rate_up }} {{ $bandwidth->rate_up_unit }}</td>
                                                   <td>
-                                                    {{-- <a href="{{ route('bandwidth.edit', $bandwidth->id) }}" class="edit-button">Edit</a>
-                                                    <form action="{{ route('bandwidth.destroy', $bandwidth->id) }}" method="POST" style="display:inline;">
+                                                    <a href="{{ route('editbandwidth', $bandwidth->id) }}" class="edit-button">Edit</a>
+                                                    <a href="{{ route('deletebandwidth', $bandwidth->id) }}" class="hapus-button">Hapus</a>
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="hapus-button" onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Hapus</button>
-                                                    </form> --}}
+                                                    </form>
                                                   </td>
                                               </tr>
                                           @endforeach
