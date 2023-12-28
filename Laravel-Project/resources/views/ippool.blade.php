@@ -1,8 +1,8 @@
 
-<link rel="stylesheet" href="css/button.css">
 
 @extends('layout.master')
 @section('content')
+<link rel="stylesheet" href="css/button.css">
 <title>MandahNet | Daftar IP Pool</title>
 
 <div class="content-wrapper">

@@ -1,4 +1,4 @@
-<style>
+{{-- <style>
     .edit-button {
       background-color: green;
       color: white;
@@ -16,10 +16,11 @@
       border-radius: 5px;
       cursor: pointer;
     }
-  </style>
+  </style> --}}
 
   @extends('layout.master')
   @section('content')
+  <link rel="stylesheet" href="css/button.css">
   <title>MandahNet | Daftar Bandwidth</title>
 
   <div class="content-wrapper">

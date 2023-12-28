@@ -1,5 +1,7 @@
 @extends('layout.master')
 @section('content')
+<link rel="stylesheet" href="css/button.css">
+
 <title>MandahNet | Paket PPPoE</title>
 
 <div class="content-wrapper">
