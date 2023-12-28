@@ -1,6 +1,7 @@
 @extends('layout.master')
-
 @section('content')
+<title>MandahNet | Tambah Router</title>
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">

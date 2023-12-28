@@ -1,5 +1,7 @@
 @extends('layout.master')
 @section('content')
+<title>MandahNet | Router</title>
+
 <link rel="stylesheet" href="css/button.css">
 
 <div class="content-wrapper">

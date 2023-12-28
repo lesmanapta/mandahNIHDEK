@@ -19,8 +19,9 @@
  </style>
 
  @extends('layout.master')
-
  @section('content')
+ <title>MandahNet | Edit Bandwidth</title>
+
  <div class="content-wrapper">
      <!-- Content Header (Page header) -->
      <div class="content-header">

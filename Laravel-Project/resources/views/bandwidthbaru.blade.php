@@ -1,6 +1,6 @@
 @extends('layout.master')
-
 @section('content')
+<title>MandahNet | Tambah Bandwidth</title>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">

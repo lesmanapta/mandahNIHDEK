@@ -1,5 +1,6 @@
 @extends('layout.master')
 @section('content')
+<title>MandahNet | Pengaturan Admin</title>
 <link rel="stylesheet" href="css/button.css">
 
 <div class="content-wrapper">

@@ -2,8 +2,9 @@
 <link rel="stylesheet" href="css/button.css">
 
 @extends('layout.master')
-
 @section('content')
+<title>MandahNet | Daftar IP Pool</title>
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">

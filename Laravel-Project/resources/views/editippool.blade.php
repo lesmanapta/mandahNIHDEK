@@ -1,6 +1,7 @@
 @extends('layout.master')
-
 @section('content')
+<title>MandahNet | Edit IP Pool</title>
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">

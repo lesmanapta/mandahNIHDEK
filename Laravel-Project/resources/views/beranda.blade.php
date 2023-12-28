@@ -1,5 +1,6 @@
 @extends('layout.master')
 @section('content')
+<title>MandahNet | Dashboard</title>
 <link rel="stylesheet" href="css/button.css">
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
