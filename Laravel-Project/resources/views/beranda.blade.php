@@ -12,8 +12,8 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                        <li class="breadcrumb-item active">List Kontak</li>
+                        <li class="breadcrumb-item">Beranda</li>
+                        {{-- <li class="breadcrumb-item active">List Kontak</li> --}}
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
