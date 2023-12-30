@@ -67,7 +67,7 @@
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
-                                    <a href="/pengaturanadmin" class="btn btn-secondary">Cancel</a>
+                                    <a href="/dashboard" class="btn btn-secondary">Cancel</a>
                                 </div>
                             </form>
                             <!-- /.card-body -->
