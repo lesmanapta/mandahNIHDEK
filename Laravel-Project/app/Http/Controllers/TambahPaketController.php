@@ -91,38 +91,51 @@ $notifPengajuans = $this ->pengajuanmasukIndex();
     //edit
     public function edit($id)
     {
-    $notifPesans = $this -> pesanmasukIndex();
-    $notifPengajuans = $this ->pengajuanmasukIndex();
-    $router = Plan::findorFail($id);
-    return view ('editPaketPPPoE', compact('plan','routers', 'notifPesans', 'notifPengajuans'
-));
+        $notifPesans = $this -> pesanmasukIndex();
+        $notifPengajuans = $this ->pengajuanmasukIndex();
+        $plans = Plan::find($id);
+    
+        // Check if the record is not found
+        if (!$plans) {
+            return redirect()->route('paketpppoe.index')->with('error', 'Paket tidak ditemukan');
+        }
+    
+        $bandwidths = Bandwidth::pluck('name_bw', 'name_bw');
+        $routers = Routers::pluck('name', 'name');
+        $pools = Pool::pluck('pool_name', 'pool_name');
+        
+        return view('editpaketpppoe', compact('plans', 'bandwidths', 'routers', 'pools', 'notifPesans', 'notifPengajuans'));
     }
 
+    // Update
     public function update(Request $request, $id)
     {
-        // Validasi input jika diperlukan
+        // Validasi input form di sini sesuai kebutuhan
         $request->validate([
-            'name' => 'required|string',
-            'ip_address' => 'required|string',
-            'username' => 'required|unique:routers,username,' . $id,
-            'password' => 'required|string',
-            'deskripsi' => 'nullable|string',
-            'status' => ['required', Rule::in(['Enable', 'Disable'])],
+            'status' => 'required|in:Enable,Disable',
+            'namapaket' => 'required|string',
+            'namabandwith' => 'required|string',
+            'harga' => 'required|integer',
+            'masa_aktif' => 'required|integer',
+            'masa_aktif_unit' => 'required', Rule::in(['menit', 'jam', 'hari', 'bulan']),
+            'nama_router' => 'required|string',
+            'ippol' => 'required|string',
         ]);
-
-        $router = Routers::findOrFail($id);
 
         // Update data in the database
-        $router->update([
-            'name' => $request->input('name'),
-            'ip_address' => $request->input('ip_address'),
-            'username' => $request->input('username'),
-            'password' => $request->filled('password') ? bcrypt($request->input('password')) : $router->password,
-            'deskripsi' => $request->input('deskripsi'),
+        $plan = Plan::findOrFail($id);
+        $plan->update([
             'status' => $request->input('status'),
+            'namapaket' => $request->input('namapaket'),
+            'namabandwith' => $request->input('namabandwith'),
+            'harga' => $request->input('harga'),
+            'masa_aktif' => $request->input('masa_aktif'),
+            'masa_aktif_unit' => $request->input('masa_aktif_unit'),
+            'nama_router' => $request->input('nama_router'),
+            'ippol' => $request->input('ippol'),
         ]);
 
-        return redirect()->route('router')
+        return redirect()->route('paketpppoe.index')
             ->with('success', 'Router berhasil diperbarui');
     }
 

@@ -27,7 +27,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('updatepaket', ['id' => $plans->id]) }}" method="post" class="form-horizontal">
+                        <form action="{{ route('updatePaketPPPoE', ['id' => $plans->id]) }}" method="post" class="form-horizontal">
                             @csrf
                             @method('PUT')
                             <div class="card-body">
@@ -41,18 +41,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="nama paket" class="col-sm-2 col-form-label">Nama Paket</label>
+                                    <label for="namapaket" class="col-sm-2 col-form-label">Nama Paket</label>
                                     <div class="col-sm-10">
-                                    <input value="{{ old('namapaket', $plans->namapaket) }}" type="text" class="form-control" name="name" id="name" placeholder="nama paket">
+                                        <input value="{{ old('namapaket', $plans->namapaket) }}" type="text" class="form-control" name="namapaket" id="namapaket" placeholder="Nama Paket">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="namaPaket" class="col-sm-2 col-form-label">Nama Bandwith</label>
+                                    <label for="namabandwidth" class="col-sm-2 col-form-label">Nama Bandwidth</label>
                                     <div class="col-sm-10">
                                         <select class="form-control" id="namabandwidth" name="namabandwith">
-                                            <option value="{{ old('namabandwith', $plans->namabandwith) }}">Pilih Nama Bandwith...</option>
+                                            <option value="">Pilih Nama Bandwidth...</option>
                                             @foreach($bandwidths as $bandwidth)
-                                                <option value="{{ $bandwidth }}">{{ $bandwidth }}</option>
+                                                <option value="{{ $bandwidth }}" {{ old('namabandwith', $plans->namabandwith) === $bandwidth ? 'selected' : '' }}>{{ $bandwidth }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -60,55 +60,48 @@
                                 <div class="form-group row">
                                     <label for="harga" class="col-sm-2 col-form-label">Harga</label>
                                     <div class="col-sm-10">
-                                    <input value="{{ old('harga', $plans->harga) }}" type="text" class="form-control" name="harga" id="harga" placeholder="harga">
+                                        <input value="{{ old('harga', $plans->harga) }}" type="text" class="form-control" name="harga" id="harga" placeholder="Harga">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="exampleHarga" class="col-sm-2 col-form-label">Harga</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="harga" name="harga" step="1">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="exampleMasaAktif" class="col-sm-2 col-form-label">Masa Aktif</label>
+                                    <label for="masa_aktif" class="col-sm-2 col-form-label">Masa Aktif</label>
                                     <div class="col-sm-8">
-                                        <input type="number" class="form-control" id="masa_aktif" name="masa_aktif" step="1" value="{{ old('masa)aktif', $plans->masa_aktif) }}">
+                                        <input type="number" class="form-control" id="masa_aktif" name="masa_aktif" step="1" value="{{ old('masa_aktif', $plans->masa_aktif) }}">
                                     </div>
                                     <div class="col-sm-2">
                                         <select class="form-control" name="masa_aktif_unit">
-                                            <option value="menit">Menit</option>
-                                            <option value="jam">Jam</option>
-                                            <option value="hari">Hari</option>
-                                            <option value="bulan">Bulan</option>
+                                            <option value="menit" {{ old('masa_aktif_unit', $plans->masa_aktif_unit) === 'menit' ? 'selected' : '' }}>Menit</option>
+                                            <option value="jam" {{ old('masa_aktif_unit', $plans->masa_aktif_unit) === 'jam' ? 'selected' : '' }}>Jam</option>
+                                            <option value="hari" {{ old('masa_aktif_unit', $plans->masa_aktif_unit) === 'hari' ? 'selected' : '' }}>Hari</option>
+                                            <option value="bulan" {{ old('masa_aktif_unit', $plans->masa_aktif_unit) === 'bulan' ? 'selected' : '' }}>Bulan</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="selectRouters" class="col-sm-2 col-form-label">Nama Routers</label>
+                                    <label for="namarouters" class="col-sm-2 col-form-label">Nama Routers</label>
                                     <div class="col-sm-10">
                                         <select class="form-control" id="namarouters" name="nama_router">
-                                            <option value="{{ old('nama_router', $plans->nama_router) }}">Pilih Router</option>
+                                            <option value="">Pilih Router</option>
                                             @foreach($routers as $router)
-                                                <option value="{{ $router }}">{{ $router }}</option>
+                                                <option value="{{ $router }}" {{ old('nama_router', $plans->nama_router) === $router ? 'selected' : '' }}>{{ $router }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
-                                
                                 <div class="form-group row">
-                                    <label for="selectippool" class="col-sm-2 col-form-label">IP Pool</label>
+                                    <label for="ippool" class="col-sm-2 col-form-label">IP Pool</label>
                                     <div class="col-sm-10">
                                         <select class="form-control" id="ippool" name="ippol">
-                                            <option value="{{ old('ippol', $plans->ippol) }}">Pilih Pool</option> 
-                                            value="{{ old('ippol', $plans->ippol) }}
+                                            <option value="">Pilih Pool</option>
                                             @foreach($pools as $pool)
-                                                <option value="{{ $pool }}">{{ $pool }}</option>
+                                                <option value="{{ $pool }}" {{ old('ippol', $plans->ippol) === $pool ? 'selected' : '' }}>{{ $pool }}</option>
                                             @endforeach
                                         </select>
-                                    </div>  
-                                </div>     
+                                    </div>
+                                </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                <a href="/router" class="btn btn-secondary">Cancel</a>
+                                <a href="/paketpppoe" class="btn btn-secondary">Cancel</a>
+                            </div>
                         </form>
                         <!-- /.card-body -->
                     </div>

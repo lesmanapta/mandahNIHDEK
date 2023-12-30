@@ -25,7 +25,8 @@ class BandwidthController extends masterController
     public function create()
     {
         $notifPesans = $this -> pesanmasukIndex();
-        return view('bandwidthbaru', compact('notifPesans'));
+$notifPengajuans = $this ->pengajuanmasukIndex();
+        return view('bandwidthbaru', compact('notifPesans', 'notifPengajuans'));
     }
     public function store(Request $request)
    {

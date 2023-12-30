@@ -220,3 +220,12 @@ route::get('/pesanmasuk/{id}', [halamanCustomerController::class,'deletePesanMas
 
 //routes for master
 Route::get('/master', [masterController::class, 'pesanmasukIndex']);
+
+//routes paket PPPOE
+Route::get('/paketpppoe', [TambahPaketController::class, 'index'])->name('paketpppoe.index');
+Route::get('/tambahpaketbaru', [TambahPaketController::class, 'create'])->name('tambahpaketbaru');
+Route::post('/tambahpaketbaru', [TambahPaketController::class, 'store'])->name('tambahpaketbaru.store');
+
+Route::get('/editPaketPPPoE/{id}', [TambahPaketController::class,'edit'])->name('editPaketPPPoE')->middleware('auth','teknisi');
+Route::put('/updatePaketPPPoE/{id}', [TambahPaketController::class, 'update'])->name('updatePaketPPPoE')->middleware('auth', 'teknisi');
+Route::get('/deletePaketPPPoE/{id}', [TambahPaketController::class,'destroy'])->name('deletePaketPPPoE')->middleware('auth','teknisi');
