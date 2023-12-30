@@ -165,3 +165,12 @@ Route::get('/laporanharian', function () {
 Route::get('/laporanpengeluaran', function () {
     return view('laporanpengeluaran');
 });
+
+// routes update halaman
+Route::get('/editAlamat', function () {
+    return view('updateAlamat');
+});
+
+Route::get('/editAlamat', function () {
+    return view('updateAlamat');
+});
