@@ -35,7 +35,7 @@
                                     <form action="" class="form-inline" method="GET">
 
                                         <input type="text" name="keyword" class="form-control float-right" placeholder="Search" value="{{ old('keyword', $keyword) }}">
-                                        
+
                                         <div class="input-group-append">
                                             <button id="searchAdmin" type="submit" class="btn btn-default">
                                                 <i class="fas fa-search"></i>
@@ -87,4 +87,19 @@
     </section>
     <!-- Add your content here -->
 </div>
+@endsection
+@section('scripts')
+@parent
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+    // Script untuk menampilkan SweetAlert setelah berhasil mengedit admin
+    @if(session('success'))
+        Swal.fire({
+            title: 'Berhasil!',
+            text: '{{ session('success') }}',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+    @endif
+</script>
 @endsection
