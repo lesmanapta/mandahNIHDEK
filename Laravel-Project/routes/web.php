@@ -61,7 +61,7 @@ Route::get('/dashboard', function () {
 })-> middleware('auth');
 
 //menampilkan jumlah pelanggan
-Route::get('/dashboard', [CustomersController::class,'jumlahPelanggan'])->middleware('auth');
+Route::get('/dashboard', [CustomersController::class,'jumlahPelanggan'])->name('dashboard')->middleware('auth');
 
 //test 2 class controller dalam 1 halaman
 // Route::get('/dashboard', [HalamanCustomerController::class,'editNomorTelepon'])->middleware('auth');
