@@ -67,13 +67,13 @@
                                         <td>{{ $plan->namapaket }}</td>
                                         <td>{{ $plan->status }}</td>
                                         <td>{{ $plan->namabandwith }}</td>
-                                        <td>{{ $plan->harga }}</td>
+                                        <td>Rp. {{ number_format($plan->harga, 2) }}</td>
                                         <td>{{ $plan->masa_aktif.' '.$plan->masa_aktif_unit}}</td>
                                         <td>{{ $plan->nama_router }}</td>
                                         <td>
-                                            <a href="{{ route('editPaketPPPoE', $plan->id) }}" class="edit-button">Edit</a>
+                                            {{-- <a href="{{ route('editPaketPPPoE', $plan->id) }}" class="edit-button">Edit</a>
                                             <a href="{{ route('deletePaketPPPoE', $plan->id) }}" class="hapus-button">Hapus</a>
-                                            <!-- Add buttons for edit and delete here -->
+                                            <!-- Add buttons for edit and delete here --> --}}
                                         </td>
                                     </tr>
                                     @endforeach
