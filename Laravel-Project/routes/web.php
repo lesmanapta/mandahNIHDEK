@@ -17,6 +17,8 @@ use App\Http\Controllers\PoolController;
 use App\Http\Controllers\TambahPaketController;
 use App\Models\Bandwidth;
 use App\Models\Customers;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PaketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,12 +52,12 @@ Route::get('/bandwithbaru', function () {
     return view('bandwithbaru');
 })-> middleware('auth');
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return view('beranda');
 })-> middleware('auth');
 
 //menampilkan jumlah pelanggan
-Route::get('/', [CustomersController::class,'jumlahPelanggan'])->middleware('auth');
+Route::get('/dashboard', [CustomersController::class,'jumlahPelanggan'])->middleware('auth');
 
 // Route::get('/paketpppoe', function () {
 //     return view('paketpppoe');
@@ -137,3 +139,17 @@ Route::post('/tambahpaketbaru', [TambahPaketController::class, 'store'])->name('
 Route::get('/editbandwidth/{id}', [BandwidthController::class,'edit'])->name('editbandwidth')->middleware('auth','teknisi');
 Route::put('/updatebandwidth/{id}', [BandwidthController::class,'update'])->name('updatebandwidth')->middleware('auth','teknisi');
 Route::get('/deletebandwidth/{id}', [BandwidthController::class,'destroy'])->name('deletebandwidth')->middleware('auth','teknisi');
+
+Route::get('/', function () {
+    return view('customers/index');
+})->name('home');
+
+
+Route::get('/formpaket', function () {
+    return view('paket/formpaket');
+});
+
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+// Route::get('/formpaket', [PaketController::class, 'index'])->name('paket.index');
+Route::post('/formpaket', [PaketController::class, 'store'])->name('paket.store');
