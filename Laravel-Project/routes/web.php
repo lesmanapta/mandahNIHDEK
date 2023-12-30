@@ -18,6 +18,7 @@ use App\Http\Controllers\TambahPaketController;
 use App\Models\Bandwidth;
 use App\Models\Customers;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\halamanCustomerController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\PengeluaranController;
 
@@ -150,7 +151,7 @@ Route::get('/formpaket', function () {
     return view('paket/formpaket');
 });
 
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/contact', [halamanCustomerController::class, 'store'])->name('contact.store');
 
 // Route::get('/formpaket', [PaketController::class, 'index'])->name('paket.index');
 Route::post('/formpaket', [PaketController::class, 'store'])->name('paket.store');
@@ -179,3 +180,7 @@ Route::get('/editNomorTelepon', function () {
 Route::get('/laporanpengeluaran', [PengeluaranController::class, 'index'])->name('laporanpengeluaran.index');
 Route::get('/tambahpengeluaran', [PengeluaranController::class, 'create'])->name('tambahpengeluaran');
 Route::post('/tambahpengeluaran', [PengeluaranController::class, 'store'])->name('tambahpengeluaran.store');
+
+
+//routes halaman customer
+Route::get('/customers/index', [halamanCustomerController::class, 'index'])->name('customers.index');
