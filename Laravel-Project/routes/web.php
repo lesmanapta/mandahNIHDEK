@@ -19,8 +19,10 @@ use App\Models\Bandwidth;
 use App\Models\Customers;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\halamanCustomerController;
-use App\Http\Controllers\PaketController;
 use App\Http\Controllers\PengeluaranController;
+use App\Http\Controllers\PaketController;
+use App\Http\Controllers\LaporanHarianController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -196,3 +198,4 @@ Route::put('/editAlamat/1', [halamanCustomerController::class, 'updateAlamat'])-
 //routes editNomorTelepon
 Route::get('/editNomorTelepon/1', [halamanCustomerController::class, 'editNomorTelepon'])->name('editNomorTelepon');
 Route::put('/editNomorTelepon/1', [halamanCustomerController::class, 'updateNomorTelepon'])->name('updateNomorTelepon');
+Route::get('/laporanharian', [LaporanHarianController::class, 'index'])->name('laporanharian.index');
