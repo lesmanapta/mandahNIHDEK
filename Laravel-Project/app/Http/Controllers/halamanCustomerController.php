@@ -54,4 +54,21 @@ class halamanCustomerController extends Controller
         return redirect()->route('dashboard')->with('success', 'Bandwidth berhasil diperbarui');
     }
 
+
+    //delete pesan masuk di dashboard
+    public function deletePesanMasuk($id)
+      {
+        // Hapus data dari database
+        Contact::destroy($id);
+
+        return redirect()->route('pesanmasuk.index')
+            ->with('success', 'Router berhasil dihapus');
+    }
+
+    //index pesan masuk di dashboard
+    public function pesanmasukIndex(){
+        $pesans = Contact::paginate(5);
+    return view('pesanmasuk', compact('pesans'));
+    }
+
 }

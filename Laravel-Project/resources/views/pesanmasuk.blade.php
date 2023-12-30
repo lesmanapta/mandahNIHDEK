@@ -55,6 +55,10 @@
                                      <h5>I am a success callout!</h5>
                                      <p>This is a green callout.</p>
                                  </div>
+                                 <div class="callout callout-success">
+                                    <h5>I am a success callout!</h5>
+                                    <p>This is a green callout.</p>
+                                </div>
                              </div>
                              
                             </form>
