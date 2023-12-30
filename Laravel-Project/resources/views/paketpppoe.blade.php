@@ -31,12 +31,20 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div class="input-group input-group-sm" style="width: 300px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
+
+                                    <form action="" class="form-inline" method="GET">
+
+                                        <input type="text" name="keyword" class="form-control float-right" placeholder="Search" value="{{ old('keyword', $keyword) }}">
+                                        
+                                        <div class="input-group-append">
+                                            <button id="searchPaketPPPoE" type="submit" class="btn btn-default">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                    <a href="/pengaturanadmin" style="margin: 3px" id="tombolSilang"  style="display: block;" class="btn btn-danger">
+                                    <i class="fas fa-times"></i>
+                                    </a>
                                 </div>
                                 <a href="/tambahpaketbaru" class="btn btn-success">Tambah Paket Baru</a>
                             </div>
@@ -63,6 +71,8 @@
                                         <td>{{ $plan->masa_aktif.' '.$plan->masa_aktif_unit}}</td>
                                         <td>{{ $plan->nama_router }}</td>
                                         <td>
+                                            <a href="{{ route('editadmin', $plans->id) }}" class="edit-button">Edit</a>
+                                                    <a href="{{ route('deleteadmin', $plans->id) }}" class="hapus-button">Hapus</a>
                                             <!-- Add buttons for edit and delete here -->
                                         </td>
                                     </tr>
