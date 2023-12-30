@@ -1,7 +1,38 @@
 @extends('layout.master')
 @section('content')
 <title>MandahNet | Pesan Masuk</title>
+<style>
+   .close-button {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      cursor: pointer;
+      right: 50px;
+   }
 
+   .close-button::before,
+   .close-button::after {
+     content: '';
+     position: absolute;
+     width: 2px;
+     height: 15px;
+     background-color: #333;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+   }
+
+   .close-button::before {
+     transform: translate(-50%, -50%) rotate(45deg);
+   }
+
+   .close-button::after {
+     transform: translate(-50%, -50%) rotate(-45deg);
+   }
+ </style>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -40,6 +71,7 @@
                              
                              <div class="card-body">
                                  <div class="callout callout-danger">
+                                    <div class="close-button"></div>
                                      <h5>I am a danger callout!</h5>
                                      <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
                                  </div>

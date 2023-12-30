@@ -1,7 +1,7 @@
 @extends('layout.master')
 <!-- Add the necessary AdminLTE CSS and JS files -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
-
+<link rel="stylesheet" href="css/button.css">
 @section('content')
 <title>MandahNet | Laporan Pengeluaran</title>
 <div class="content-wrapper">
@@ -10,7 +10,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Laporan Keuangan</h1>
+                    <h1 class="m-0">Laporan Pengeluaran</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -34,7 +34,7 @@
                                     <form action="{{ route('laporanpengeluaran.index') }}" class="form-inline" method="GET">
                                         <input type="text" name="keyword" class="form-control float-right" placeholder="Search" value="{{ request('keyword') }}">
                                         <div class="input-group-append">
-                                            <button id="searchAdmin" type="submit" class="btn btn-default">
+                                            <button id="searchPaketPPPoE" type="submit" class="btn btn-default">
                                                 <i class="fas fa-search"></i>
                                             </button>
                                         </div>

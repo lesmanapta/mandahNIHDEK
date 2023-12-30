@@ -28,9 +28,9 @@
           <div class="col-lg-3 col-6">
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>Rp. 12.560.000,00</h3>
 
-                <p>Bounce Rate</p>
+                <p>Pendapatan</p>
               </div>
               <div class="icon">
                 <i class="ion ion-cash"></i>
@@ -53,6 +53,23 @@
               <a href="listKontak" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>Rp. 9.500.000,00</h3>
+
+                <p>Pengeluaran</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-cash"></i>
+              </div>
+              <a href="/laporanpengeluaran" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+    
+
         </div>
       </div><!-- /.container-fluid -->
     </section>
