@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 use App\Models\Alamat;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Http\Controllers\MasterController;
 
-class halamanCustomerController extends Controller
+class halamanCustomerController extends masterController
 {
     //pesan kontak kami
     public function store(Request $request)
@@ -23,15 +24,19 @@ class halamanCustomerController extends Controller
     }
 
     public function index(){
+        $notifPesans = $this -> pesanmasukIndex();
+$notifPengajuans = $this ->pengajuanmasukIndex();
         $alamat = Alamat::all();
-        return view('Customers/index', compact('alamat'));
+        return view('Customers/index', compact('alamat', 'notifPesans', 'notifPengajuans'));
     }
 
 
     //update alamat 
     public function editAlamat(){
+        $notifPesans = $this -> pesanmasukIndex();
+        $notifPengajuans = $this ->pengajuanmasukIndex();
         $alamat = Alamat::find('1');
-        return view('editAlamat', compact('alamat'));
+        return view('editAlamat', compact('alamat', 'notifPesans', 'notifPengajuans'));
     }
 
     public function updateAlamat(Request $request){
@@ -43,8 +48,10 @@ class halamanCustomerController extends Controller
 
     //update nomor telepon
     public function editNomorTelepon(){
+        $notifPesans = $this -> pesanmasukIndex();
+        $notifPengajuans = $this ->pengajuanmasukIndex();
         $alamat = Alamat::find('1');
-        return view('editNomorTelepon', compact('alamat'));
+        return view('editNomorTelepon', compact('alamat', 'notifPesans', 'notifPengajuans'));
     }
     
     public function updateNomorTelepon(Request $request){
@@ -59,8 +66,10 @@ class halamanCustomerController extends Controller
     
     //index pesan masuk di dashboard
     public function pesanmasukIndex(){
+        // $notifPesans = $this -> pesanmasukIndex();
+        // $notifPengajuans = $this ->pengajuanmasukIndex();
         $pesans = Contact::orderBy('created_at','desc')->paginate(4);
-        return view('pesanmasuk', compact('pesans'));
+        return view('pesanmasuk', compact('pesans', 'notifPesans', 'notifPengajuans'));
     }
     
     public function deletePesanMasuk($id)

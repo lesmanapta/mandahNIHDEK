@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customers;
+use App\Http\Controllers\MasterController;
 
-class CustomersController extends Controller
+class CustomersController extends masterController
 {
     
 
     public function index(Request $request)
     {
+        $notifPesans = $this -> pesanmasukIndex();
+        $notifPengajuans = $this ->pengajuanmasukIndex();
+
         $keyword = $request->keyword;
         $kontaks = Customers::where('fullnameCustomer', 'LIKE','%'.$keyword.'%')
         ->orWhere('username', 'LIKE','%'.$keyword.'%')
@@ -19,12 +23,15 @@ class CustomersController extends Controller
         ->orWhere('email', 'LIKE', '%'.$keyword.'%')
         ->paginate(5);
 
-        return view('listKontak', ['kontaks' => $kontaks, 'keyword' => $keyword]);
+        return view('listKontak', ['kontaks' => $kontaks, 'keyword' => $keyword, 'notifPesans' => $notifPesans , 'notifPengajuans' => $notifPengajuans]);
     }
 
     public function create()
     {
-        return view('tambahkontakbaru');
+        $notifPesans = $this -> pesanmasukIndex();
+        $notifPengajuans = $this ->pengajuanmasukIndex();
+
+        return view('tambahkontakbaru', compact('notifPesans', 'notifPengajuans'));
     }
 
     public function store(Request $request)
@@ -55,9 +62,11 @@ class CustomersController extends Controller
 
     public function edit($id)
 {
+    $notifPesans = $this -> pesanmasukIndex();
+    $notifPengajuans = $this ->pengajuanmasukIndex();
     $kontak = Customers::find($id);
 
-    return view('edittambahkontak', compact('kontak'));
+    return view('edittambahkontak', compact('kontak', 'notifPesans', 'notifPengajuans'));
 }
 
     public function update(Request $request, $id)

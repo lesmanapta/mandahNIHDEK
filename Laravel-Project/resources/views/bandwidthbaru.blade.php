@@ -63,7 +63,7 @@
                                     <div class="form-group row">
                                         <div class="col-sm-10 offset-sm-2">
                                             <button type="submit" class="btn btn-primary">Submit</button>
-                                            <a href="#" class="btn btn-secondary">Cancel</a>
+                                            <a href="daftarbandwidht" class="btn btn-secondary">Cancel</a>
                                         </div>
                                     </div>
                                 </div>

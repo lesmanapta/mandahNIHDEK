@@ -8,11 +8,14 @@ use App\Models\Bandwidth;
 use App\Models\Routers;
 use App\Models\Pool;
 use Illuminate\Validation\Rule;
+use App\Http\Controllers\MasterController;
 
-class TambahPaketController extends Controller
+class TambahPaketController extends masterController
 {
     public function index(Request $request)
     {
+        $notifPesans = $this -> pesanmasukIndex();
+$notifPengajuans = $this ->pengajuanmasukIndex();
         $keyword = $request->keyword;
         $plans = Plan::where('status', 'LIKE','%'.$keyword.'%')
             ->orWhere('namapaket', 'LIKE','%'.$keyword.'%')
@@ -23,21 +26,23 @@ class TambahPaketController extends Controller
         // Check if a specific parameter is present in the request
         if ($request->has('view') && $request->view == 'laporanharian') {
             // Load the Blade template for daily reports (laporanharian)
-            return view('laporanharian', ['plans' => $plans, 'keyword' => $keyword]);
+            return view('laporanharian', ['plans' => $plans, 'keyword' => $keyword, 'notifPesans'=> $notifPesans,'notifPengajuans'=> $notifPengajuans]);
         } else {
             // Load the default Blade template for the index (paketpppoe)
-            return view('paketpppoe', ['plans' => $plans, 'keyword' => $keyword]);
+            return view('paketpppoe', ['plans' => $plans, 'keyword' => $keyword, 'notifPesans'=> $notifPesans,'notifPengajuans'=> $notifPengajuans]);
         }
     }
 
     
     public function create()
     {
+        $notifPesans = $this -> pesanmasukIndex();
+$notifPengajuans = $this ->pengajuanmasukIndex();
         $bandwidths = Bandwidth::pluck('name_bw', 'name_bw');
         $routers = Routers::pluck('name', 'name');
         $pools = Pool::pluck('pool_name', 'pool_name');
 
-        return view('tambahpaketbaru', compact('bandwidths', 'routers', 'pools'));
+        return view('tambahpaketbaru', compact('bandwidths', 'routers', 'pools', 'notifPesans', 'notifPengajuans'));
     }
 
     public function store(Request $request)
@@ -86,8 +91,11 @@ class TambahPaketController extends Controller
     //edit
     public function edit($id)
     {
+    $notifPesans = $this -> pesanmasukIndex();
+    $notifPengajuans = $this ->pengajuanmasukIndex();
     $router = Plan::findorFail($id);
-    return view ('editPaketPPPoE', compact('plan','routers'));
+    return view ('editPaketPPPoE', compact('plan','routers', 'notifPesans', 'notifPengajuans'
+));
     }
 
     public function update(Request $request, $id)

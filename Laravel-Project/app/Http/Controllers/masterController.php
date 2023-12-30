@@ -4,11 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\Paket;
 
 class masterController extends Controller
 {
     public function pesanmasukIndex(){
-        $pesans = Contact::orderBy('created_at','desc')->paginate(5);
-        return view('layout/master', compact('pesans'));
+        $notifPesans = Contact::orderBy('created_at','desc')->paginate(5);
+
+        return $notifPesans; 
+    }
+
+    public function pengajuanmasukIndex(){
+        $notifPengajuans = Paket::orderBy('created_at','desc')->paginate(5);
+        return $notifPengajuans;
     }
 }

@@ -7,13 +7,16 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Http\Controllers\MasterController;
 
-class AdminController extends Controller
+class AdminController extends MasterController
 {
     public function edit($id)
 {
+    $notifPesans = $this -> pesanmasukIndex();
+$notifPengajuans = $this ->pengajuanmasukIndex();
     $admin = User::findOrFail($id);
-    return view('editadmin', compact('admin'));
+    return view('editadmin', compact('admin', 'notifPesans', 'notifPengajuans'));
 }
 
     public function update(Request $request, $id)

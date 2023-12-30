@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 use App\Models\Routers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Http\Controllers\MasterController;
 
 
-class RoutersController extends Controller
+
+class RoutersController extends masterController
 {
     public function index(Request $request)
     {
+        $notifPesans = $this -> pesanmasukIndex();
+$notifPengajuans = $this ->pengajuanmasukIndex();
+
         $keyword = $request->keyword;
         $routers = Routers::where('name', 'LIKE','%'.$keyword.'%')
         ->orWhere('ip_address', 'LIKE','%'.$keyword.'%')
@@ -17,12 +22,15 @@ class RoutersController extends Controller
         ->orWhere('status', 'LIKE', '%'.$keyword.'%')
         ->paginate(5);
 
-        return view('router', ['routers' => $routers, 'keyword' => $keyword]);
+        return view('router', ['routers' => $routers, 'keyword' => $keyword, 'notifPesans'=> $notifPesans,'notifPengajuans'=> $notifPengajuans]);
     }
 
     public function create()
     {
-        return view('tambahrouter');
+        $notifPesans = $this -> pesanmasukIndex();
+        $notifPengajuans = $this ->pengajuanmasukIndex();
+        return view('tambahrouter', compact('notifPesans', 'notifPengajuans'));
+
     }
 
     public function store(Request $request)
@@ -53,8 +61,10 @@ class RoutersController extends Controller
 
     public function edit($id) 
     {
+        $notifPesans = $this -> pesanmasukIndex();
+$notifPengajuans = $this ->pengajuanmasukIndex();
     $router = Routers::findorFail($id);
-    return view ('editrouter', compact('router'));
+    return view ('editrouter', compact('router', 'notifPesans', 'notifPengajuans'));
     }
 
     public function update(Request $request, $id)

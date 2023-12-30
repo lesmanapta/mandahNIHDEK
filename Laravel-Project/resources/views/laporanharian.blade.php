@@ -1,7 +1,8 @@
 @extends('layout.master')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
 
 @section('content')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+<link rel="stylesheet" href="css/button.css">
     <title>MandahNet | Laporan Keuangan</title>
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -17,13 +18,16 @@
                                 <div class="row mb-3">
                                     <!-- Form Pencarian -->
                                     <div class="col-md-6">
-                                        <form action="{{ route('laporanpengeluaran.index') }}" class="form-inline" method="GET">
+                                        <form action="{{ route('laporanharian.index') }}" class="form-inline" method="GET">
                                             <input type="text" name="keyword" class="form-control float-right" placeholder="Search" value="{{ request('keyword') }}">
                                             <div class="input-group-append">
                                                 <button id="searchAdmin" type="submit" class="btn btn-default">
                                                     <i class="fas fa-search"></i>
                                                 </button>
                                             </div>
+                                            <a href="/laporanharian" style="margin: 3px" id="tombolSilang"  style="display: block;" class="btn btn-danger">
+                                                <i class="fas fa-times"></i>
+                                                </a>
                                         </form>
                                     </div>
                                     <!-- Tombol Tambah Pengeluaran dan Download Laporan -->

@@ -6,11 +6,15 @@ use App\Models\Paket;
 use App\Models\Pengeluaran;
 use App\Models\Plan;
 use Illuminate\Http\Request;
+use App\Http\Controllers\MasterController;
 
-class berandaController extends Controller
+class berandaController extends masterController
 {
     //
     public function jumlahPelanggan(){
+        $notifPesans = $this -> pesanmasukIndex();
+        $notifPengajuans = $this ->pengajuanmasukIndex();
+
         $jumlahPelanggan = Customers::all()->count();
 
         $jumlahPengajuan = Paket::all()->count();
@@ -21,7 +25,7 @@ class berandaController extends Controller
         $pemasukans = Plan::all();
         $jumlahPendapatan = number_format($pemasukans->sum('harga'),2);
 
-        return view("beranda", compact('jumlahPelanggan', 'jumlahPengajuan', 'jumlahPengeluaran', 'jumlahPendapatan'));
+        return view("beranda", compact('jumlahPelanggan', 'jumlahPengajuan', 'jumlahPengeluaran', 'jumlahPendapatan', 'notifPengajuans', 'notifPesans' ));
         // ->with("jumlahPelanggan",$jumlahPelanggan);
     }
 

@@ -80,7 +80,7 @@
           <span class="badge badge-danger navbar-badge">3</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          {{-- @foreach($pesans as $pesan)
+          @foreach($notifPesans as $pesan)
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             
@@ -97,38 +97,42 @@
             <div class="dropdown-divider"></div>
           </a>
           <!-- Message End -->
-            @endforeach --}}
+            @endforeach
          
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+          <a href="pesanmasuk" class="dropdown-item dropdown-footer">Lihat Semua Pengajuan</a>
         </div>
       </li>
+
       <!-- Notifications Dropdown Menu -->
-      {{-- <li class="nav-item dropdown">
+      <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
           <span class="badge badge-warning navbar-badge">15</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
+          @foreach($notifPengajuans as $pengajuan)
           <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
+            <!-- Message Start -->
+            
+            <div class="media">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  {{ $pengajuan -> nama }}
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>{{ \Carbon\Carbon::parse($pengajuan->created_at)->diffForHumans() }}</p>
+                <p class="text-sm">{{ $pengajuan -> alamat }}</p>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
           </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+          <!-- Message End -->
+            @endforeach
+         
+          <a href="pesanmasuk" class="dropdown-item dropdown-footer">Lihat Semua Pesan</a>
         </div>
-      </li> --}}
+      </li>
+
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>

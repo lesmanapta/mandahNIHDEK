@@ -6,12 +6,15 @@ use Illuminate\Http\Request;
 // app/Http/Controllers/PaketController.php
 use Carbon\Carbon;
 use App\Models\Paket;
+use App\Http\Controllers\MasterController;
 
-class PaketController extends Controller
+class PaketController extends masterController
 {
     public function index(){
+        $notifPesans = $this -> pesanmasukIndex();
+        $notifPengajuans = $this ->pengajuanmasukIndex();
         $paket = Paket::orderBy('created_at', 'desc')->paginate(10);
-        return view("pengajuanpasang",compact("paket"));
+        return view("pengajuanpasang",compact("paket", 'notifPengajuans', 'notifPesans'));
     }
     // Your controller methods go here
     public function store(Request $request)

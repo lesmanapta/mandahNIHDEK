@@ -8,13 +8,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
+use App\Http\Controllers\MasterController;
 
-class PengeluaranController extends Controller
+
+class PengeluaranController extends masterController
 {
     public function create()
     {
+        $notifPesans = $this -> pesanmasukIndex();
+$notifPengajuans = $this ->pengajuanmasukIndex();
         $categories = Pengeluaran::distinct('namakategori')->pluck('namakategori');
-        return view('tambahpengeluaran', compact('categories'));
+        return view('tambahpengeluaran', compact('categories', 'notifPesans', 'notifPengajuans'));
     }
 
     public function store(Request $request)
@@ -36,12 +40,14 @@ class PengeluaranController extends Controller
 
     public function index(Request $request)
     {
+        $notifPesans = $this -> pesanmasukIndex();
+        $notifPengajuans = $this ->pengajuanmasukIndex();
         $keyword = $request->keyword;
         $pengeluarans = Pengeluaran::where('namakategori', 'LIKE','%'.$keyword.'%')
         ->orWhere('namapengeluaran', 'LIKE','%'.$keyword.'%')
         ->paginate(5);
 
-        return view('laporanpengeluaran', compact('pengeluarans', 'keyword'));
+        return view('laporanpengeluaran', compact('pengeluarans', 'keyword', 'notifPesans', 'notifPengajuans'));
              // $keyword = $request->input('keyword');
 
         // $pengeluarans = Pengeluaran::when($keyword, function ($query) use ($keyword) {

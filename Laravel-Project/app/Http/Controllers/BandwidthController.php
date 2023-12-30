@@ -4,23 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Bandwidth;
+use App\Http\Controllers\MasterController;
 
-class BandwidthController extends Controller
+
+
+class BandwidthController extends masterController
 {
     public function index(Request $request)
     {
         // $bandwidths = Bandwidth::all();
         $keyword = $request->keyword;
-
+        $notifPesans = $this -> pesanmasukIndex();
+        $notifPengajuans = $this ->pengajuanmasukIndex();
         $bandwidths = Bandwidth::where('name_bw', 'LIKE','%'.$keyword.'%')
         ->paginate(5);
 
-        return view('daftarbandwidth', compact('bandwidths'));
+        return view('daftarbandwidth', compact('bandwidths', 'notifPesans', 'notifPengajuans'));
     }
 
     public function create()
     {
-        return view('bandwidthbaru');
+        $notifPesans = $this -> pesanmasukIndex();
+        return view('bandwidthbaru', compact('notifPesans'));
     }
     public function store(Request $request)
    {
@@ -38,8 +43,10 @@ class BandwidthController extends Controller
 
     public function edit($id)
     {
+        $notifPesans = $this -> pesanmasukIndex();
+        $notifPengajuans = $this ->pengajuanmasukIndex();
         $bandwidth = Bandwidth::find($id);
-        return view('editbandwidth', compact('bandwidth'));
+        return view('editbandwidth', compact('bandwidth', 'notifPesans', 'notifPengajuans'));
     }
 
     public function update(Request $request, $id)

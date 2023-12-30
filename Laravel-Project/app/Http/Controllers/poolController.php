@@ -6,24 +6,30 @@ use App\Models\Pool;
 use App\Models\Routers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\MasterController;
 
-class PoolController extends Controller
+
+class PoolController extends masterController
 {
     public function index(Request $request)
     {
+        $notifPesans = $this -> pesanmasukIndex();
+$notifPengajuans = $this ->pengajuanmasukIndex();
         $keyword = $request->keyword;
         $inipool = Pool::where('pool_name', 'LIKE', '%' . $keyword . '%')
             ->orWhere('range_ip', 'LIKE', '%' . $keyword . '%')
             ->orWhere('routers', 'LIKE', '%' . $keyword . '%')
             ->paginate(5);
 
-        return view('ippool', ['inipool' => $inipool, 'keyword' => $keyword]);
+        return view('ippool', ['inipool' => $inipool, 'keyword' => $keyword, 'notifPesans'=> $notifPesans,'notifPengajuans'=> $notifPengajuans]);
     }
 
     public function create()
     {
+        $notifPesans = $this -> pesanmasukIndex();
+        $notifPengajuans = $this ->pengajuanmasukIndex();
         $routers = Routers::all();
-        return view('tambahippool', compact('routers'));
+        return view('tambahippool', compact('routers', 'notifPesans', 'notifPengajuans'));
     }
 
     public function store(Request $request)
@@ -52,9 +58,11 @@ class PoolController extends Controller
 
     public function edit($id)
     {
+        $notifPesans = $this -> pesanmasukIndex();
+        $notifPengajuans = $this ->pengajuanmasukIndex();
         $pool = Pool::findOrFail($id); // Ganti 'admin' menjadi 'pool'
         $routers = Routers::all();
-        return view('editippool', compact('pool', 'routers')); // Ganti 'admin' menjadi 'pool'
+        return view('editippool', compact('pool', 'routers', 'notifPesans', 'notifPengajuans')); // Ganti 'admin' menjadi 'pool'
     }
 
     public function update(Request $request, $id)
