@@ -76,39 +76,52 @@ class TambahPaketController extends Controller
         return redirect()->route('paketpppoe.index')->with('success', 'Paket berhasil dihapus');
     }
 
-    //edit
-    public function edit($id)
-    {
-    $router = Plan::findorFail($id);
-    return view ('editPaketPPPoE', compact('plan','routers'));
-    }
+    //edit bye salma nyerah
+    // public function edit($id)
+    // {
+    //     // $plans = Plan::findorFail($id);
+    //     $routers = Routers::all();
+    //     $pools = Pool::all();
+    //     return view ('editPaketPPPoE', compact('routers','pools'));
+    // }
 
-    public function update(Request $request, $id)
-    {
-        // Validasi input jika diperlukan
-        $request->validate([
-            'name' => 'required|string',
-            'ip_address' => 'required|string',
-            'username' => 'required|unique:routers,username,' . $id,
-            'password' => 'required|string',
-            'deskripsi' => 'nullable|string',
-            'status' => ['required', Rule::in(['Enable', 'Disable'])],
-        ]);
+    // public function update(Request $request, $id)
+    // {
+    //     $plans = Plan::find($id);
+    //     $plans->update($request->all());
 
-        $router = Routers::findOrFail($id);
+    //     return redirect()->route('paketpppoe.index');
+    // }
+    // public function update(Request $request, $id)
+    // {
+    //     // Validasi input jika diperlukan
+    //     $request->validate([
+    //         'status' => $request->input('status'),
+    //         'namapaket' => $request->input('namapaket'),
+    //         'namabandwith' => $request->input('namabandwith'),
+    //         'harga' => $request->input('harga'),
+    //         'masa_aktif' => $request->input('masa_aktif'),
+    //         'masa_aktif_unit' => $request->input('masa_aktif_unit'),
+    //         'nama_router' => $request->input('nama_router'),
+    //         'ippol' => $request->input('ippol'),
+    //     ]);
 
-        // Update data in the database
-        $router->update([
-            'name' => $request->input('name'),
-            'ip_address' => $request->input('ip_address'),
-            'username' => $request->input('username'),
-            'password' => $request->filled('password') ? bcrypt($request->input('password')) : $router->password,
-            'deskripsi' => $request->input('deskripsi'),
-            'status' => $request->input('status'),
-        ]);
+    //     $router = Routers::findOrFail($id);
 
-        return redirect()->route('router')
-            ->with('success', 'Router berhasil diperbarui');
-    }
+    //     // Update data in the database
+    //     $router->update([
+    //         'status' => $request->input('status'),
+    //         'namapaket' => $request->input('namapaket'),
+    //         'namabandwith' => $request->input('namabandwith'),
+    //         'harga' => $request->input('harga'),
+    //         'masa_aktif' => $request->input('masa_aktif'),
+    //         'masa_aktif_unit' => $request->input('masa_aktif_unit'),
+    //         'nama_router' => $request->input('nama_router'),
+    //         'ippol' => $request->input('ippol'),
+    //     ]);
+
+    //     return redirect()->route('router')
+    //         ->with('success', 'Router berhasil diperbarui');
+    // }
 
 }
