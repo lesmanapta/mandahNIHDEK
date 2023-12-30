@@ -70,7 +70,7 @@
                                                 <td>{{ $user->user_type }}</td>
                                                 <td>{{ $user->last_login }}</td>
                                                 <td>
-                                                    <a href="{{ route('tambahpaketbaru', $user->id) }}" class="edit-button">Edit</a>
+                                                    <a href="{{ route('editadmin', $user->id) }}" class="edit-button">Edit</a>
                                                     <a href="{{ route('deleteadmin', $user->id) }}" class="hapus-button">Hapus</a>
                                                 </td>
                                             </tr>

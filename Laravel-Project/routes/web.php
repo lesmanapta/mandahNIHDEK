@@ -168,9 +168,9 @@ Route::get('/laporanpengeluaran', function () {
 
 // routes update halaman
 Route::get('/editAlamat', function () {
-    return view('updateAlamat');
+    return view('editAlamat');
 });
 
-Route::get('/editAlamat', function () {
-    return view('updateAlamat');
+Route::get('/editNomorTelepon', function () {
+    return view('editNomorTelepon');
 });
