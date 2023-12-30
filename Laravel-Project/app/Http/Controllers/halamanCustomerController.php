@@ -38,7 +38,7 @@ class halamanCustomerController extends Controller
         $alamat = Alamat::find('1');
         $alamat->update($request->all());
 
-        return redirect()->route('/dashboard')->with('success', 'Bandwidth berhasil diperbarui');
+        return redirect()->route('dashboard')->with('success', 'Bandwidth berhasil diperbarui');
     }
 
     //update nomor telepon
