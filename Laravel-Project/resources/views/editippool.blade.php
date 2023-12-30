@@ -33,7 +33,7 @@
                                     <div class="form-group row">
                                         <label for="exampleNamaPool" class="col-sm-2 col-form-label">Nama Pool</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control @error('pool_name') is-invalid @enderror" id="pool_name" name="pool_name" value="{{ old('pool_name') }}">
+                                            <input type="text" class="form-control @error('pool_name') is-invalid @enderror" id="pool_name" name="pool_name" value="{{ old('pool_name',$pool->pool_name) }}">
                                             @error('pool_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -45,7 +45,7 @@
                                     <div class="form-group row">
                                         <label for="exampleRentangIp" class="col-sm-2 col-form-label">Rentang IP</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control @error('range_ip') is-invalid @enderror" id="range_ip" name="range_ip" placeholder="ex. 192.168.88.1-192.168.88.1" value="{{ old('range_ip') }}">
+                                            <input type="text" class="form-control @error('range_ip') is-invalid @enderror" id="range_ip" name="range_ip" placeholder="ex. 192.168.88.1-192.168.88.1" value="{{ old('range_ip',$pool->range_ip) }}">
                                             @error('range_ip')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -60,7 +60,7 @@
                                             <select class="form-control @error('routers') is-invalid @enderror" id="routers" name="routers">
                                                 <option value="">Pilih Router</option>
                                                 @foreach($routers as $router)
-                                                <option value="{{ $router->id }}" @if(old('routers') == $router->id) selected @endif>{{ $router->name }}</option>
+                                                <option value="{{ $router->id }}" @if(old('routers',$router->id)) selected @endif>{{ $router->name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('routers')
