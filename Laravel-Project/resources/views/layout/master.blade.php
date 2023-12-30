@@ -324,24 +324,24 @@
           </li>
           <li class="nav-item" @auth @if(auth()->user()->user_type === 'Super Admin' || auth()->user()->user_type === 'Admin') '' @else style="display:none;" @endif @endauth>
             <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
-                <p>
-                    Update Halaman
-                    <i class="fas fa-angle-left right"></i>
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Update Halaman
+                <i class="fas fa-angle-left right"></i>
                 </p>
-            </a>
+              </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="/editAlamat" class="nav-link">
+                  <a href="{{ route('editAlamat') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Alamat</p>
                     </a>
-                </li>
-                <li class="nav-item">
-                  <a href="/editNomorTelepon" class="nav-link">
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('editNomorTelepon') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Nomor Telepon</p>
-                  </a>
+                    </a>
                 </li>
               </li>
             </ul>
@@ -349,7 +349,7 @@
 
           <li class="nav-item" @auth @if(auth()->user()->user_type === 'Super Admin') '' @else style="display:none;" @endif @endauth>
             <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-table"></i>
                 <p>
                     Pengaturan
                     <i class="fas fa-angle-left right"></i>

@@ -30,11 +30,15 @@ class halamanCustomerController extends Controller
 
     //update alamat 
     public function editAlamat(){
-    //
+        $alamat = Alamat::find('1');
+        return view('editAlamat', compact('alamat'));
     }
 
     public function updateAlamat(Request $request){
+        $alamat = Alamat::find('1');
+        $alamat->update($request->all());
 
+        return redirect()->route('/dashboard')->with('success', 'Bandwidth berhasil diperbarui');
     }
 
     //update nomor telepon

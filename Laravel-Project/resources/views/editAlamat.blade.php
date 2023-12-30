@@ -26,35 +26,44 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <form method="post" action="{{ route('updateadmin', $admin->id) }}">
+                            <form method="post" action="{{ route('updateAlamat', $alamat->id) }}">
                                 @csrf
                                 @method('PUT')
                                 <div class="card-body">
                                     <div class="form-group row">
-                                        <label for="fullname" class="col-sm-2 col-form-label">Nama Lengkap</label>
+                                        <label for="jalan" class="col-sm-2 col-form-label">Jalan</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="fullname" value="{{ old('fullname', $admin->fullname) }}" required>
+                                            <input placeholder="Jalan Palem Aren No. 10" type="text" class="form-control" name="jalan" value="{{ old('jalan', $alamat->jalan) }}" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="user_type" class="col-sm-2 col-form-label">Posisi User</label>
+                                        <label for="kelurahan" class="col-sm-2 col-form-label">Kelurahan</label>
                                         <div class="col-sm-10">
-                                            <select name="user_type" class="form-control" required>
-                                                <option value="Super Admin" {{ old('user_type', $admin->user_type) === 'Super Admin' ? 'selected' : '' }}>Super Admin</option>
-                                                <option value="Admin" {{ old('user_type', $admin->user_type) === 'Admin' ? 'selected' : '' }}>Admin</option>
-                                            </select>
+                                            <input placeholder="Kelapa Dua" type="text" class="form-control" name="kelurahan" value="{{ old('kelurahan', $alamat->kelurahan) }}" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="password" class="col-sm-2 col-form-label">Password</label>
+                                        <label for="kecamatan" class="col-sm-2 col-form-label">Kecamatan</label>
                                         <div class="col-sm-10">
-                                            <input type="password" class="form-control" name="password">
+                                            <input placeholder="Bencongan Indah" type="text" class="form-control" name="kecamatan" value="{{ old('kecamatan', $alamat->kecamatan) }}" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="password_confirmation" class="col-sm-2 col-form-label">Konfirmasi Password</label>
+                                        <label for="kota" class="col-sm-2 col-form-label">Kota</label>
                                         <div class="col-sm-10">
-                                            <input type="password" class="form-control" name="password_confirmation">
+                                            <input type="text" placeholder="Kota/Kabupaten Tangerang" class="form-control" name="kota" value="{{ old('kota', $alamat->kota) }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="provinsi" class="col-sm-2 col-form-label">provinsi</label>
+                                        <div class="col-sm-10">
+                                            <input placeholder="Banten" type="text" class="form-control" name="provinsi" value="{{ old('provinsi', $alamat->provinsi) }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="kode_pos" class="col-sm-2 col-form-label">Kode Pos</label>
+                                        <div class="col-sm-10">
+                                            <input placeholder="10101" type="text" class="form-control" name="kode_pos" value="{{ old('kode_pos', $alamat->kode_pos) }}" required>
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>

@@ -61,6 +61,9 @@ Route::get('/dashboard', function () {
 //menampilkan jumlah pelanggan
 Route::get('/dashboard', [CustomersController::class,'jumlahPelanggan'])->middleware('auth');
 
+//test 2 class controller dalam 1 halaman
+// Route::get('/dashboard', [HalamanCustomerController::class,'editNomorTelepon'])->middleware('auth');
+
 // Route::get('/paketpppoe', function () {
 //     return view('paketpppoe');
 // })-> middleware('auth');
@@ -184,3 +187,11 @@ Route::post('/tambahpengeluaran', [PengeluaranController::class, 'store'])->name
 
 //routes halaman customer
 Route::get('/', [halamanCustomerController::class, 'index'])->name('customers.index');
+
+//routes editalamat
+Route::get('/editAlamat/1', [halamanCustomerController::class, 'editAlamat'])->name('editAlamat');
+Route::put('/editAlamat/1', [halamanCustomerController::class, 'updateAlamat'])->name('updateAlamat');
+
+//routes editNomorTelepon
+Route::get('/editNomorTelepon/1', [halamanCustomerController::class, 'editNomorTelepon'])->name('editNomorTelepon');
+Route::put('/editNomorTelepon/1', [halamanCustomerController::class, 'updateNomorTelepon'])->name('updateNomorTelepon');
