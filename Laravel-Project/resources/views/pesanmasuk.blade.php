@@ -73,7 +73,8 @@
                                  <div class="callout callout-danger">
                                      <a href="{{ route('deletePesanMasuk', $pesan->id) }}" class="close-button"></a>
                                      <h5>{{ $pesan -> name . ' (' . $pesan -> email . ')'}}</h5>
-                                     <p><br>{{ $pesan -> message .'.' }}</p>
+                                     <p>{{ \Carbon\Carbon::parse($pesan->created_at)->diffForHumans() }}</p>
+                                     <p>{{ $pesan -> message .'.' }}</p>
                                     </div>
                                 </div>
                              @endforeach

@@ -59,7 +59,7 @@ class halamanCustomerController extends Controller
     
     //index pesan masuk di dashboard
     public function pesanmasukIndex(){
-        $pesans = Contact::paginate(4);
+        $pesans = Contact::orderBy('created_at','desc')->paginate(4);
         return view('pesanmasuk', compact('pesans'));
     }
     

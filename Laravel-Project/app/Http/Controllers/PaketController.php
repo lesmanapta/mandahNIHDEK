@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 // app/Http/Controllers/PaketController.php
-
+use Carbon\Carbon;
 use App\Models\Paket;
 
 class PaketController extends Controller
 {
     public function index(){
-        $paket = Paket::paginate(10);
+        $paket = Paket::orderBy('created_at', 'desc')->paginate(10);
         return view("pengajuanpasang",compact("paket"));
     }
     // Your controller methods go here

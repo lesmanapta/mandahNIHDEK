@@ -14,7 +14,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Pengajuan Pasang</a></li>
+                        <li class="breadcrumb-item"><a href="/dashboard">Beranda</a></li>
                         <li class="breadcrumb-item active">Pengajuan Pasang</li>
                     </ol>
                 </div><!-- /.col -->
@@ -49,6 +49,7 @@
                                             <th>Email</th>
                                             <th>Nomor Telepon</th>
                                             <th>Alamat</th>
+                                            <th>Waktu</th>
                                             <th>Proses</th>
 
     
@@ -62,6 +63,8 @@
                                                 <td>{{ $pengajuan->email }}</td>
                                                 <td>{{ $pengajuan->nomor_hp }}</td>
                                                 <td>{{ $pengajuan->alamat }}</td>
+                                                <td>{{ \Carbon\Carbon::parse($pengajuan->created_at)->diffForHumans() }}</td>
+                                                                                            
                                                 <td>
                                                     <a href="{{ route('deletePengajuan', $pengajuan->id) }}" class="hapus-button">Hapus</a>
                                                 </td>
