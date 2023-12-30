@@ -43,11 +43,15 @@ class halamanCustomerController extends Controller
 
     //update nomor telepon
     public function editNomorTelepon(){
-
+        $alamat = Alamat::find('1');
+        return view('editNomorTelepon', compact('alamat'));
     }
     
     public function updateNomorTelepon(Request $request){
+        $alamat = Alamat::find('1');
+        $alamat->update($request->all());
 
+        return redirect()->route('dashboard')->with('success', 'Bandwidth berhasil diperbarui');
     }
 
 }
