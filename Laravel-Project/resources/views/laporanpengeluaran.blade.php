@@ -1,8 +1,8 @@
 @extends('layout.master')
 <!-- Add the necessary AdminLTE CSS and JS files -->
+@section('content')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
 <link rel="stylesheet" href="css/button.css">
-@section('content')
 <title>MandahNet | Laporan Pengeluaran</title>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -34,10 +34,13 @@
                                     <form action="{{ route('laporanpengeluaran.index') }}" class="form-inline" method="GET">
                                         <input type="text" name="keyword" class="form-control float-right" placeholder="Search" value="{{ request('keyword') }}">
                                         <div class="input-group-append">
-                                            <button id="searchPaketPPPoE" type="submit" class="btn btn-default">
+                                            <button id="searchLaporanPengeluaran" type="submit" class="btn btn-default">
                                                 <i class="fas fa-search"></i>
                                             </button>
                                         </div>
+                                        <a href="/laporanpengeluaran" style="margin: 3px" id="tombolSilang"  style="display: block;" class="btn btn-danger">
+                                            <i class="fas fa-times"></i>
+                                            </a>
                                     </form>
                                 </div>
                                 <!-- Tombol Tambah Pengeluaran dan Download Laporan -->

@@ -28,14 +28,14 @@
           <div class="col-lg-3 col-6">
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>Rp. 12.560.000,00</h3>
+                <h3>{{ 'Rp. ' . $jumlahPendapatan }}</h3>
 
                 <p>Pendapatan</p>
               </div>
               <div class="icon">
                 <i class="ion ion-cash"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="laporanharian" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -50,7 +50,7 @@
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="listKontak" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="pengajuanpasang" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
 
@@ -58,7 +58,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>Rp. 9.500.000,00</h3>
+                <h3>{{ 'Rp. ' . $jumlahPengeluaran }}</h3>
 
                 <p>Pengeluaran</p>
               </div>
@@ -73,14 +73,14 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>{{ $jumlahPelanggan }}</h3>
+                <h3>{{ $jumlahPengajuan }}</h3>
 
-                <p>Pelanggan</p>
+                <p>Pengajuan</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="listKontak" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="pengajuanpasang" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
         </div>

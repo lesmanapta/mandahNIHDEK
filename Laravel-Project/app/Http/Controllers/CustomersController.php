@@ -7,10 +7,7 @@ use App\Models\Customers;
 
 class CustomersController extends Controller
 {
-    public function jumlahPelanggan(){
-        $jumlahPelanggan = Customers::all()->count();
-        return view("beranda")->with("jumlahPelanggan",$jumlahPelanggan);
-    }
+    
 
     public function index(Request $request)
     {

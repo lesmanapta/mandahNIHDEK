@@ -36,15 +36,21 @@ class PengeluaranController extends Controller
 
     public function index(Request $request)
     {
-        $keyword = $request->input('keyword');
+        $keyword = $request->keyword;
+        $pengeluarans = Pengeluaran::where('namakategori', 'LIKE','%'.$keyword.'%')
+        ->orWhere('namapengeluaran', 'LIKE','%'.$keyword.'%')
+        ->paginate(5);
 
-        $pengeluarans = Pengeluaran::when($keyword, function ($query) use ($keyword) {
-            return $query->where('namakategori', 'like', "%$keyword%")
-                ->orWhere('namapengeluaran', 'like', "%$keyword%")
-                ->orWhere('hargapengeluaran', 'like', "%$keyword%");
-        })->get();
+        return view('laporanpengeluaran', compact('pengeluarans', 'keyword'));
+             // $keyword = $request->input('keyword');
 
-        return view('laporanpengeluaran', compact('pengeluarans'));
+        // $pengeluarans = Pengeluaran::when($keyword, function ($query) use ($keyword) {
+        //     return $query->where('namakategori', 'like', "%$keyword%")
+        //         ->orWhere('namapengeluaran', 'like', "%$keyword%")
+        //         ->orWhere('hargapengeluaran', 'like', "%$keyword%");
+        // })->get();
+
+        // return view('laporanpengeluaran', compact('pengeluarans'));
     }
 
     public function show($id)

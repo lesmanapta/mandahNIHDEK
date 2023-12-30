@@ -22,7 +22,7 @@ use App\Http\Controllers\halamanCustomerController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\LaporanHarianController;
-
+use App\Http\Controllers\masterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,7 +61,7 @@ Route::get('/dashboard', function () {
 })-> middleware('auth');
 
 //menampilkan jumlah pelanggan
-Route::get('/dashboard', [CustomersController::class,'jumlahPelanggan'])->name('dashboard')->middleware('auth');
+Route::get('/dashboard', [berandaController::class,'jumlahPelanggan', 'jumlahPengajuan'])->name('dashboard')->middleware('auth');
 
 //test 2 class controller dalam 1 halaman
 // Route::get('/dashboard', [HalamanCustomerController::class,'editNomorTelepon'])->middleware('auth');
@@ -215,3 +215,7 @@ route::get('/deletePengajuan/{id}', [PaketController::class,'destroy'])->name('d
 //pesan Masuk
 Route::get('/pesanmasuk', [halamanCustomerController::class, 'pesanmasukIndex'])->name('pesanmasuk.index');
 route::get('/pesanmasuk/{id}', [halamanCustomerController::class,'deletePesanMasuk'])->name('deletePesanMasuk');
+
+
+//routes for master
+Route::get('/master', [masterController::class, 'pesanmasukIndex']);
