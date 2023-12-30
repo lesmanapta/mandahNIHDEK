@@ -153,3 +153,15 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 
 // Route::get('/formpaket', [PaketController::class, 'index'])->name('paket.index');
 Route::post('/formpaket', [PaketController::class, 'store'])->name('paket.store');
+
+
+Route::get('/laporankeuangan', function () {
+    return view('laporankeuangan');
+});
+Route::get('/laporanharian', function () {
+    return view('laporanharian');
+});
+
+Route::get('/laporanpengeluaran', function () {
+    return view('laporanpengeluaran');
+});

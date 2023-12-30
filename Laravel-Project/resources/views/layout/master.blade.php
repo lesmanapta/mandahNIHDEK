@@ -175,9 +175,8 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/" class="brand-link">
-      <img src="{{asset ('AdminLTE/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">MandahNet</span>
+    <a href="/" class="brand-link" style="text-align: center; display: block;">
+      <span class="brand-text font-weight-light" style="display: inline-block;">CV. MANDAH86</span>
     </a>
 
     <!-- Sidebar -->
@@ -282,7 +281,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
+                <a href="/laporanharian" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Laporan Harian</p>
                 </a>
@@ -294,7 +293,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/UI/buttons.html" class="nav-link">
+                <a href="/laporanpengeluaran" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Laporan Pengeluaran</p>
                 </a>
