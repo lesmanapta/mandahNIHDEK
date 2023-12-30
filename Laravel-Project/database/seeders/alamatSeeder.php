@@ -8,12 +8,12 @@ use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Schema;
 
-class alamatSeeders extends Seeder
+class alamatSeeder extends Seeder
 {
     public function run(): void
     {
         Schema::disableForeignKeyConstraints();
-        Alamat::trueca();
+        Alamat::truncate();
         Schema::enableForeignKeyConstraints();
 
         Alamat::insert([
@@ -22,7 +22,7 @@ class alamatSeeders extends Seeder
             'jalan' => 'Jalan Datuk Kasim',
             'kelurahan' => 'Khairiah Mandah',
             'kecamatan' => 'Kec. Mandah',
-            'kabupaten' => 'Kabupaten Indragiri Hilir',
+            'kota' => 'Kabupaten Indragiri Hilir',
             'provinsi' => 'Riau',
             'kode_pos' => '29254',
         ]);

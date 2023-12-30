@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('alamat', function (Blueprint $table) {
             $table->id('id');
+            $table->string('nomor_telepon');
             $table->string('jalan');
             $table->string('kelurahan');
             $table->string('kecamatan');
