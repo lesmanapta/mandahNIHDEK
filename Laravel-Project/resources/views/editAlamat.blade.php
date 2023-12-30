@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Tambah Admin</h1>
+                    <h1 class="m-0">edit Alamat</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                        <li class="breadcrumb-item active">Tambah Admin</li>
+                        <li class="breadcrumb-item active">edit Alamat</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
