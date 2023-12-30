@@ -31,7 +31,7 @@ class AuthController extends Controller
                 return redirect()->intended('/')->withCookie($cookie);
             }
 
-            return redirect()->intended('/beranda');
+            return redirect()->intended('/dashboard');
         }
 
         return redirect()->back()->withErrors(['login' => 'Invalid login credentials']);
