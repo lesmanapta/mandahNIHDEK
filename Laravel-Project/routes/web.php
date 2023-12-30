@@ -10,6 +10,7 @@ use App\Http\Controllers\CustomersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoutersController;
+use App\Http\Controllers\viewcustomerController;
 use GuzzleHttp\Middleware;
 use App\Http\Middleware\SuperAdminMiddleware;
 use App\Models\Routers;
@@ -189,7 +190,7 @@ Route::post('/tambahpengeluaran', [PengeluaranController::class, 'store'])->name
 
 Route::get('/laporanpengeluaran/{id}', [PengeluaranController::class,'destroy'])->name('deletelaporanpengeluaran')->middleware('auth','teknisi');
 //routes halaman customer
-Route::get('/', [halamanCustomerController::class, 'index'])->name('customers.index');
+Route::get('/', [viewcustomerController::class, 'index'])->name('customers.index');
 
 //routes editalamat
 Route::get('/editAlamat/1', [halamanCustomerController::class, 'editAlamat'])->name('editAlamat');

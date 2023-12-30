@@ -23,13 +23,6 @@ class halamanCustomerController extends masterController
         return redirect()->back()->with('success', 'Pesan Anda telah berhasil dikirim.');
     }
 
-    public function index(){
-        $notifPesans = $this -> pesanmasukIndex();
-$notifPengajuans = $this ->pengajuanmasukIndex();
-        $alamat = Alamat::all();
-        return view('Customers/index', compact('alamat', 'notifPesans', 'notifPengajuans'));
-    }
-
 
     //update alamat 
     public function editAlamat(){
@@ -69,7 +62,9 @@ $notifPengajuans = $this ->pengajuanmasukIndex();
         // $notifPesans = $this -> pesanmasukIndex();
         // $notifPengajuans = $this ->pengajuanmasukIndex();
         $pesans = Contact::orderBy('created_at','desc')->paginate(4);
-        return view('pesanmasuk', compact('pesans', 'notifPesans', 'notifPengajuans'));
+        return view('pesanmasuk', compact('pesans'));
+        // return view('pesanmasuk', compact('pesans', 'notifPesans', 'notifPengajuans'));
+
     }
     
     public function deletePesanMasuk($id)
