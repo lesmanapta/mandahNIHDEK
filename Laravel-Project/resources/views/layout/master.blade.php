@@ -99,7 +99,7 @@
           <!-- Message End -->
             @endforeach
          
-          <a href="pesanmasuk" class="dropdown-item dropdown-footer">Lihat Semua Pengajuan</a>
+          <a href="pesanmasuk" class="dropdown-item dropdown-footer">Lihat Semua Pesan</a>
         </div>
       </li>
 
@@ -129,7 +129,7 @@
           <!-- Message End -->
             @endforeach
          
-          <a href="pesanmasuk" class="dropdown-item dropdown-footer">Lihat Semua Pesan</a>
+          <a href="pengajuanpasang" class="dropdown-item dropdown-footer">Lihat Semua Pengajuan</a>
         </div>
       </li>
 
