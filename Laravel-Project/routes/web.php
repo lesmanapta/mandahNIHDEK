@@ -206,3 +206,8 @@ Route::get('/pesanmasuk', function () {
 Route::get('/pengajuanpasang', function () {
     return view('pengajuanpasang');
 });
+
+
+//pengajuan pemasangan
+Route::get('/pengajuanpasang', [PaketController::class, 'index'])->name('pengajuanpasang.index');
+route::get('/deletePengajuan/{id}', [PaketController::class,'destroy'])->name('deletePengajuan');

@@ -9,6 +9,10 @@ use App\Models\Paket;
 
 class PaketController extends Controller
 {
+    public function index(){
+        $paket = Paket::paginate(10);
+        return view("pengajuanpasang",compact("paket"));
+    }
     // Your controller methods go here
     public function store(Request $request)
     {
@@ -26,5 +30,14 @@ class PaketController extends Controller
         // Tambahkan logika untuk menyimpan data pendaftaran ke dalam database sesuai kebutuhan
 
         return redirect()->route('customers.index')->with('success', 'Data berhasil disimpan!');
+    }
+
+    public function destroy($id)
+    {
+        // Hapus data dari database
+        Paket::destroy($id);
+
+        return redirect()->route('pengajuanpasang.index')
+            ->with('success', 'Router berhasil dihapus');
     }
 }

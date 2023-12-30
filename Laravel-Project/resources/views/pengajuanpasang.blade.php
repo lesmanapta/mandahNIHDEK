@@ -1,5 +1,7 @@
 @extends('layout.master')
 @section('content')
+<link rel="stylesheet" href="css/button.css">
+
 <title>MandahNet | Pengajuan Pasang</title>
 
 <div class="content-wrapper">
@@ -38,25 +40,41 @@
                                  }
                              </style>
                              
-                             <div class="card-body">
-                                 <div class="callout callout-danger">
-                                     <h5>I am a danger callout!</h5>
-                                     <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-                                 </div>
-                                 <div class="callout callout-info">
-                                     <h5>I am an info callout!</h5>
-                                     <p>Follow the steps to continue to payment.</p>
-                                 </div>
-                                 <div class="callout callout-warning">
-                                     <h5>I am a warning callout!</h5>
-                                     <p>This is a yellow callout.</p>
-                                 </div>
-                                 <div class="callout callout-success">
-                                     <h5>I am a success callout!</h5>
-                                     <p>This is a green callout.</p>
-                                 </div>
-                             </div>
-                             
+                             <div class="table-responsive">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama</th>
+                                            <th>Jenis Paket</th>
+                                            <th>Email</th>
+                                            <th>Nomor Telepon</th>
+                                            <th>Alamat</th>
+                                            <th>Proses</th>
+
+    
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($paket as $pengajuan)
+                                            <tr>
+                                                <td>{{ $pengajuan->nama }}</td>
+                                                <td>{{ $pengajuan->jenis_paket }}</td>
+                                                <td>{{ $pengajuan->email }}</td>
+                                                <td>{{ $pengajuan->nomor_hp }}</td>
+                                                <td>{{ $pengajuan->alamat }}</td>
+                                                <td>
+                                                    <a href="{{ route('deletePengajuan', $pengajuan->id) }}" class="hapus-button">Hapus</a>
+                                                </td>
+                                            </tr>
+                                            
+                                        @endforeach
+                                        
+                                    </tbody>
+                                </table>
+                                <div class="float-right">
+                                    {{ $paket -> links() }}
+                                </div>
+                            </div>
                             </form>
                             <!-- /.card-body -->
                         </div>
@@ -68,4 +86,18 @@
     </section>
 </div>
 @endsection
-
+@section('scripts')
+    @parent
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        // Script untuk menampilkan SweetAlert setelah berhasil mengedit admin
+        @if(session('success'))
+            Swal.fire({
+                title: 'Berhasil!',
+                text: '{{ session('success') }}',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        @endif
+</script>
+@endsection

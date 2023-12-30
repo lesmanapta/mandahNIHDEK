@@ -435,5 +435,20 @@ http://www.tooplate.com/view/2075-digital-team
 <script src="{{asset ('customers/js/wow.min.js') }}"></script>
 <script src="{{asset ('customers/js/custom.js') }}"></script>
 
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        // Script untuk menampilkan SweetAlert setelah berhasil mengedit admin
+        @if(session('success'))
+            Swal.fire({
+                title: 'Berhasil!',
+                text: '{{ session('success') }}',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        @endif
+</script>
+
+
 </body>
 </html>
