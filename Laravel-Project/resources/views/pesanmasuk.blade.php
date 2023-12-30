@@ -68,31 +68,18 @@
                                      margin-bottom: 0;
                                  }
                              </style>
-                             
+                             @foreach($pesans as $pesan)
                              <div class="card-body">
                                  <div class="callout callout-danger">
-                                    <div class="close-button"></div>
-                                     <h5>I am a danger callout!</h5>
-                                     <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-                                 </div>
-                                 <div class="callout callout-info">
-                                     <h5>I am an info callout!</h5>
-                                     <p>Follow the steps to continue to payment.</p>
-                                 </div>
-                                 <div class="callout callout-warning">
-                                     <h5>I am a warning callout!</h5>
-                                     <p>This is a yellow callout.</p>
-                                 </div>
-                                 <div class="callout callout-success">
-                                     <h5>I am a success callout!</h5>
-                                     <p>This is a green callout.</p>
-                                 </div>
-                                 <div class="callout callout-success">
-                                    <h5>I am a success callout!</h5>
-                                    <p>This is a green callout.</p>
+                                     <a href="{{ route('deletePesanMasuk', $pesan->id) }}" class="close-button"></a>
+                                     <h5>{{ $pesan -> name . ' (' . $pesan -> email . ')'}}</h5>
+                                     <p><br>{{ $pesan -> message .'.' }}</p>
+                                    </div>
                                 </div>
-                             </div>
-                             
+                             @endforeach
+                             <div class="float-right">
+                                {{ $pesans -> links() }}
+                            </div>
                             </form>
                             <!-- /.card-body -->
                         </div>

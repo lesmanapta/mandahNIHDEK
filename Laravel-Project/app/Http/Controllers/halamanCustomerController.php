@@ -56,6 +56,13 @@ class halamanCustomerController extends Controller
 
 
     //delete pesan masuk di dashboard
+    
+    //index pesan masuk di dashboard
+    public function pesanmasukIndex(){
+        $pesans = Contact::paginate(4);
+        return view('pesanmasuk', compact('pesans'));
+    }
+    
     public function deletePesanMasuk($id)
       {
         // Hapus data dari database
@@ -64,11 +71,4 @@ class halamanCustomerController extends Controller
         return redirect()->route('pesanmasuk.index')
             ->with('success', 'Router berhasil dihapus');
     }
-
-    //index pesan masuk di dashboard
-    public function pesanmasukIndex(){
-        $pesans = Contact::paginate(5);
-    return view('pesanmasuk', compact('pesans'));
-    }
-
 }

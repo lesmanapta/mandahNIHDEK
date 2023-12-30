@@ -213,5 +213,5 @@ Route::get('/pengajuanpasang', [PaketController::class, 'index'])->name('pengaju
 route::get('/deletePengajuan/{id}', [PaketController::class,'destroy'])->name('deletePengajuan');
 
 //pesan Masuk
-Route::get('/pesanmasuk', [PaketController::class, 'index'])->name('pesanmasuk.index');
-route::get('/pesanmasuk/{id}', [PaketController::class,'destroy'])->name('deletePesanMasuk');
+Route::get('/pesanmasuk', [halamanCustomerController::class, 'pesanmasukIndex'])->name('pesanmasuk.index');
+route::get('/pesanmasuk/{id}', [halamanCustomerController::class,'deletePesanMasuk'])->name('deletePesanMasuk');
