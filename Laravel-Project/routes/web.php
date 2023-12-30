@@ -182,5 +182,6 @@ Route::get('/tambahpengeluaran', [PengeluaranController::class, 'create'])->name
 Route::post('/tambahpengeluaran', [PengeluaranController::class, 'store'])->name('tambahpengeluaran.store');
 
 
+Route::get('/laporanpengeluaran/{id}', [PengeluaranController::class,'destroy'])->name('deletelaporanpengeluaran')->middleware('auth','teknisi');
 //routes halaman customer
 Route::get('/', [halamanCustomerController::class, 'index'])->name('customers.index');

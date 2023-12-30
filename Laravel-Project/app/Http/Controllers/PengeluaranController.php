@@ -53,4 +53,16 @@ class PengeluaranController extends Controller
 
         return view('laporanpengeluaran', compact('pengeluaran'));
     }
+    public function destroy($id)
+    {
+        $pengeluaran = Pengeluaran::find($id);
+
+        if (!$pengeluaran) {
+            return redirect()->route('laporanpengeluaran.index')->with('error', 'Data not found!');
+        }
+
+        $pengeluaran->delete();
+
+        return redirect()->route('laporanpengeluaran.index')->with('success', 'Data berhasil dihapus!');
+    }
 }
