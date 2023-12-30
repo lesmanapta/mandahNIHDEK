@@ -334,13 +334,13 @@
                 <li class="nav-item">
                   <a href="/pengajuanpasang" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Pengajuan</p>
+                        <p>Pengajuan Pasang</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="/pesanmasuk" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Pesan</p>
+                      <p>Pesan Masuk</p>
                     </a>
                 </li>
               </li>
