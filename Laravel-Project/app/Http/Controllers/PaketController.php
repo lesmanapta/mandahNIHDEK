@@ -25,6 +25,6 @@ class PaketController extends Controller
 
         // Tambahkan logika untuk menyimpan data pendaftaran ke dalam database sesuai kebutuhan
 
-        return redirect()->route('home')->with('success', 'Data berhasil disimpan!');
+        return redirect()->route('customers.index')->with('success', 'Data berhasil disimpan!');
     }
 }
