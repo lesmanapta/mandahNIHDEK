@@ -33,6 +33,8 @@ class halamanCustomerController extends masterController
     }
 
     public function updateAlamat(Request $request){
+        $notifPesans = $this -> pesanmasukIndex();
+        $notifPengajuans = $this ->pengajuanmasukIndex();
         $alamat = Alamat::find('1');
         $alamat->update($request->all());
 
@@ -58,14 +60,14 @@ class halamanCustomerController extends masterController
     //delete pesan masuk di dashboard
     
     //index pesan masuk di dashboard
-    public function pesanmasukIndex(){
-        // $notifPesans = $this -> pesanmasukIndex();
-        // $notifPengajuans = $this ->pengajuanmasukIndex();
-        $pesans = Contact::orderBy('created_at','desc')->paginate(4);
-        return view('pesanmasuk', compact('pesans'));
+    // public function pesanmasukIndex(){
+    //     // $notifPesans = $this -> pesanmasukIndex();
+    //     // $notifPengajuans = $this ->pengajuanmasukIndex();
+    //     $pesans = Contact::orderBy('created_at','desc')->paginate(4);
+    //     return view('pesanmasuk', compact('pesans'));
         // return view('pesanmasuk', compact('pesans', 'notifPesans', 'notifPengajuans'));
 
-    }
+    // }
     
     public function deletePesanMasuk($id)
       {
