@@ -138,9 +138,9 @@ Route::get('/paketpppoe', [TambahPaketController::class, 'index'])->name('paketp
 Route::get('/tambahpaketbaru', [TambahPaketController::class, 'create'])->name('tambahpaketbaru');
 Route::post('/tambahpaketbaru', [TambahPaketController::class, 'store'])->name('tambahpaketbaru.store');
 
-Route::get('/editbandwidth/{id}', [BandwidthController::class,'edit'])->name('editbandwidth')->middleware('auth','teknisi');
-Route::put('/updatebandwidth/{id}', [BandwidthController::class,'update'])->name('updatebandwidth')->middleware('auth','teknisi');
-Route::get('/deletebandwidth/{id}', [BandwidthController::class,'destroy'])->name('deletebandwidth')->middleware('auth','teknisi');
+Route::get('/editPaketPPPoE/{id}', [TambahPaketController::class,'edit'])->name('editPaketPPPoE')->middleware('auth','teknisi');
+Route::put('/updatePaketPPPoE/{id}', [TambahPaketController::class,'update'])->name('updatePaketPPPoE')->middleware('auth','teknisi');
+Route::get('/deletePaketPPPoE/{id}', [TambahPaketController::class,'destroy'])->name('deletePaketPPPoE')->middleware('auth','teknisi');
 
 // Route::get('/', function () {
 //     return view('customers/index');
