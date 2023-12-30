@@ -19,6 +19,7 @@ use App\Models\Bandwidth;
 use App\Models\Customers;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PaketController;
+use App\Http\Controllers\PengeluaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -174,3 +175,7 @@ Route::get('/editAlamat', function () {
 Route::get('/editNomorTelepon', function () {
     return view('editNomorTelepon');
 });
+
+Route::get('/laporanpengeluaran', [PengeluaranController::class, 'index'])->name('laporanpengeluaran.index');
+Route::get('/tambahpengeluaran', [PengeluaranController::class, 'create'])->name('tambahpengeluaran');
+Route::post('/tambahpengeluaran', [PengeluaranController::class, 'store'])->name('tambahpengeluaran.store');

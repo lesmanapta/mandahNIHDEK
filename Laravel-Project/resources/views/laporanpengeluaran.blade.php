@@ -26,42 +26,42 @@
                     <div class="card">
                         <div class="card-body">
                           <div class="d-flex justify-content-between align-items-center mb-3">
-                            <div class="input-group input-group-sm" style="width: 300px;">
-                              <form action="" class="form-inline" method="GET">
-
-                                  <input type="text" name="keyword" class="form-control float-right" placeholder="Search" value="">
-
-                                  <div class="input-group-append">
-                                      <button id="searchAdmin" type="submit" class="btn btn-default">
-                                          <i class="fas fa-search"></i>
-                                      </button>
-                                  </div>
-                                  {{-- <input type="reset" name= "Reset" value="Reset" href="/pengaturanadmin"> --}}
-                              </form>
-                              <a href="/daftarbandwidth" style="margin: 3px" id="tombolSilang"  style="display: block;" class="btn btn-danger">
-                              <i class="fas fa-times"></i>
-                              </a>
-                            </div>
-                            <a href="/tambahlaporanpengeluaran" class="btn btn-success">Tambah Pengeluaran</a>
+                            <!-- Form Pencarian -->
+                            <form action="{{ route('laporanpengeluaran.index') }}" class="form-inline" method="GET">
+                                <input type="text" name="keyword" class="form-control float-right" placeholder="Search" value="{{ request('keyword') }}">
+                                <div class="input-group-append">
+                                    <button id="searchAdmin" type="submit" class="btn btn-default">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                            <!-- Tombol Tambah Pengeluaran -->
+                            <a href="{{ route('tambahpengeluaran') }}" class="btn btn-success">Tambah Pengeluaran</a>
                         </div>
+
+                        <!-- Tabel Laporan Pengeluaran -->
                         <div class="table-responsive">
-                          <table class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Kategori</th>
-                                    <th>Nama</th>
-                                    <th>Harga</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Sample data, replace with dynamic data from your backend -->
-                                <tr>
-                                    <td>Router</td>
-                                    <td>TP-Link</td>
-                                    <td>Rp. 170.000</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Kategori</th>
+                                        <th>Nama</th>
+                                        <th>Harga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($pengeluarans as $pengeluaran)
+                                        <tr>
+                                            <td>{{ $pengeluaran->namakategori }}</td>
+                                            <td>{{ $pengeluaran->namapengeluaran }}</td>
+                                            <td>Rp. {{ number_format($pengeluaran->hargapengeluaran, 2) }}</td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="3">Tidak ada data pengeluaran.</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
                             </table>
                         </div>
                     </div>
