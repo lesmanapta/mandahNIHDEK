@@ -188,7 +188,6 @@ Route::post('/tambahpengeluaran', [PengeluaranController::class, 'store'])->name
 Route::get('/laporanpengeluaran/{id}', [PengeluaranController::class,'destroy'])->name('deletelaporanpengeluaran')->middleware('auth','teknisi');
 //routes halaman customer
 Route::get('/', [halamanCustomerController::class, 'index'])->name('customers.index');
-<<<<<<< HEAD
 
 //routes editalamat
 Route::get('/editAlamat/1', [halamanCustomerController::class, 'editAlamat'])->name('editAlamat');
@@ -197,5 +196,3 @@ Route::put('/editAlamat/1', [halamanCustomerController::class, 'updateAlamat'])-
 //routes editNomorTelepon
 Route::get('/editNomorTelepon/1', [halamanCustomerController::class, 'editNomorTelepon'])->name('editNomorTelepon');
 Route::put('/editNomorTelepon/1', [halamanCustomerController::class, 'updateNomorTelepon'])->name('updateNomorTelepon');
-=======
->>>>>>> 968a603d183a742cfe6177a59d3a9108616b44e1
