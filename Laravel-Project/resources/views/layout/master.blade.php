@@ -342,7 +342,11 @@
                       <i class="far fa-circle nav-icon"></i>
                       <p>Nomor Telepon</p>
                   </a>
+                </li>
               </li>
+            </ul>
+          </li>
+
           <li class="nav-item" @auth @if(auth()->user()->user_type === 'Super Admin') '' @else style="display:none;" @endif @endauth>
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>
