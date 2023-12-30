@@ -77,38 +77,38 @@ class TambahPaketController extends Controller
     }
 
     //edit
-    public function edit($id) 
+    public function edit($id)
     {
     $router = Plan::findorFail($id);
-    return view ('editPaketPPPoE', compact('plan'));
+    return view ('editPaketPPPoE', compact('plan','routers'));
     }
 
-    // public function update(Request $request, $id)
-    // {
-    //     // Validasi input jika diperlukan
-    //     $request->validate([
-    //         'name' => 'required|string',
-    //         'ip_address' => 'required|string',
-    //         'username' => 'required|unique:routers,username,' . $id,
-    //         'password' => 'required|string',
-    //         'deskripsi' => 'nullable|string',
-    //         'status' => ['required', Rule::in(['Enable', 'Disable'])],
-    //     ]);
+    public function update(Request $request, $id)
+    {
+        // Validasi input jika diperlukan
+        $request->validate([
+            'name' => 'required|string',
+            'ip_address' => 'required|string',
+            'username' => 'required|unique:routers,username,' . $id,
+            'password' => 'required|string',
+            'deskripsi' => 'nullable|string',
+            'status' => ['required', Rule::in(['Enable', 'Disable'])],
+        ]);
 
-    //     $router = Routers::findOrFail($id);
+        $router = Routers::findOrFail($id);
 
-    //     // Update data in the database
-    //     $router->update([
-    //         'name' => $request->input('name'),
-    //         'ip_address' => $request->input('ip_address'),
-    //         'username' => $request->input('username'),
-    //         'password' => $request->filled('password') ? bcrypt($request->input('password')) : $router->password,
-    //         'deskripsi' => $request->input('deskripsi'),
-    //         'status' => $request->input('status'),
-    //     ]);
+        // Update data in the database
+        $router->update([
+            'name' => $request->input('name'),
+            'ip_address' => $request->input('ip_address'),
+            'username' => $request->input('username'),
+            'password' => $request->filled('password') ? bcrypt($request->input('password')) : $router->password,
+            'deskripsi' => $request->input('deskripsi'),
+            'status' => $request->input('status'),
+        ]);
 
-    //     return redirect()->route('router')
-    //         ->with('success', 'Router berhasil diperbarui');
-    // }
+        return redirect()->route('router')
+            ->with('success', 'Router berhasil diperbarui');
+    }
 
 }

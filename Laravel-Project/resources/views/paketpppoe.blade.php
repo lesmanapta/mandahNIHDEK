@@ -35,7 +35,7 @@
                                     <form action="" class="form-inline" method="GET">
 
                                         <input type="text" name="keyword" class="form-control float-right" placeholder="Search" value="{{ old('keyword', $keyword) }}">
-                                        
+
                                         <div class="input-group-append">
                                             <button id="searchPaketPPPoE" type="submit" class="btn btn-default">
                                                 <i class="fas fa-search"></i>
@@ -71,8 +71,8 @@
                                         <td>{{ $plan->masa_aktif.' '.$plan->masa_aktif_unit}}</td>
                                         <td>{{ $plan->nama_router }}</td>
                                         <td>
-                                            <a href="{{ route('editadmin', $plans->id) }}" class="edit-button">Edit</a>
-                                                    <a href="{{ route('deleteadmin', $plans->id) }}" class="hapus-button">Hapus</a>
+                                            <a href="{{ route('editPaketPPPoE', $plan->id) }}" class="edit-button">Edit</a>
+                                            <a href="{{ route('deletePaketPPPoE', $plan->id) }}" class="hapus-button">Hapus</a>
                                             <!-- Add buttons for edit and delete here -->
                                         </td>
                                     </tr>
