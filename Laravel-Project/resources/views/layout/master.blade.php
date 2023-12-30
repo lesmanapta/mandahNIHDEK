@@ -324,6 +324,30 @@
           </li>
           <li class="nav-item" @auth @if(auth()->user()->user_type === 'Super Admin' || auth()->user()->user_type === 'Admin') '' @else style="display:none;" @endif @endauth>
             <a href="#" class="nav-link">
+              <i class="nav-icon far fa-envelope"></i>
+              <p>
+                Notifikasi
+                <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/pengajuanpasang" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pengajuan</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/pesanmasuk" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Pesan</p>
+                    </a>
+                </li>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item" @auth @if(auth()->user()->user_type === 'Super Admin' || auth()->user()->user_type === 'Admin') '' @else style="display:none;" @endif @endauth>
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Update Halaman

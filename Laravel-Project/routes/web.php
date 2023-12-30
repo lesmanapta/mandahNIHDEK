@@ -199,3 +199,10 @@ Route::put('/editAlamat/1', [halamanCustomerController::class, 'updateAlamat'])-
 Route::get('/editNomorTelepon/1', [halamanCustomerController::class, 'editNomorTelepon'])->name('editNomorTelepon');
 Route::put('/editNomorTelepon/1', [halamanCustomerController::class, 'updateNomorTelepon'])->name('updateNomorTelepon');
 Route::get('/laporanharian', [LaporanHarianController::class, 'index'])->name('laporanharian.index');
+
+Route::get('/pesanmasuk', function () {
+    return view('pesanmasuk');
+});
+Route::get('/pengajuanpasang', function () {
+    return view('pengajuanpasang');
+});
