@@ -142,9 +142,9 @@ Route::get('/editbandwidth/{id}', [BandwidthController::class,'edit'])->name('ed
 Route::put('/updatebandwidth/{id}', [BandwidthController::class,'update'])->name('updatebandwidth')->middleware('auth','teknisi');
 Route::get('/deletebandwidth/{id}', [BandwidthController::class,'destroy'])->name('deletebandwidth')->middleware('auth','teknisi');
 
-Route::get('/', function () {
-    return view('customers/index');
-})->name('home');
+// Route::get('/', function () {
+//     return view('customers/index');
+// })->name('home');
 
 
 Route::get('/formpaket', function () {
@@ -183,4 +183,4 @@ Route::post('/tambahpengeluaran', [PengeluaranController::class, 'store'])->name
 
 
 //routes halaman customer
-Route::get('/customers/index', [halamanCustomerController::class, 'index'])->name('customers.index');
+Route::get('/', [halamanCustomerController::class, 'index'])->name('customers.index');

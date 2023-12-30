@@ -21,7 +21,7 @@ class alamatSeeder extends Seeder
             'nomor_telepon' => '+62 812-7691-3046',
             'jalan' => 'Jalan Datuk Kasim',
             'kelurahan' => 'Khairiah Mandah',
-            'kecamatan' => 'Kec. Mandah',
+            'kecamatan' => 'Mandah',
             'kota' => 'Kabupaten Indragiri Hilir',
             'provinsi' => 'Riau',
             'kode_pos' => '29254',

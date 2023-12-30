@@ -350,13 +350,16 @@ http://www.tooplate.com/view/2075-digital-team
 			  </div>
 			  <div class="col-md-6 col-sm-12 contact-info">
 					<h2 class="heading bold">CV. MANDAH86</h2>
-					<p>Jalan Datuk Kasim, Khairiah Mandah </p>
-					<p>Kec. Mandah, Kabupaten Indragiri Hilir </p>
-					<p>Riau 29254</p>
+					@foreach ($alamat as $item)
+					<p>{{ $item -> jalan}}</p>
+					<p>{{ 'Kel. '. $item -> kelurahan .', Kec. '. $item -> kecamatan }}</p>
+					<p>{{ $item -> kota .', Prov. '.  $item -> provinsi }}</p>
+					<p>{{ 'ID '. $item -> kode_pos }}</p>
 					<div class="col-md-6 col-sm-4">
 						 <h3><i class="icon-phone medium-icon wow bounceIn" data-wow-delay="0.6s"></i> Telepon</h3>
-						 <p>+62 812-7691-3046</p>
+						 <p>{{ $item -> nomor_telepon }}</p>
 					</div>
+					@endforeach
 			  </div>
 			  <div class="col-md-6 col-sm-12">
 					<form action="{{ route('contact.store') }}" method="post" class="wow fadeInUp" data-wow-delay="0.6s">
@@ -409,10 +412,9 @@ http://www.tooplate.com/view/2075-digital-team
 	}
 
 	function daftarViaWhatsApp() {
-		 var phoneNumber = '6281276913046';
+		 var phoneNumber = @json($alamat->pluck('nomor_telepon')->all());
 		 var message = 'Halo, saya ingin mendaftar paket internet.';
 		 var whatsappLink = 'https://api.whatsapp.com/send?phone=' + phoneNumber + '&text=' + encodeURIComponent(message);
-		 
 		 window.location.href = whatsappLink;
 		 closeFormPopup();
 	}

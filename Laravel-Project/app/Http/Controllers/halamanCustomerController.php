@@ -24,8 +24,7 @@ class halamanCustomerController extends Controller
 
     public function index(){
         $alamat = Alamat::all();
-
-        return view('Customers/index', compact('Customers/index'));
+        return view('Customers/index', compact('alamat'));
     }
 
 
