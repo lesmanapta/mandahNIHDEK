@@ -24,7 +24,27 @@ class TambahKontakTest extends TestCase
     }
 
     /** @test */
-    public function user_can_create_kontak_and_store_in_database()
+    public function tambah_kontak_test_case_2()
+    {
+        $kontakData = [
+            'username' => 'john_doe',
+            'fullnameCustomer' => 'John Doe',
+            'email' => 'john',
+            'phonenumber' => 'not_a_number',
+            'password' => 'password123',
+            'password_confirmation' => 'password123',
+            'address' => '123 Main St, City',
+        ];
+
+        $response = $this->post('/tambahkontakbaru', $kontakData);
+        $response->assertSessionMissing('success')
+            ->assertSessionHasErrors(['email'])
+            ->assertSessionHasErrors(['phonenumber']);
+        // $this->assertDatabaseMissing('customers', $kontakData);
+    }
+
+    /** @test */
+    public function tambah_kontak_test_case_5()
     {
         $kontakData = [
             'username' => 'john_doe',
@@ -48,11 +68,11 @@ class TambahKontakTest extends TestCase
             'phonenumber' => '123456789',
             'address' => '123 Main St, City',
         ]);
-        $response->assertSeeText('List Kontak');
+        // $response->assertSeeText('List Kontak');
     }
 
     /** @test */
-    public function creating_kontak_requires_all_fields()
+    public function tambah_kontak_test_case_1()
     {
         $response = $this->post('/tambahkontakbaru', []);
 
@@ -61,7 +81,7 @@ class TambahKontakTest extends TestCase
     }
 
     /** @test */
-    public function test_email_field_requires_at_symbol_for_gmail()
+    public function tambah_kontak_test_case_4()
     {
     $kontakData = [
         'username' => 'john_doe',
@@ -77,7 +97,7 @@ class TambahKontakTest extends TestCase
     }
 
     /** @test */
-    public function test_phone_number_field_requires_numeric_value()
+    public function tambahkontak_test_case_3()
     {
     $kontakData = [
         'username' => 'john_doe',

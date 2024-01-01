@@ -16,36 +16,56 @@ class ListKontakTest extends TestCase
      */
 
     /** @test */
-    public function user_can_access_listkontak_feature_and_see_text_list_kontak()
+    public function test_listkontak_test_case_1()
     {
         $response = $this->get('/listKontak');
 
         $response->assertSeeText('List Kontak');
     }
 
-    /** @test */
-    // public function user_can_edit_data_using_edit_button()
+    public function test_listkontak_test_case_2_and_3()
+    {
+
+        // Find the customer with the given username
+        $customer = Customers::where('username', 'test')->first();
+
+        // Visit the edit page for the customer
+        $this->get("/edittambahkontak/{$customer->id}");
+
+        $editedUsername = 'udinedit';
+        $this->put("/updateKontak/{$customer->id}", [
+          'username' => $editedUsername,
+          // Add other fields that you want to update
+         ]);
+
+        $this->get('/listKontak')
+         ->assertSee($editedUsername) // Ensure the edited username is present in the list
+         ->assertDontSee($customer); // Ensure the original username is not present in the list
+
+         //test case 3
+        $this->get("/hapusKontak/{$customer->id}");
+         // Assert: Check that the customer with 'udinedit' is deleted from the database
+        $this->assertDatabaseMissing('customers', ['id' => $customer->id, 'username' => $editedUsername]);
+
+        // Assert: Check that the deleted username 'udinedit' is not present in the '/listKontak' page
+        // $this->get('/listKontak')
+        //     ->assertDontSee('udinedit');
+        $this->get('/listKontak')
+         ->assertDontSee($customer);
+        //  ->assertDontSee($editedUsername);
+    }
+
+    // public function test_edit_customer_username()
     // {
-    //     // Assuming you have a customer with the username "udin"
-    //     $customer = Customers::factory()->create([
-    //         'username' => 'udin',
+    //     // Create a customer in the database
+    //     $customer = Customers::create([
+    //         'username' => 'udintest',
+    //         'password' => bcrypt('123456'), // You may need to adjust this based on your password hashing
+    //         'fullnameCustomer' => 'udintest',
+    //         'address' => '123456',
+    //         'phonenumber' => '01230',
+    //         'email' => 'udintest@gmail.com'
+    //         // Add other necessary fields
     //     ]);
-
-    //     $response = $this->get('/listKontak');
-
-    //     $response->assertSeeText('udin')
-    //         ->assertDontSeeText('udinedit');
-
-    //     // Perform the edit action
-    //     $this->get('/editKontak/' . $customer->id);
-
-    //     // Assuming you have updated the username to "udinedit"
-    //     $customer->update(['username' => 'udinedit']);
-
-    //     // Check if the changes are reflected
-    //     $response = $this->get('/listKontak');
-
-    //     $response->assertDontSeeText('udin')
-    //         ->assertSeeText('udinedit');
-    // }
+    // }}
 }

@@ -11,34 +11,115 @@ class LoginTest extends TestCase
     use WithoutMiddleware, DatabaseTransactions;
 
     /**
-     * Test user can login with valid credentials.
+     * Test user cant login with valid username invalid pass.
      *
      * @return void
      */
-    public function test_user_can_login_with_valid_credentials()
+    public function test_login_test_case_1()
     {
         // Attempt to login with valid credentials
         $response = $this->post('/login', [
-            'username' => 'salma',
-            'password' => '123456',
+            'username' => 'salmasuper',
+            'password' => 'invalidpass',
+        ]);
+        // Assert that the session has the expected user information
+        // $this->assertAuthenticated();
+        $response->assertSessionHasErrors('login', 'Invalid login credentials');
+    }
+    /**
+     * Test user cant login with invalid username valid pass.
+     *
+     * @return void
+     */
+    public function test_login_test_case_2(){
+        $response = $this->post('/login', [
+            'username'=> 'invalid',
+            'password'=> '123456',
+        ]);
+        // $this->assertAuthenticated();
+        $response->assertSessionHasErrors('login', 'Invalid login credentials');
+    }
+    /**
+     * Test user cannot login with invalid credentials.
+     *
+     * @return void
+     */
+    public function test_login_test_case_3()
+    {
+        // Attempt to login with invalid credentials
+        $response = $this->post('/login', [
+            'username' => 'invaliduser',
+            'password' => 'invalidpassword',
         ]);
 
-        // Assert that the user is redirected to the intended page (in this case, '/')
-        // $response->assertRedirect('/');
+        // Assert that the user is not redirected
+        $response->assertStatus(302);
 
-        // Assert that the user is redirected to the intended page (in this case, '/')
-        // $response->assertStatus(200);
+        // Assert that the session has no user information
+        $this->assertGuest();
 
-        // or if you want to specifically check for a redirect, you can use assertOk
-        // $response->assertOk();
-
-
-        // Assert that the session has the expected user information
+        // Assert that there is an error message about invalid credentials
+        $response->assertSessionHasErrors('login', 'Invalid login credentials');
+    }
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function test_login_test_case_4(){
+        $response = $this->post('/login', [
+            'username' => 'salmasuper',
+            'password' => '123456',
+        ]);
         $this->assertAuthenticated();
+        $response->assertSeeText('kontak pelanggan');
+        $response->assertSeeText('layanan');
+        $response->assertSeeText('laporan');
+        $response->assertSeeText('network');
+        $response->assertSeeText('pengaturan');
     }
 
     /**
-     * Test user cannot login with empty username and filled password.
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function test_login_test_case_5(){
+        $response = $this->post('/login', [
+            'username' => 'salmaadmin',
+            'password' => '123456',
+        ]);
+        $this->assertAuthenticated();
+        $response->assertSeeText('kontak pelanggan');
+    }
+
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function test_login_test_case_6(){
+        $response = $this->post('/login', [
+            'username' => 'salmateknisi',
+            'password' => '123456',
+        ]);
+        $this->assertAuthenticated();
+        $response->assertSeeText('kontak pelanggan');
+        $response->assertSeeText('layanan');
+        $response->assertSeeText('network');
+    }
+
+    public function test_login_test_case_7(){
+        $response = $this->post('/login', [
+            'username' => 'salmakeuangan',
+            'password' => '123456',
+        ]);
+        $this->assertAuthenticated();
+        $response->assertSeeText('kontak pelanggan');
+        $response->assertSeeText('laporan');
+    }
+    /**
+     * Test user cannot login with empty username and filled passwordTest user cant login with valid username invalid pass.
      *
      * @return void
      */
@@ -83,26 +164,6 @@ class LoginTest extends TestCase
         $response->assertSessionHasErrors('login', 'Invalid login credentials');
     }
 
-    /**
-     * Test user cannot login with invalid credentials.
-     *
-     * @return void
-     */
-    public function test_user_cannot_login_with_invalid_credentials()
-    {
-        // Attempt to login with invalid credentials
-        $response = $this->post('/login', [
-            'username' => 'invaliduser',
-            'password' => 'invalidpassword',
-        ]);
 
-        // Assert that the user is not redirected
-        $response->assertStatus(302);
 
-        // Assert that the session has no user information
-        $this->assertGuest();
-
-        // Assert that there is an error message about invalid credentials
-        $response->assertSessionHasErrors('login', 'Invalid login credentials');
-    }
 }
