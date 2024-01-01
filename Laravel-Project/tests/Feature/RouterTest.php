@@ -36,7 +36,7 @@ class RouterTest extends TestCase
         $response->assertSeeText('Tambah Router Baru');
     }
     /** @test */
-    public function router_test_case_1()
+    public function TC_NR_01()
     {
         $response = $this->post('/store', [
             // Provide incomplete data here
@@ -51,7 +51,7 @@ class RouterTest extends TestCase
     }
 
     /** @test */
-    public function router_test_case_2()
+    public function TC_NR_02()
     {
         $response = $this->post('/store', [
             'name' => 'Router 1',
@@ -69,9 +69,11 @@ class RouterTest extends TestCase
         // Now, make a request to the /router route to check that 'Router 1' is present in the table
         $response = $this->get('/router');
         $response->assertSee('Router 1');
+        $response->assertSessionDoesntHaveErrors();
     }
+
     /** @test */
-    public function router_test_case_3()
+    public function TC_NR_03()
     {
         $response = $this->post('/store', [
             'name' => 'Router 1full',
@@ -91,7 +93,7 @@ class RouterTest extends TestCase
         $response = $this->get('/router');
         $response->assertSee('Router 1full');
     }
-    public function testUserCanEditRouterData()
+    public function TC_NR_04_and_TC_NR_05()
     {
         // Find the router with the given name
         $router = Routers::where('name', 'RTR-01')->first();
@@ -112,7 +114,7 @@ class RouterTest extends TestCase
             ->assertSee($editedName)
             ->assertDontSee($router);
 
-        //test case hapus
+        //TC_NR_05
         $this->get("/deleterouter/{$router->id}");
         $this->assertDatabaseMissing('routers', ['id' => $router->id]);
         $this->get('/router')
