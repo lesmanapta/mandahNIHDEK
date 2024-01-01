@@ -35,7 +35,9 @@ class LaporanHarianTest extends TestCase
         // $response->assertSee('Laporan Harian');
     }
 
-    public function test_only_show_today_created_or_updated_plans()
+    /** @test */
+    public function tc_lh_01_plus_02_atau_only_show_today_updated_plans()
+    //bingung ngambilnya created atau updated yaa??
     {
         $router = Routers::where('name','RTR-01')->first();
         $pool = Pool::where('pool_name','POOL-1')->first();
@@ -51,14 +53,15 @@ class LaporanHarianTest extends TestCase
             'nama_router' => $router->id,
             'ippol' => $pool->id,
         ]);
-        // $yesterdayPlans = Plan::where(['created_at' => now()->subDay()])->firts;
 
         $anotherday = Plan::where('namapaket','PPPoE-01')->first();
         $response = $this->get('/laporanharian');
         $response->assertSee($todayPlans->namapaket);
+        // tc_lh_02
         $response->assertDontSee($anotherday->namapaket);
     }
 
+    /** @test */
     public function test_total_pendapatan_is_sum_of_all_harga()
     {
         $router = Routers::where('name','RTR-01')->first();
