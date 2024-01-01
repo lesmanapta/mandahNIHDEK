@@ -18,11 +18,11 @@ class IpPoolTest extends TestCase
      * @return void
      */
 
-     public function setUp(): void
-     {
-         parent::setUp();
-         Artisan::call('migrate');
-     }
+    public function setUp(): void
+    {
+        parent::setUp();
+        Artisan::call('migrate');
+    }
 
     /** @test */
     public function test_pool_feature_can_be_accessed(){
@@ -40,15 +40,13 @@ class IpPoolTest extends TestCase
     public function tc_np_01()
     {
         $response = $this->post('/tambahippool', [
-            'pool_name' => 'Test Pool',
         ]);
 
         $response->assertSessionHasErrors();
 
-        $this->assertDatabaseMissing('pool', ['pool_name' => 'Test Pool']);
+        $response->assertStatus(302);
+        $response->assertSessionHasErrors(['pool_name','range_ip', 'routers']);
 
-        // $this->get('/ippool')
-        //     ->assertDontSee('Test Pool');
     }
 
     /** @test */
@@ -62,11 +60,17 @@ class IpPoolTest extends TestCase
             'routers' => $router->id,
         ]);
 
+        $response->assertStatus(302);
         $response->assertRedirect('/ippool');
-        $this->assertDatabaseHas('pool', ['pool_name' => 'Test pool']);
+        $this->assertDatabaseHas('pool', ['pool_name' => 'Test pool',
+        'range_ip' => '192.168.1.1-192.168.1.10',
+        'routers' => $router->id
+    ]);
 
         $this->get('/ippool')
-            ->assertSee('Test Pool');
+            ->assertSee('Test Pool')
+            ->assertSee('192.168.1.1-192.168.1.10')
+            ->assertSee($router->id);
 
         $response->assertSessionDoesntHaveErrors();
     }
@@ -92,9 +96,10 @@ class IpPoolTest extends TestCase
             ->assertDontSee($pool);
 
         //TC_NR_04
-        $this->get("/deleteippool/{$pool->id}");
+        $deleteResponse = $this->get("/deleteippool/{$pool->id}");
         $this->assertDatabaseMissing('pool', ['id' => $pool->id]);
         $this->get('/ippool')
             ->assertDontSee($pool);
+        $deleteResponse->assertRedirect('/ippool');
     }
 }

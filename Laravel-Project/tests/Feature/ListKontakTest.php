@@ -22,7 +22,7 @@ class ListKontakTest extends TestCase
 
         $response->assertSeeText('List Kontak');
     }
-
+    /** @test */
     public function tc_lk_02_and_tc_lk_03()
     {
 
@@ -33,25 +33,27 @@ class ListKontakTest extends TestCase
         $this->get("/edittambahkontak/{$customer->id}");
 
         $editedUsername = 'udinedit';
-        $this->put("/updateKontak/{$customer->id}", [
+        $response = $this->put("/updateKontak/{$customer->id}", [
           'username' => $editedUsername,
           // Add other fields that you want to update
-         ]);
+        ]);
 
-        $this->get('/listKontak')
-         ->assertSee($editedUsername) // Ensure the edited username is present in the list
-         ->assertDontSee($customer); // Ensure the original username is not present in the list
 
-         //test case 3
-        $this->get("/hapusKontak/{$customer->id}");
+        $response = $this->get('/listKontak');
+        $response -> assertSee($editedUsername); // Ensure the edited username is present in the list
+        $response ->assertDontSee($customer); // Ensure the original username is not present in the list
+
+        //test case 3
+        $response=$this->get("/hapusKontak/{$customer->id}");
          // Assert: Check that the customer with 'udinedit' is deleted from the database
         $this->assertDatabaseMissing('customers', ['id' => $customer->id, 'username' => $editedUsername]);
 
-        // Assert: Check that the deleted username 'udinedit' is not present in the '/listKontak' page
-        // $this->get('/listKontak')
-        //     ->assertDontSee('udinedit');
+        $response->assertStatus(302);
+        $response->assertRedirect('/listKontak');
+
         $this->get('/listKontak')
          ->assertDontSee($customer);
         //  ->assertDontSee($editedUsername);
+
     }
 }
