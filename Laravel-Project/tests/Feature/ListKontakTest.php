@@ -16,14 +16,14 @@ class ListKontakTest extends TestCase
      */
 
     /** @test */
-    public function TC_LK_01()
+    public function tc_lk_01()
     {
         $response = $this->get('/listKontak');
 
         $response->assertSeeText('List Kontak');
     }
 
-    public function TC_LK_02_and_TC_LK_03()
+    public function tc_lk_02_and_tc_lk_03()
     {
 
         // Find the customer with the given username

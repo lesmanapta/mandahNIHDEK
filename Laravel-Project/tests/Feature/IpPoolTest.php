@@ -37,7 +37,7 @@ class IpPoolTest extends TestCase
     }
 
     /** @test */
-    public function TC_NP_01()
+    public function tc_np_01()
     {
         $response = $this->post('/tambahippool', [
             'pool_name' => 'Test Pool',
@@ -52,7 +52,7 @@ class IpPoolTest extends TestCase
     }
 
     /** @test */
-    public function TC_NP_02()
+    public function tc_np_02()
     {
         $router = Routers::where('name','RTR-01')->first();
 
@@ -72,7 +72,7 @@ class IpPoolTest extends TestCase
     }
 
     /** @test */
-    public function TC_NP_03_and_TC_NR_04()
+    public function tc_np_03_and_tc_np_04()
     {
         $router = Routers::where('name','RTR-01')->first();
         $pool = Pool::where('pool_name','POOL-1')->first();

@@ -15,7 +15,7 @@ class LoginTest extends TestCase
      *
      * @return void
      */
-    public function TC_LOG_01()
+    public function Ttc_log_01()
     {
         // Attempt to login with valid credentials
         $response = $this->post('/login', [
@@ -31,7 +31,7 @@ class LoginTest extends TestCase
      *
      * @return void
      */
-    public function TC_LOG_02(){
+    public function tc_log_02(){
         $response = $this->post('/login', [
             'username'=> 'invalid',
             'password'=> '123456',
@@ -44,7 +44,7 @@ class LoginTest extends TestCase
      *
      * @return void
      */
-    public function TC_LOG_03()
+    public function tc_log_03()
     {
         // Attempt to login with invalid credentials
         $response = $this->post('/login', [
@@ -66,7 +66,7 @@ class LoginTest extends TestCase
      *
      * @return void
      */
-    public function TC_LOG_04(){
+    public function tc_log_04(){
         $response = $this->post('/login', [
             'username' => 'salmasuper',
             'password' => '123456',
@@ -84,7 +84,7 @@ class LoginTest extends TestCase
      *
      * @return void
      */
-    public function TC_LOG_05(){
+    public function tc_log_05(){
         $response = $this->post('/login', [
             'username' => 'salmaadmin',
             'password' => '123456',
@@ -98,7 +98,7 @@ class LoginTest extends TestCase
      *
      * @return void
      */
-    public function TC_LOG_06(){
+    public function tc_log_06(){
         $response = $this->post('/login', [
             'username' => 'salmateknisi',
             'password' => '123456',
@@ -109,7 +109,7 @@ class LoginTest extends TestCase
         $response->assertSeeText('network');
     }
 
-    public function TC_LOG_07(){
+    public function tc_log_07(){
         $response = $this->post('/login', [
             'username' => 'salmakeuangan',
             'password' => '123456',

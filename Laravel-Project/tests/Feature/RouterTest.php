@@ -36,7 +36,7 @@ class RouterTest extends TestCase
         $response->assertSeeText('Tambah Router Baru');
     }
     /** @test */
-    public function TC_NR_01()
+    public function tc_nr_01()
     {
         $response = $this->post('/store', [
             // Provide incomplete data here
@@ -51,7 +51,7 @@ class RouterTest extends TestCase
     }
 
     /** @test */
-    public function TC_NR_02()
+    public function tc_nr_02()
     {
         $response = $this->post('/store', [
             'name' => 'Router 1',
@@ -73,7 +73,7 @@ class RouterTest extends TestCase
     }
 
     /** @test */
-    public function TC_NR_03()
+    public function tc_nr_03()
     {
         $response = $this->post('/store', [
             'name' => 'Router 1full',
@@ -93,7 +93,7 @@ class RouterTest extends TestCase
         $response = $this->get('/router');
         $response->assertSee('Router 1full');
     }
-    public function TC_NR_04_and_TC_NR_05()
+    public function tc_nr_04_and_tc_nr_05()
     {
         // Find the router with the given name
         $router = Routers::where('name', 'RTR-01')->first();
