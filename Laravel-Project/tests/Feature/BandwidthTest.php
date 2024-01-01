@@ -34,7 +34,7 @@ class BandwidthTest extends TestCase
     }
 
     /** @test */
-    public function test_input_missing_data(){
+    public function tc_lb_01(){
 
         // Visit the Bandwidth Baru page
         $response = $this->get('/bandwidthbaru');
@@ -51,7 +51,7 @@ class BandwidthTest extends TestCase
     }
 
     /** @test */
-    public function user_successfully_adds_bandwidth_with_complete_data()
+    public function tc_lb_02()
     {
         // Visit the Bandwidth Baru page
         $response = $this->get('/bandwidthbaru');
@@ -73,9 +73,6 @@ class BandwidthTest extends TestCase
         $response->assertStatus(302);
         $response->assertRedirect('/daftarbandwidth');
 
-        // Assert that there is a new bandwidth record in the database
-        // $this->assertCount(1, Bandwidth::all());
-
         // Assert that the Bandwidth Daftar page displays the newly added bandwidth
         $response = $this->get('/daftarbandwidth');
         $response->assertSee($bandwidthData['name_bw']);
@@ -89,7 +86,7 @@ class BandwidthTest extends TestCase
     }
 
     /** @test */
-    public function user_can_edit_bandwidth_data()
+    public function tc_lb_03()
     {
         // Create a Bandwidth record with name_bw equal to 'BAND02'
         $bandwidth = Bandwidth::create([
@@ -135,7 +132,7 @@ class BandwidthTest extends TestCase
     }
 
     /** @test */
-    public function user_can_delete_bandwidth_data()
+    public function tc_lb_04()
     {
         // Create a Bandwidth record for testing
         $bandwidth = Bandwidth::create([
