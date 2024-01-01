@@ -16,14 +16,14 @@ class ListKontakTest extends TestCase
      */
 
     /** @test */
-    public function test_listkontak_test_case_1()
+    public function TC_LK_01()
     {
         $response = $this->get('/listKontak');
 
         $response->assertSeeText('List Kontak');
     }
 
-    public function test_listkontak_test_case_2_and_3()
+    public function TC_LK_02_and_TC_LK_03()
     {
 
         // Find the customer with the given username
@@ -54,18 +54,4 @@ class ListKontakTest extends TestCase
          ->assertDontSee($customer);
         //  ->assertDontSee($editedUsername);
     }
-
-    // public function test_edit_customer_username()
-    // {
-    //     // Create a customer in the database
-    //     $customer = Customers::create([
-    //         'username' => 'udintest',
-    //         'password' => bcrypt('123456'), // You may need to adjust this based on your password hashing
-    //         'fullnameCustomer' => 'udintest',
-    //         'address' => '123456',
-    //         'phonenumber' => '01230',
-    //         'email' => 'udintest@gmail.com'
-    //         // Add other necessary fields
-    //     ]);
-    // }}
 }

@@ -24,7 +24,7 @@ class TambahKontakTest extends TestCase
     }
 
     /** @test */
-    public function tambah_kontak_test_case_2()
+    public function TC_TKB_02()
     {
         $kontakData = [
             'username' => 'john_doe',
@@ -44,7 +44,7 @@ class TambahKontakTest extends TestCase
     }
 
     /** @test */
-    public function tambah_kontak_test_case_5()
+    public function TC_TKB_05()
     {
         $kontakData = [
             'username' => 'john_doe',
@@ -72,7 +72,7 @@ class TambahKontakTest extends TestCase
     }
 
     /** @test */
-    public function tambah_kontak_test_case_1()
+    public function TC_TKB_01()
     {
         $response = $this->post('/tambahkontakbaru', []);
 
@@ -81,7 +81,7 @@ class TambahKontakTest extends TestCase
     }
 
     /** @test */
-    public function tambah_kontak_test_case_4()
+    public function TC_TKB_04()
     {
     $kontakData = [
         'username' => 'john_doe',
@@ -97,7 +97,7 @@ class TambahKontakTest extends TestCase
     }
 
     /** @test */
-    public function tambahkontak_test_case_3()
+    public function TC_TKB_03()
     {
     $kontakData = [
         'username' => 'john_doe',
